@@ -2892,7 +2892,6 @@ i[class*="flaticon-"] {
 .coming-head {
   display: block;
   text-align: center;
-  margin-top: 50px;
 }
 .coming-head .input-group .btn {
   border-radius: 40px;
@@ -4106,7 +4105,7 @@ i[class*="flaticon-"] {
   .header-archia .mo-nav.header-nav {
     display: flex;
     flex-direction: column;
-    justify-content: space-between !important;
+    justify-content: start !important;
     min-height: 100%;
   }
   .mo-left .is-fixed .header-nav .logo-header {

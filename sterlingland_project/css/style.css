@@ -12973,7 +12973,6 @@ ol.commentlist li .star-rating {
 	}
 	.navbar-nav{
 		overflow-x: unset;
-		height:100%;
 	}
 	.mo-left .header-nav.show {
 		left: -1px;
@@ -16747,6 +16746,82 @@ pre {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }  
+.stamp {
+    background: #275A53;
+    color: #fff;
+    font-weight: bold;
+    padding: 16px 50px;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.stamp.sawtooth {
+    -webkit-clip-path: polygon(
+    /* --- Left diagonal cut (~40°) --- */
+    0 0, 15% 15%,
+
+    /* --- Top wave --- */
+    20% 0, 25% 5%, 30% 0, 35% 5%, 40% 0, 45% 5%, 50% 0,
+    55% 5%, 60% 0, 65% 5%, 70% 0, 75% 5%, 80% 0, 85% 5%, 90% 0, 95% 5%, 100% 0,
+
+    /* --- Right edge --- */
+    100% 95%,
+
+    /* --- Bottom wave (inverted) --- */
+    95% 100%, 90% 95%, 85% 100%, 80% 95%, 75% 100%,
+    70% 95%, 65% 100%, 60% 95%, 55% 100%, 50% 95%,
+    45% 100%, 40% 95%, 35% 100%, 30% 95%, 25% 100%, 20% 95%,
+    15% 100%, 10% 95%, 5% 100%, 0 85%,
+
+    /* --- Close back --- */
+    0 5%
+    );
+            clip-path: polygon(
+    /* --- Left diagonal cut (~40°) --- */
+    0 0, 15% 15%,
+
+    /* --- Top wave --- */
+    20% 0, 25% 5%, 30% 0, 35% 5%, 40% 0, 45% 5%, 50% 0,
+    55% 5%, 60% 0, 65% 5%, 70% 0, 75% 5%, 80% 0, 85% 5%, 90% 0, 95% 5%, 100% 0,
+
+    /* --- Right edge --- */
+    100% 95%,
+
+    /* --- Bottom wave (inverted) --- */
+    95% 100%, 90% 95%, 85% 100%, 80% 95%, 75% 100%,
+    70% 95%, 65% 100%, 60% 95%, 55% 100%, 50% 95%,
+    45% 100%, 40% 95%, 35% 100%, 30% 95%, 25% 100%, 20% 95%,
+    15% 100%, 10% 95%, 5% 100%, 0 85%,
+
+    /* --- Close back --- */
+    0 5%
+    );
+} 
+
+.stamp.inverted {
+    -webkit-clip-path: polygon(
+        5% 0, 10% 5%, 15% 0, 20% 5%, 25% 0, 30% 5%, 35% 0,
+        40% 5%, 45% 0, 50% 5%, 55% 0, 60% 5%, 65% 0,
+        70% 5%, 75% 0, 80% 5%, 85% 0, 90% 5%, 95% 0,
+        100% 5%, 95% 100%, 90% 95%, 85% 100%, 80% 95%,
+        75% 100%, 70% 95%, 65% 100%, 60% 95%, 55% 100%,
+        50% 95%, 45% 100%, 40% 95%, 35% 100%, 30% 95%,
+        25% 100%, 20% 95%, 15% 100%, 10% 95%, 5% 100%, 0 95%, 0 5%
+    );
+            clip-path: polygon(
+        5% 0, 10% 5%, 15% 0, 20% 5%, 25% 0, 30% 5%, 35% 0,
+        40% 5%, 45% 0, 50% 5%, 55% 0, 60% 5%, 65% 0,
+        70% 5%, 75% 0, 80% 5%, 85% 0, 90% 5%, 95% 0,
+        100% 5%, 95% 100%, 90% 95%, 85% 100%, 80% 95%,
+        75% 100%, 70% 95%, 65% 100%, 60% 95%, 55% 100%,
+        50% 95%, 45% 100%, 40% 95%, 35% 100%, 30% 95%,
+        25% 100%, 20% 95%, 15% 100%, 10% 95%, 5% 100%, 0 95%, 0 5%
+    );
+}
+
 .section-intro {
     margin-top: 30px;
     text-align: center;
@@ -16758,10 +16833,15 @@ pre {
     margin-bottom: 20px;
     font-weight: 700;
 } 
+
 .section-intro p {
-    color: #a8ca1e;
-    margin-bottom: 15px;
     font-size: 25px;
+}
+@media only screen and (max-width: 991px) {
+    .coming-soon .countdown-box .countdown,
+    .coming-soon .countdown-box .countdown .date{
+       text-align: center;
+    } 
 }
 @media only screen and (max-width: 768px) {
     .section-intro h2 {
@@ -16788,11 +16868,14 @@ pre {
         font-size: 35px;
     }
     .section-intro h2 {
-        margin-bottom: 5px;
-        font-size: 20px;
+        margin-bottom: 10px;
+        font-size: 25px;
     }
     .section-intro p {
-        margin-bottom: 0px;
-        font-size: 14px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+    .stamp {
+        padding: 10px 20px;
     }
 }

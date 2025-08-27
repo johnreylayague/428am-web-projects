@@ -744,7 +744,7 @@ var Archia = (function () {
   Set the website launch date and time
   Format: "YYYY-MM-DDTHH:MM:SS" (24-hour format)
   Example: "2025-08-19T13:00:00" = August 19, 2025 at 1:00 PM  */
-  // var WebsiteLaunchDate = new Date("2025-08-20T00:51:00"); // TESTING
+  // var WebsiteLaunchDate = new Date("2025-08-20T01:01:00"); // TESTING
   var WebsiteLaunchDate = new Date("2025-08-20T19:00:00"); // LIVE LAUNCH DATE
 
   // var monthNames = [
