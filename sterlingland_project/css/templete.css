@@ -2836,6 +2836,7 @@ i[class*="flaticon-"] {
 /* Comign Soon ======= */
 .coming-soon {
   height: 100vh;
+  height: 100dvh;
   position: relative;
 }
 .countdown .date div strong {
@@ -2873,8 +2874,8 @@ i[class*="flaticon-"] {
   margin-left: auto;
 }
 .coming-head h2 {
-  line-height: 162px;
-  font-size: 162px;
+  line-height: 100px;
+  font-size: 70px;
   display: inline;
   position: relative;
 }
@@ -2890,7 +2891,6 @@ i[class*="flaticon-"] {
 }
 .coming-head {
   display: block;
-  max-width: 1170px;
   text-align: center;
   margin-top: 50px;
 }
@@ -3943,7 +3943,7 @@ i[class*="flaticon-"] {
   }
   .coming-head {
     margin-right: unset;
-    text-align: left;
+    text-align: center;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -4637,8 +4637,8 @@ i[class*="flaticon-"] {
     line-height: 30px;
   }
   .coming-head h2 {
-    line-height: 140px;
-    font-size: 140px;
+    line-height: 80px;
+    font-size: 50px;
   }
   .blog-post.blog-single .dlab-post-title .post-title {
     font-size: 26px;
@@ -4734,7 +4734,7 @@ i[class*="flaticon-"] {
     font-size: 100px;
   }
   .countdown .date {
-    width: 70px;
+    width: 60px;
   }
   .countdown .date .time {
     font-size: 40px;
@@ -4982,6 +4982,10 @@ i[class*="flaticon-"] {
     height: 40px;
     width: 40px;
   }
+  .coming-head h2 {
+    line-height: 50px;
+    font-size: 40px;
+  }
 }
 .portbox3 .portinner .port-down a:hover i {
   text-decoration: unset;
@@ -5027,6 +5031,11 @@ i[class*="flaticon-"] {
 @media only screen and (max-width: 1191px) {
   .masonry-full-wrapper {
     max-width: 950px;
+  }
+}
+@media only screen and (max-width: 1024px) and (min-width: 991px) {
+  .button-home a.text-truncate {
+    max-width: 350px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -5078,3 +5087,13 @@ i[class*="flaticon-"] {
     left: auto !important;
     right: -105px;
   }
+}
+@media only screen and (max-width: 350px) {
+  .button-home a.text-truncate {
+    max-width: 230px;
+  }
+  .button-home {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

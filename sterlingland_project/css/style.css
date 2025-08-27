@@ -16747,4 +16747,52 @@ pre {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }  
-
+.section-intro {
+    margin-top: 30px;
+    text-align: center;
+}
+.section-intro h2 { 
+    display: block;
+    font-size: 50px;
+    line-height: 60px;     
+    margin-bottom: 20px;
+    font-weight: 700;
+} 
+.section-intro p {
+    color: #a8ca1e;
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+@media only screen and (max-width: 768px) {
+    .section-intro h2 {
+        display: block;
+        font-size: 30px;
+        line-height: 30px;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+    .section-intro p {
+        color: #a8ca1e;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    .section-intro p:last-child {
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .coming-soon .section-intro {
+        margin-top: 15px;
+    }
+    .coming-soon .coming-head h2{
+        font-size: 35px;
+    }
+    .section-intro h2 {
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+    .section-intro p {
+        margin-bottom: 0px;
+        font-size: 14px;
+    }
+}

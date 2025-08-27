@@ -496,17 +496,42 @@ var Archia = (function () {
   };
 
   /* Countdown ============ */
-  var handleCountDown = function (WebsiteLaunchDate) {
+  var handleCountDown = function (WebsiteLaunchDate, WebsitePostLaunchURL) {
     /* Time Countr Down Js */
     if ($(".countdown").length) {
-      $(".countdown").countdown(
-        { date: WebsiteLaunchDate + " 23:5" },
-        function () {
-          $(".countdown").text("we are live");
-        }
-      );
+      $(".countdown").countdown({ date: WebsiteLaunchDate }, function () {
+        window.location.href = WebsitePostLaunchURL;
+      });
     }
     /* Time Countr Down Js End */
+  };
+
+  // /* Countdown ============ */
+  // var handleCountDown = function (WebsiteLaunchDate, WebsitePostLaunchURL) {
+  //   /* Time Countr Down Js */
+  //   if ($(".countdown").length) {
+  //     $(".countdown").countdown(
+  //       { date: WebsiteLaunchDate + " 23:5" },
+  //       function () {
+  //         $(".countdown").text("we are live");
+  //       }
+  //     );
+  //   }
+  //   /* Time Countr Down Js End */
+  // };
+
+  var handleRestrictAccess = function (
+    WebsiteLaunchDate,
+    WebsiteCountdownPageURL
+  ) {
+    var launchTime = new Date(WebsiteLaunchDate).getTime();
+    var now = new Date().getTime();
+
+    if (now < launchTime) {
+      if (window.location.pathname !== WebsiteCountdownPageURL) {
+        window.location.href = WebsiteCountdownPageURL;
+      }
+    }
   };
 
   /* Content Scroll ============ */
@@ -707,29 +732,43 @@ var Archia = (function () {
     }
   };
 
-  /* Website Launch Date */
-  var WebsiteLaunchDate = new Date();
-  var monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  WebsiteLaunchDate.setMonth(WebsiteLaunchDate.getMonth() + 1);
-  WebsiteLaunchDate =
-    WebsiteLaunchDate.getDate() +
-    " " +
-    monthNames[WebsiteLaunchDate.getMonth()] +
-    " " +
-    WebsiteLaunchDate.getFullYear();
+  var WebsiteRootURL = "/";
+
+  /* Countdown page URL */
+  var WebsiteCountdownPageURL = WebsiteRootURL + "coming-soon.html";
+
+  /* URL to redirect after countdown ends */
+  var WebsitePostLaunchURL = WebsiteRootURL;
+
+  /* Website Launch Date
+  Set the website launch date and time
+  Format: "YYYY-MM-DDTHH:MM:SS" (24-hour format)
+  Example: "2025-08-19T13:00:00" = August 19, 2025 at 1:00 PM  */
+  // var WebsiteLaunchDate = new Date("2025-08-20T00:51:00"); // TESTING
+  var WebsiteLaunchDate = new Date("2025-08-20T19:00:00"); // LIVE LAUNCH DATE
+
+  // var monthNames = [
+  //   "January",
+  //   "February",
+  //   "March",
+  //   "April",
+  //   "May",
+  //   "June",
+  //   "July",
+  //   "August",
+  //   "September",
+  //   "October",
+  //   "November",
+  //   "December",
+  // ];
+  // WebsiteLaunchDate.setMinutes(WebsiteLaunchDate.getMinutes() + 1);
+  // WebsiteLaunchDate.setMonth(WebsiteLaunchDate.getMonth() + 1);
+  // WebsiteLaunchDate =
+  //   WebsiteLaunchDate.getDate() +
+  //   " " +
+  //   monthNames[WebsiteLaunchDate.getMonth()] +
+  //   " " +
+  //   WebsiteLaunchDate.getFullYear();
   /* Website Launch Date END */
 
   /* Handle Navbar Toggler ============ */
@@ -762,7 +801,7 @@ var Archia = (function () {
       fileInput();
       handleVideo();
       handleFilterMasonary();
-      handleCountDown(WebsiteLaunchDate);
+      handleCountDown(WebsiteLaunchDate, WebsitePostLaunchURL);
       handleCustomScroll();
       handleSideBarMenu();
       handleBannerResize();
@@ -784,7 +823,7 @@ var Archia = (function () {
       counter();
       handleMenuPosition();
       dzTheme();
-
+      handleRestrictAccess(WebsiteLaunchDate, WebsiteCountdownPageURL);
       setTimeout(function () {
         masonryBox();
       }, 500);
