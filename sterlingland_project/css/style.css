@@ -4667,11 +4667,43 @@ blockquote cite{
 .dlab-info > p:last-child{
 	margin-bottom:0;
 }
+
 @media only screen and (max-width: 1200px) {
 	.dlab-post-meta .d-flex{
 		display:block !important;
 	}
 }
+
+.bg-blog  .pagination{  
+    display: none;
+}
+
+.hide-mobile {
+    display: block;
+} 
+
+@media only screen and (max-width: 991px) {
+    .hide-mobile {
+        display: none;
+    }
+	.bg-blog .pagination{
+        margin-top: 25px; 
+		display:block ;
+	} 
+}
+ 
+@media only screen and (max-width: 768px) {
+   .blog-con-cta {
+        text-align: center;
+   }
+   .blog .section-head{
+        text-align: center;
+   } 
+   .blog-post .dlab-post-text > a {
+        display: block;
+    }
+}
+ 
 
 /*== post date syle css ==*/
 

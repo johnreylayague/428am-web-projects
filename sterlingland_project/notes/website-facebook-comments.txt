@@ -9,24 +9,24 @@ things to discuss on sterling meeting:
 8. discuss about what should be added and remove in the websites
 9. To IT. we also need dedicated email account that would send a quotation to prospect client
 
-
 Dec 8, 2025 
   - open house in minglanilla
-  
 
 Website
 
 Home
-   - tang tangon ang phone no - done
-   - Home ang text kay etransparent ( we want to hear from you)
+
    - change to real picture ( coordinate the the sterling) 
    - phase 2 real picture, car car tisa
    - skyline contruction updates 
    - About sterliingland and what. original image
+   - news and events ( slide ) ( mobile one then ang ubos slide na)
+
+   - Home ang text kay etransparent ( we want to hear from you) - done
+   - tang tangon ang phone no - done
    - Building homes with heart and heritage website siya.   - done
    - industrial -style apartment (remove) - done
    - How can we help us ( remove) - done
-   - news and events ( slide ) ( mobile one then ang ubos slide na)
    - About sterlingland and what we build go to about us. - done
  
 footer
@@ -59,6 +59,6 @@ Navigation
 
 
 Mobile view
-  - change color highlight ( screen resolution sa  mobile e consider) ang mga contact us
+  - change color highlight ( screen resolution sa  mobile e consider ) ang mga contact us
   - 
 
