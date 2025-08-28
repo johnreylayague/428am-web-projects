@@ -14,7 +14,18 @@ Dec 8, 2025
 
 Website
 
+About Us Page
+- about us, milestone change to slider
+
+Contact Us Page
+- Add Working Hours
+
 Home
+- Our Projects Section = change to swiper/carousel, retain the on hover tilt
+- News & Events - Our Latest Updates Section = change to slider/swiper
+- Footer Section = remove logo, and make the padding top and bottom closer
+- Sidebar = change the color of the copyright and social media section
+
 
    - change to real picture ( coordinate the the sterling) 
    - phase 2 real picture, car car tisa

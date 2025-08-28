@@ -14332,9 +14332,10 @@ pre {
     font-weight: 400;
 }
 .archi-footer.site-footer .footer-bottom .copyright-text{
+}
+.archi-footer.site-footer .footer-bottom .social-media-list  {
+    padding-left: 0;
     text-align: center;
-    display: block;
-    margin-top: 30px;
 }
 .archi-footer.site-footer .footer-bottom .social-media-list li {
     display: inline-block;
@@ -14348,11 +14349,12 @@ pre {
         text-align: center;
         margin-bottom: 20px;
     }
-    .archi-footer.site-footer .footer-bottom .footer-link {
-        margin-bottom: 20px;
+    .archi-footer.site-footer .footer-bottom div .footer-link {
+        margin-bottom: 20px ;
     }
     .archi-footer.site-footer .footer-bottom .copyright-text {
         text-align: center;
+        display: block;
     } 
 } 
 
