@@ -25,7 +25,7 @@ Home
 - Our Projects Section = change to swiper/carousel, retain the on hover tilt
 - News & Events - Our Latest Updates Section = change to slider/swiper
 - Footer Section = remove logo, and make the padding top and bottom closer  - done
-- Sidebar = change the color of the copyright and social media section
+- Sidebar = change the color of the copyright and social media section - done
 
 
    - change to real picture ( coordinate the the sterling) 
