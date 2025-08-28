@@ -21,9 +21,10 @@ Contact Us Page
 - Add Working Hours
 
 Home
+- Banner change the image/video  - done
 - Our Projects Section = change to swiper/carousel, retain the on hover tilt
 - News & Events - Our Latest Updates Section = change to slider/swiper
-- Footer Section = remove logo, and make the padding top and bottom closer
+- Footer Section = remove logo, and make the padding top and bottom closer  - done
 - Sidebar = change the color of the copyright and social media section
 
 

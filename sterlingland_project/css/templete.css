@@ -518,13 +518,13 @@ i[class*="flaticon-"] {
 }
 .social-menu .copyright-head {
   margin-bottom: 0;
-  color: #cccccc;
+  color: #808080;
 }
 .social-menu ul li {
   display: inline-block;
 }
 .social-menu ul li a {
-  color: #bbc7cd;
+  color: var(--bg-color);
   font-size: 18px;
   padding-right: 15px;
 }
