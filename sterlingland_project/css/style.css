@@ -648,6 +648,7 @@ dl dd {
 }
 /*== >Padding (right) ==*/
 
+
 .p-r0 {
     padding-right: 0;
 }
@@ -16912,4 +16913,10 @@ pre {
     .stamp {
         padding: 10px 20px;
     }
+}
+.container-fluid.p-r0 {
+    padding-right: 0;
+}
+.section-full.content-inner-1.p-t0 {
+    padding-top: 0;
 }

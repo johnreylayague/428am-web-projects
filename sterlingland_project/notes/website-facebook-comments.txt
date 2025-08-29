@@ -18,7 +18,7 @@ About Us Page
 - about us, milestone change to slider
 
 Contact Us Page
-- Add Working Hours
+- Add Working Hours  - done
 
 Home
 - Banner change the image/video  - done

@@ -524,7 +524,7 @@ jQuery(document).ready(function () {
       },
     });
   }
-  if (jQuery(".bg-blog").length > 0) {
+  if (jQuery(".fbg-blog").length > 0) {
     var swiper = new Swiper(".bg-blog", {
       speed: 1500,
       spaceBetween: 30,
@@ -927,4 +927,77 @@ jQuery(document).ready(function () {
       },
     },
   });
+
+  if (jQuery(".project-swiper").length > 0) {
+    var swiper = new Swiper(".project-swiper", {
+      speed: 1500,
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 1000,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return (
+            '<span class="' + className + '">' + "0" + (index + 1) + "</span>"
+          );
+        },
+      },
+      breakpoints: {
+        1200: {
+          slidesPerView: 3,
+        },
+        991: {
+          slidesPerView: 3,
+        },
+        591: {
+          slidesPerView: 2,
+        },
+        320: {
+          slidesPerView: 1,
+        },
+      },
+    });
+  }
+
+  if (jQuery(".history-swiper").length > 0) {
+    var swiper = new Swiper(".history-swiper", {
+      slidesPerView: 1.1,
+      spaceBetween: 30,
+      freeMode: {
+        enabled: true,
+        momentum: true,
+        momentumRatio: 1, // how far it continues
+        momentumVelocityRatio: 1, // speed of glide
+      },
+      grabCursor: true, // hand cursor for UX
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return (
+            '<span class="' + className + '">' + "0" + (index + 1) + "</span>"
+          );
+        },
+      },
+      breakpoints: {
+        1200: {
+          slidesPerView: 1.1,
+        },
+        991: {
+          slidesPerView: 1.1,
+        },
+        591: {
+          slidesPerView: 1.1,
+        },
+        320: {
+          slidesPerView: 1.1,
+        },
+      },
+    });
+  }
 });
