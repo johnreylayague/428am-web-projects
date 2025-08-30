@@ -15,18 +15,26 @@ Dec 8, 2025
 Website
 
 About Us Page
-- about us, milestone change to slider
+- about us, milestone change to slider  - done
 
 Contact Us Page
 - Add Working Hours  - done
 
 Home
 - Banner change the image/video  - done
-- Our Projects Section = change to swiper/carousel, retain the on hover tilt
+- On Going Projects Section = change to swiper/carousel, retain the on hover tilt - done
 - News & Events - Our Latest Updates Section = change to slider/swiper
 - Footer Section = remove logo, and make the padding top and bottom closer  - done
 - Sidebar = change the color of the copyright and social media section - done
-
+# News & Events - Our Latest Updates
+- make the slider smooth transition
+# Banner 
+- make the header be shown always, is fixed and add audio
+# On-Going Projects
+- make the slider smooth transition
+change to slider/swiper
+# 12 Projects Across Cebu
+- make the slider smooth transition
 
    - change to real picture ( coordinate the the sterling) 
    - phase 2 real picture, car car tisa
