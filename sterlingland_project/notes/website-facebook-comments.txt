@@ -28,6 +28,7 @@ Home
 - Sidebar = change the color of the copyright and social media section - done
 # News & Events - Our Latest Updates
 - make the slider smooth transition
+- add dots
 # Banner 
 - make the header be shown always, is fixed and add audio
 # On-Going Projects
@@ -35,6 +36,7 @@ Home
 change to slider/swiper
 # 12 Projects Across Cebu
 - make the slider smooth transition
+
 
    - change to real picture ( coordinate the the sterling) 
    - phase 2 real picture, car car tisa
