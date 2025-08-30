@@ -524,7 +524,7 @@ jQuery(document).ready(function () {
       },
     });
   }
-  if (jQuery(".fbg-blog").length > 0) {
+  if (jQuery(".bg-blog").length > 0) {
     var swiper = new Swiper(".bg-blog", {
       speed: 1500,
       spaceBetween: 30,
