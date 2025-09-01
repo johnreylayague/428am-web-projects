@@ -84,3 +84,7 @@ Mobile view
   - change color highlight ( screen resolution sa  mobile e consider ) ang mga contact us
   - 
 
+09-01-25
+Our Projects and Homes
+- add new mingla phase 1 and phase 2 pictures
+- sidebar - add Our Projects child Construction Updates
