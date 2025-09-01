@@ -9,7 +9,7 @@ things to discuss on sterling meeting:
 8. discuss about what should be added and remove in the websites
 9. To IT. we also need dedicated email account that would send a quotation to prospect client
 
-Dec 8, 2025 
+Dec 8, 2025  
   - open house in minglanilla
 
 Website
@@ -78,7 +78,6 @@ Navigation
 
 -SEO 
   -
-
 
 Mobile view
   - change color highlight ( screen resolution sa  mobile e consider ) ang mga contact us
