@@ -644,6 +644,31 @@ var Archia = (function () {
     }
   };
 
+  var handleVideoSoundToggle = function () {
+    jQuery("#video-sound-toggle").on("click", function () {
+      var bgVideo = dzQuery("#welcome_wrapper")
+        .find(".rs-background-video-layer video")
+        .get(0);
+
+      if (bgVideo) {
+        if (bgVideo.muted) {
+          bgVideo.muted = false;
+          bgVideo.volume = 1;
+          jQuery(this)
+            .find("i")
+            .removeClass("fa-volume-mute")
+            .addClass("fa-volume-up");
+        } else {
+          bgVideo.muted = true;
+          jQuery(this)
+            .find("i")
+            .removeClass("fa-volume-up")
+            .addClass("fa-volume-mute");
+        }
+      }
+    });
+  };
+
   var boxHover = function () {
     jQuery(".box-hover").on("mouseenter", function () {
       jQuery(".box-hover").removeClass("active");
@@ -808,7 +833,9 @@ var Archia = (function () {
       handleScreenLock();
       handleResize();
       heartBlast();
+      handleVideoSoundToggle();
       onePageLayout();
+
       handleCurrentActive();
       btnAware();
       jQuery(".modal").on("show.bs.modal", reposition);
