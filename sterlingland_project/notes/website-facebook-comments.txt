@@ -107,3 +107,6 @@ change to slider/swiper
 # 12 Projects Across Cebu
 - make the slider smooth transition
 
+
+
+
