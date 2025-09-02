@@ -6,6 +6,7 @@ var Archia = (function () {
   "use strict";
 
   var screenWidth = $(window).width();
+  let hideTimeout;
 
   /* Search Bar ============ */
   var homeSearch = function () {
@@ -645,6 +646,20 @@ var Archia = (function () {
   };
 
   var handleVideoSoundToggle = function () {
+    // Function to show button
+    function showSoundButton() {
+      jQuery(".sound-toggle-wrapper").addClass("active");
+
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        jQuery(".sound-toggle-wrapper").removeClass("active");
+      }, 3000); // 3 seconds of idle
+    }
+
+    // Show button on scroll or user interaction
+    jQuery(window).on("scroll", showSoundButton);
+    jQuery(document).on("mousemove keydown click touchstart", showSoundButton);
+
     jQuery("#video-sound-toggle").on("click", function () {
       try {
         var bgVideo = dzQuery("#welcome_wrapper")
