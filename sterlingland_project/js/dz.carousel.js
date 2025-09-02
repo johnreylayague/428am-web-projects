@@ -958,35 +958,10 @@ jQuery(document).ready(function () {
     var swiper = new Swiper(".history-swiper", {
       slidesPerView: 1.1,
       spaceBetween: 30,
-      freeMode: {
-        enabled: true,
-        momentum: true,
-        momentumRatio: 1, // how far it continues
-        momentumVelocityRatio: 1, // speed of glide
-      },
       grabCursor: true, // hand cursor for UX
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
-        renderBullet: function (index, className) {
-          return (
-            '<span class="' + className + '">' + "0" + (index + 1) + "</span>"
-          );
-        },
-      },
-      breakpoints: {
-        1200: {
-          slidesPerView: 1.1,
-        },
-        991: {
-          slidesPerView: 1.1,
-        },
-        591: {
-          slidesPerView: 1.1,
-        },
-        320: {
-          slidesPerView: 1.1,
-        },
       },
     });
   }

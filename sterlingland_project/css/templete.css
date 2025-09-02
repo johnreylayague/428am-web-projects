@@ -2755,7 +2755,7 @@ i[class*="flaticon-"] {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 .history-box .history-media {
   flex: 0 0 70%;
