@@ -646,25 +646,47 @@ var Archia = (function () {
 
   var handleVideoSoundToggle = function () {
     jQuery("#video-sound-toggle").on("click", function () {
-      var bgVideo = dzQuery("#welcome_wrapper")
-        .find(".rs-background-video-layer video")
-        .get(0);
+      try {
+        var bgVideo = dzQuery("#welcome_wrapper")
+          .find(".rs-background-video-layer video")
+          .get(0);
 
-      if (bgVideo) {
+        if (!bgVideo) {
+          console.warn("Background video not found.");
+          return; // stop if no video element
+        }
+
+        // Try toggling mute/unmute
         if (bgVideo.muted) {
           bgVideo.muted = false;
           bgVideo.volume = 1;
+
+          // Update icon
           jQuery(this)
             .find("i")
             .removeClass("fa-volume-mute")
             .addClass("fa-volume-up");
         } else {
           bgVideo.muted = true;
+
+          // Update icon
           jQuery(this)
             .find("i")
             .removeClass("fa-volume-up")
             .addClass("fa-volume-mute");
         }
+
+        // Ensure playback (in case autoplay was paused)
+        const playPromise = bgVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn("Autoplay/playback blocked by browser:", err);
+            // Optional: Show a message to user
+            // alert("Please click to start video playback.");
+          });
+        }
+      } catch (err) {
+        console.error("Error toggling video sound:", err);
       }
     });
   };
