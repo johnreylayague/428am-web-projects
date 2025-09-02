@@ -16920,3 +16920,8 @@ pre {
 .section-full.content-inner-1.p-t0 {
     padding-top: 0;
 }
+@media only screen and (max-width: 991px) {
+    .btn-center{
+        text-align:center;
+    }
+}
