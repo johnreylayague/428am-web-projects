@@ -930,22 +930,12 @@ jQuery(document).ready(function () {
 
   if (jQuery(".project-swiper").length > 0) {
     var swiper = new Swiper(".project-swiper", {
-      speed: 1500,
       slidesPerView: 3,
       spaceBetween: 30,
-      loop: true,
       grabCursor: true,
-      autoplay: {
-        delay: 1000,
-      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
-        renderBullet: function (index, className) {
-          return (
-            '<span class="' + className + '">' + "0" + (index + 1) + "</span>"
-          );
-        },
       },
       breakpoints: {
         1200: {
@@ -996,6 +986,39 @@ jQuery(document).ready(function () {
         },
         320: {
           slidesPerView: 1.1,
+        },
+      },
+    });
+  }
+  if (jQuery(".news-and-events-swiper").length > 0) {
+    var swiper = new Swiper(".news-and-events-swiper", {
+      spaceBetween: 30,
+      grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        type: "bullets",
+      },
+      breakpoints: {
+        1200: {
+          slidesPerView: 2,
+        },
+        991: {
+          slidesPerView: 2,
+        },
+        591: {
+          slidesPerView: 1,
+        },
+        320: {
+          slidesPerView: 1,
+        },
+      },
+      on: {
+        resize: function () {
+          if (this.pagination && this.pagination.render) {
+            this.pagination.render();
+            this.pagination.update();
+          }
         },
       },
     });
