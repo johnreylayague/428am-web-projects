@@ -52,7 +52,7 @@ change to slider/swiper
    - About sterlingland and what we build go to about us. - done
  
 footer
-  - working hours
+  - working hours - done
    
 Our Project
    - Design team action photo in 
@@ -88,3 +88,22 @@ Our Projects and Homes
 - add new mingla phase 1 and phase 2 pictures
 - Change the video sa website looks funeral homes site
 - sidebar - add Our Projects child Construction Updates
+
+09-02-25
+High
+- News & Events - Our Latest Updates Section = change to slider/swiper
+- Change the video sa website looks funeral homes site
+- sidebar - add Our Projects child Construction Updates
+Low
+- change color highlight ( screen resolution sa  mobile e consider ) ang mga contact us
+# News & Events - Our Latest Updates
+- make the slider smooth transition
+- add dots
+# Banner 
+- make the header be shown always, is fixed and add audio
+# On-Going Projects
+- make the slider smooth transition
+change to slider/swiper
+# 12 Projects Across Cebu
+- make the slider smooth transition
+
