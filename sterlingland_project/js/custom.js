@@ -422,6 +422,7 @@ var Archia = (function () {
           },
         });
       });
+
     }
     /* masonry by  = bootstrap-select.min.js end */
   };
@@ -625,6 +626,12 @@ var Archia = (function () {
             .val("$" + min + " - $" + max);
         },
       });
+    }
+  };
+
+  var handleDefaultFilterOnLoad = function () {
+    if (jQuery(".filters").length) {
+      jQuery(".filters li[data-filter='']").trigger("click");
     }
   };
 
@@ -891,6 +898,9 @@ var Archia = (function () {
       setTimeout(function () {
         masonryBox();
       }, 500);
+      setTimeout(function () {
+        handleDefaultFilterOnLoad();
+      }, 1000);
     },
 
     resize: function () {
