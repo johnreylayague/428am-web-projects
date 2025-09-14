@@ -422,7 +422,6 @@ var Archia = (function () {
           },
         });
       });
-
     }
     /* masonry by  = bootstrap-select.min.js end */
   };
@@ -460,6 +459,7 @@ var Archia = (function () {
         });
       jQuery("#image-gallery-mix").mixItUp();
     }
+
     if (jQuery(".gallery-filter.masonary").length) {
       jQuery(".gallery-filter.masonary").on("click", "span", function () {
         var selector = $(this).parent().attr("data-filter");
@@ -632,6 +632,38 @@ var Archia = (function () {
   var handleDefaultFilterOnLoad = function () {
     if (jQuery(".filters").length) {
       jQuery(".filters li[data-filter='']").trigger("click");
+
+      jQuery(".filters li").on("click", function () {
+        var filter = jQuery(this).data("filter");
+
+        jQuery("#masonry > li.construction-updates").each(function () {
+          var $li = jQuery(this);
+          var constructionTitle = $li.find(".port-title a");
+          var constructionDown = $li.find(".port-down a");
+
+          if (filter === "construction-updates") {
+            constructionTitle.attr(
+              "href",
+              constructionTitle.attr("construction-updates-href")
+            );
+            constructionDown.attr(
+              "href",
+              constructionDown.attr("construction-updates-href")
+            );
+          } else if (filter === "ongoing") {
+            constructionTitle.attr(
+              "href",
+              constructionTitle.attr("ongoing-href")
+            );
+            constructionDown.attr(
+              "href",
+              constructionDown.attr("ongoing-href")
+            );
+          }
+        });
+      });
+
+      // Hide construction-updates items by default
     }
   };
 
