@@ -638,10 +638,15 @@ var Archia = (function () {
 
         jQuery("#masonry > li.construction-updates").each(function () {
           var $li = jQuery(this);
+          var constructionImage = $li.find("img");
           var constructionTitle = $li.find(".port-title a");
           var constructionDown = $li.find(".port-down a");
 
           if (filter === "construction-updates") {
+            constructionImage.attr(
+              "src",
+              constructionImage.attr("construction-updates-src")
+            );
             constructionTitle.attr(
               "href",
               constructionTitle.attr("construction-updates-href")
@@ -651,6 +656,10 @@ var Archia = (function () {
               constructionDown.attr("construction-updates-href")
             );
           } else if (filter === "ongoing") {
+            constructionImage.attr(
+              "src",
+              constructionImage.attr("ongoing-src")
+            );
             constructionTitle.attr(
               "href",
               constructionTitle.attr("ongoing-href")
