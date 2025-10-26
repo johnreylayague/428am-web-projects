@@ -2,7 +2,7 @@
 npm i -D eslint prettier vite-tsconfig-paths @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-prettier eslint-plugin-prettier
 
 # UI and styling
-npm i -D tailwindcss @tailwindcss/vite @tailwindcss/postcss postcss autoprefixer
+npm i -D tailwindcss @tailwindcss/vite 
 # shadcn
 npm install -D @types/node
 npx shadcn@latest init
@@ -14,3 +14,4 @@ npm i -D @tanstack/eslint-plugin-query
 # State management
 npm i @reduxjs/toolkit react-redux
 
+ 
