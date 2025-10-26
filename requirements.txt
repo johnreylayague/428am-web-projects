@@ -1,0 +1,20 @@
+# Developer tools
+npm i -D eslint prettier vite-tsconfig-paths @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-prettier eslint-plugin-prettier
+
+# UI and styling
+npm i -D tailwindcss @tailwindcss/vite 
+# shadcn
+npm install -D @types/node
+npx shadcn@latest init
+# Fontawesome
+# https://fontawesome.com/search?ic=free&o=r
+npm install --save @fortawesome/react-fontawesome@latest @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
+
+
+# Routing and API
+npm i react-router axios @tanstack/react-query @tanstack/react-query-devtools
+npm i -D @tanstack/eslint-plugin-query
+ 
+# State management
+npm i @reduxjs/toolkit react-redux
+

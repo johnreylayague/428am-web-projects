@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/services",
+    "name": "Services"
+  },
+  {
+    "path": "/about-us",
+    "name": "About Us"
+  },
+  {
+    "path": "/contact-us",
+    "name": "Contact Us"
+  },
+  {
+    "path": "/instagram",
+    "name": "Instagram"
+  }
+]
