@@ -9,6 +9,7 @@ import { ACCREDITED_BUSINESS_LOGO } from '@/assets';
 // Clsx
 import clsx from 'clsx';
 import { SOCIAL_LINKS } from '@/config/constants';
+import ROUTES from '@/config/routes';
 import Copyright from '@/components/layout/Footer/components/copyright';
 
 interface FooterProps {}
@@ -22,7 +23,7 @@ const Footer: React.FC<FooterProps> = () => {
             {/* --- Left Column: Get In Touch Section --- */}
             <div className={clsx('col-span-12', 'lg:col-span-4')}>
               <GetInTouch
-                buttonLink=""
+                buttonLink={ROUTES.CONTACT_US.path}
                 buttonText="Get In Touch"
                 paragraph="Find us on Instagram and Facebook. Get in touch, we guarantee your satisfaction 
                 without question, we cannot wait to work with you!"
@@ -47,8 +48,11 @@ const Footer: React.FC<FooterProps> = () => {
             <div className={clsx('col-span-12', 'lg:col-span-4')}>
               <ContactInformation
                 title="Get In Touch"
-                phoneNumber="6043372045"
-                email="info@lpmaintenance.ca"
+                phoneNumber={{ text: '6043372045', link: 'tel:6043372045' }}
+                email={{
+                  text: 'info@lpmaintenance.ca',
+                  link: 'mailto:info@lpmaintenance.ca',
+                }}
                 address="Burnaby, BC . Canada"
               />
             </div>

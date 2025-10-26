@@ -2,17 +2,16 @@ import React from 'react';
 // Components
 import IconCircle from '@/components/layout/Footer/components/icon-circle';
 import FontAwesome from '@/components/ui/app/fontawesome';
-// Shadcn
-import { Button } from '@/components/ui/shadcn/button';
 // Clsx
 import clsx from 'clsx';
+import { Link } from 'react-router';
 
 interface GetInTouchProps {
-  paragraph?: string;
-  buttonText?: string;
-  buttonLink?: string;
-  facebookLink?: string;
-  instagramLink?: string;
+  paragraph: string;
+  buttonText: string;
+  buttonLink: string;
+  facebookLink: string;
+  instagramLink: string;
 }
 
 const GetInTouch: React.FC<GetInTouchProps> = ({
@@ -40,19 +39,16 @@ const GetInTouch: React.FC<GetInTouchProps> = ({
       <p className={clsx('mb-5 text-center')}>{paragraph}</p>
 
       {/* CTA button */}
-      <Button
-        type="button"
-        id="btn-get-in-touch"
-        name="get-in-touch"
+      <Link
+        to={buttonLink}
         className={clsx(
-          'min-h-13 mb-8 min-w-48 rounded-xs font-medium transition-all duration-400 ease-in-out cursor-pointer',
-          'bg-theme-orange hover:bg-theme-blue'
+          'py-5 px-9 mb-8 space-x-3 leading-none rounded-sm font-medium transition-all duration-400 ease-in-out cursor-pointer',
+          'bg-theme-orange text-white hover:bg-theme-blue'
         )}
-        onClick={() => window.open(buttonLink, '_blank')}
       >
         <span>{buttonText}</span>
         <FontAwesome icon="fa-solid fa-right-long" size="sm" />
-      </Button>
+      </Link>
 
       {/* Social icons */}
       <ul className={clsx('flex items-center gap-3')}>

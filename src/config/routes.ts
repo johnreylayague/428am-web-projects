@@ -1,11 +1,4 @@
-interface RouteItem {
-  path: string;
-  // path: string | ((...args: any[]) => string);
-  name: string;
-  requiresAuth?: boolean;
-}
-
-const ROUTES: Record<string, RouteItem> = {
+const ROUTES = {
   HOME: { path: '/', name: 'Home' },
   //   PROFILE: {
   //     path: (id: string) => `/profile/${id}`,

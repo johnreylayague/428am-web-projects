@@ -6,8 +6,12 @@ interface MarkProps {
   className?: string;
 }
 
-const Mark: React.FC<MarkProps> = ({ children, className = '' }) => {
-  return <mark className={clsx('bg-transparent', className)}>{children}</mark>;
+const Mark: React.FC<MarkProps> = ({ children, className = '', ...props }) => {
+  return (
+    <mark {...props} className={clsx('bg-transparent', className)}>
+      {children}
+    </mark>
+  );
 };
 
 export default Mark;
