@@ -7,7 +7,9 @@ import clsx from 'clsx';
 import {
   iconDictionary,
   type IconKeys,
-} from '@/components/ui/app/fontawesome.types';
+} from '@/components/common/fontawesome.types';
+
+// https://fontawesome.com/search?ic=free
 
 interface FontAwesomeProps extends Omit<FontAwesomeIconProps, 'icon'> {
   icon: IconKeys;

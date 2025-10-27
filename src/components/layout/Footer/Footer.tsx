@@ -3,7 +3,7 @@ import React from 'react';
 import Container from '@/components/layout/Container';
 import Wrapper from '@/components/layout/Wrapper';
 import ContactInformation from '@/components/layout/Footer/components/contact-information';
-import GetInTouch from '@/components/layout/Footer/components/get-in-touch';
+import GetInTouchCard from '@/components/layout/Footer/components/get-in-touch-card';
 // Assets
 import { ACCREDITED_BUSINESS_LOGO } from '@/assets';
 // Clsx
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = () => {
           <div className={clsx('grid grid-cols-12 relative gap-y-10 lg:gap-0')}>
             {/* --- Left Column: Get In Touch Section --- */}
             <div className={clsx('col-span-12', 'lg:col-span-4')}>
-              <GetInTouch
+              <GetInTouchCard
                 buttonLink={ROUTES.CONTACT_US.path}
                 buttonText="Get In Touch"
                 paragraph="Find us on Instagram and Facebook. Get in touch, we guarantee your satisfaction 

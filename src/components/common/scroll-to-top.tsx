@@ -1,4 +1,4 @@
-import FontAwesome from '@/components/ui/app/fontawesome';
+import FontAwesome from '@/components/common/fontawesome';
 import { Button } from '@/components/ui/shadcn/button';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';

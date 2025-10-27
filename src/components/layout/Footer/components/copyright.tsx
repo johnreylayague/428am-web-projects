@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import FontAwesome from '@/components/ui/app/fontawesome';
+import FontAwesome from '@/components/common/fontawesome';
 import Mark from '@/components/common/mark';
 // Utils
 import { getCurrentYear as GetCurrentYear } from '@/utils/dateFormatter';

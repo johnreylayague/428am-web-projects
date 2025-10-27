@@ -1,12 +1,11 @@
 import React from 'react';
 // Components
 import IconCircle from '@/components/layout/Footer/components/icon-circle';
-import FontAwesome from '@/components/ui/app/fontawesome';
 // Clsx
 import clsx from 'clsx';
-import { Link } from 'react-router';
+import CTAButtonLink from '@/components/common/cta-button-link';
 
-interface GetInTouchProps {
+interface GetInTouchCardProps {
   paragraph: string;
   buttonText: string;
   buttonLink: string;
@@ -14,7 +13,7 @@ interface GetInTouchProps {
   instagramLink: string;
 }
 
-const GetInTouch: React.FC<GetInTouchProps> = ({
+const GetInTouchCard: React.FC<GetInTouchCardProps> = ({
   paragraph,
   buttonText,
   buttonLink,
@@ -39,16 +38,13 @@ const GetInTouch: React.FC<GetInTouchProps> = ({
       <p className={clsx('mb-5 text-center')}>{paragraph}</p>
 
       {/* CTA button */}
-      <Link
-        to={buttonLink}
-        className={clsx(
-          'py-5 px-9 mb-8 space-x-3 leading-none rounded-sm font-medium transition-all duration-400 ease-in-out cursor-pointer',
-          'bg-theme-orange text-white hover:bg-theme-blue'
-        )}
-      >
-        <span>{buttonText}</span>
-        <FontAwesome icon="fa-solid fa-right-long" size="sm" />
-      </Link>
+      <CTAButtonLink
+        buttonLink={buttonLink}
+        buttonText={buttonText}
+        icon="fa-solid fa-right-long"
+        iconSize="sm"
+        className={clsx('rounded-xs cursor-pointer ')}
+      />
 
       {/* Social icons */}
       <ul className={clsx('flex items-center gap-3')}>
@@ -63,4 +59,4 @@ const GetInTouch: React.FC<GetInTouchProps> = ({
   );
 };
 
-export default GetInTouch;
+export default GetInTouchCard;

@@ -1,6 +1,6 @@
 import Footer from '@/components/layout/Footer/Footer';
 import Header from '@/components/layout/Header/Header';
-import ScrollToTop from '@/components/ui/app/scroll-to-top';
+import ScrollToTop from '@/components/common/scroll-to-top';
 import React from 'react';
 import { Outlet } from 'react-router';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import FontAwesome from '@/components/ui/app/fontawesome';
-import type { IconKeys } from '@/components/ui/app/fontawesome.types';
+import FontAwesome from '@/components/common/fontawesome';
+import type { IconKeys } from '@/components/common/fontawesome.types';
 
 interface IconCircleProps {
   icon: IconKeys;
