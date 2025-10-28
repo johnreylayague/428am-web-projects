@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import IconCircle from '@/components/layout/Footer/components/icon-circle';
+import IconCircle from '@/components/common/icon-circle';
 import InfoItem from '@/components/layout/Footer/components/info-item';
 // Clsx
 import clsx from 'clsx';
@@ -45,7 +45,11 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
         {/* Phone */}
         {phoneNumber && (
           <li>
-            <IconCircle icon="fa-solid fa-phone-flip" />
+            <IconCircle
+              iconProps={{
+                icon: 'fa-solid fa-phone-flip',
+              }}
+            />
             <InfoItem
               title="Phone Number"
               content={
@@ -66,7 +70,12 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
         {/* Email */}
         {email && (
           <li>
-            <IconCircle icon="fa-regular fa-envelope" />
+            <IconCircle
+              iconProps={{
+                icon: 'fa-regular fa-envelope',
+              }}
+            />
+
             <InfoItem
               title="Email Address"
               content={
@@ -87,7 +96,11 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
         {/* Address */}
         {address && (
           <li>
-            <IconCircle icon="fa-solid fa-location-dot" />
+            <IconCircle
+              iconProps={{
+                icon: 'fa-solid fa-location-dot',
+              }}
+            />
             <InfoItem
               title="Location"
               content={

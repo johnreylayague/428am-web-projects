@@ -4,6 +4,7 @@ import React from 'react';
 interface ContainerProps {
   children?: React.ReactNode;
   className?: string;
+  noWrap?: boolean;
   maxWidth?: string;
   ref?: React.RefObject<HTMLDivElement | null>;
 }
@@ -13,13 +14,18 @@ const Container: React.FC<ContainerProps> = ({
   className,
   maxWidth,
   ref,
+  noWrap = false,
   ...props
 }) => {
   return (
     <div
       {...props}
       ref={ref}
-      className={clsx('w-full mx-auto relative container', className)}
+      className={clsx(
+        'w-full mx-auto relative',
+        noWrap ? '' : 'container',
+        className
+      )}
     >
       {children}
     </div>

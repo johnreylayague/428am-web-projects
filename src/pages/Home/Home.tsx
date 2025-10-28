@@ -1,16 +1,21 @@
-import Container from '@/components/layout/Container';
-import Wrapper from '@/components/layout/Wrapper';
-import clsx from 'clsx';
 import React from 'react';
+import Services from '@/pages/Home/components/services';
+import Banner from '@/pages/Home/components/banner';
+import CTABanner from '@/pages/Home/components/cta-banner';
+import clsx from 'clsx';
+import Testimonials from '@/pages/Home/components/testimonials';
+import VideoReels from '@/pages/Home/components/video-reels';
 
 interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = () => {
   return (
     <React.Fragment>
-      <Wrapper className={clsx('py-20')}>
-        <Container>asd</Container>
-      </Wrapper>
+      <Banner />
+      <Services />
+      <CTABanner />
+      <Testimonials />
+      <VideoReels />
     </React.Fragment>
   );
 };

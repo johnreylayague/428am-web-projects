@@ -2,6 +2,7 @@ import {
   type IconDefinition,
   faEnvelope,
   faCopyright,
+  faStar,
 } from '@fortawesome/free-regular-svg-icons';
 import {
   faFacebook,
@@ -14,12 +15,19 @@ import {
   faLocationDot,
   faPhoneVolume,
   faChevronUp,
+  faChevronLeft,
+  faChevronRight,
   faRightLong,
   faPhoneFlip,
+  faStar as solidFaStar,
+  faQuoteRight,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Regular icons
-type RegularIconKeys = 'fa-regular fa-envelope' | 'fa-regular fa-copyright';
+type RegularIconKeys =
+  | 'fa-regular fa-envelope'
+  | 'fa-regular fa-copyright'
+  | 'fa-regular fa-star';
 
 // Brand icons
 type BrandIconKeys =
@@ -35,6 +43,11 @@ type SolidIconKeys =
   | 'fa-solid fa-chevron-up'
   | 'fa-solid fa-right-long'
   | 'fa-solid fa-phone-flip'
+  | 'fa-solid fa-chevron-left'
+  | 'fa-solid fa-question'
+  | 'fa-solid fa-qoute-right'
+  | 'fa-solid fa-chevron-right'
+  | 'fa-solid fa-star'
   | 'fa-solid fa-magnifying-glass';
 
 type IconMap = Record<IconKeys, IconDefinition>;
@@ -49,12 +62,18 @@ export const iconDictionary: IconMap = {
   'fa-brands fa-square-instagram': faInstagramSquare,
   // Solid icons
   'fa-solid fa-phone-volume': faPhoneVolume,
+  'fa-solid fa-star': solidFaStar,
+  'fa-solid fa-chevron-left': faChevronLeft,
+  'fa-solid fa-chevron-right': faChevronRight,
   'fa-solid fa-magnifying-glass': faSearch,
+  'fa-solid fa-question': faSearch,
   'fa-solid fa-location-dot': faLocationDot,
   'fa-solid fa-chevron-up': faChevronUp,
   'fa-solid fa-right-long': faRightLong,
+  'fa-solid fa-qoute-right': faQuoteRight,
   'fa-solid fa-phone-flip': faPhoneFlip,
   // Regular icons
   'fa-regular fa-envelope': faEnvelope,
+  'fa-regular fa-star': faStar,
   'fa-regular fa-copyright': faCopyright,
 };

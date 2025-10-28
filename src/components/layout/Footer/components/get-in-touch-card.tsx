@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import IconCircle from '@/components/layout/Footer/components/icon-circle';
+import IconCircle from '@/components/common/icon-circle';
 // Clsx
 import clsx from 'clsx';
 import CTAButtonLink from '@/components/common/cta-button-link';
@@ -41,18 +41,30 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = ({
       <CTAButtonLink
         buttonLink={buttonLink}
         buttonText={buttonText}
-        icon="fa-solid fa-right-long"
-        iconSize="sm"
+        iconProps={{
+          icon: 'fa-solid fa-right-long',
+          size: 'sm',
+        }}
         className={clsx('rounded-xs cursor-pointer ')}
       />
 
       {/* Social icons */}
       <ul className={clsx('flex items-center gap-3')}>
         <li>
-          <IconCircle icon="fa-brands fa-facebook" href={facebookLink} />
+          <IconCircle
+            iconProps={{
+              icon: 'fa-brands fa-facebook',
+            }}
+            href={facebookLink}
+          />
         </li>
         <li>
-          <IconCircle icon="fa-brands fa-instagram" href={instagramLink} />
+          <IconCircle
+            iconProps={{
+              icon: 'fa-brands fa-instagram',
+            }}
+            href={facebookLink}
+          />
         </li>
       </ul>
     </div>
