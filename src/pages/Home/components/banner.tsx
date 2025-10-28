@@ -1,5 +1,5 @@
-import Container from '@/components/layout/Container';
-import Wrapper from '@/components/layout/Wrapper';
+import Container from '@/components/layout/container';
+import Wrapper from '@/components/layout/wrapper';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import {
@@ -51,7 +51,7 @@ const Banner: React.FC<BannerProps> = () => {
 
   return (
     <Wrapper disablePaddingX>
-      <Container noWrap className={clsx('max-w-[1500px]')}>
+      <Container noWrap className={clsx('max-w-[1900px]')}>
         <Carousel
           opts={{
             loop: true,

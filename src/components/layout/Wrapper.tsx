@@ -1,10 +1,12 @@
 import React from 'react';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
+
+export type Position = 'fixed' | 'static' | 'absolute' | 'relative' | 'sticky';
 
 export interface WrapperProps {
   children?: React.ReactNode;
   className?: string;
-  position?: 'fixed' | 'static' | 'absolute' | 'relative' | 'sticky';
+  position?: Position;
   disablePaddingX?: boolean;
   innerRef?: React.RefObject<HTMLElement | null>;
 }
@@ -17,7 +19,7 @@ const Wrapper: React.FC<WrapperProps> = ({
   innerRef,
   ...props
 }) => {
-  const wrapperClassName = clsx(
+  const wrapperClassName = cn(
     position,
     !disablePaddingX && 'px-4',
     className ? className : ''

@@ -1,7 +1,7 @@
 import React from 'react';
 // Components
-import Container from '@/components/layout/Container';
-import Wrapper from '@/components/layout/Wrapper';
+import Container from '@/components/layout/container';
+import Wrapper from '@/components/layout/wrapper';
 import ContactInformation from '@/components/layout/Footer/components/contact-information';
 import GetInTouchCard from '@/components/layout/Footer/components/get-in-touch-card';
 // Assets

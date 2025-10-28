@@ -1,6 +1,6 @@
 import SectionHeader from '@/components/common/section-header';
-import Wrapper from '@/components/layout/Wrapper';
-import Container from '@/components/layout/Container';
+import Wrapper from '@/components/layout/wrapper';
+import Container from '@/components/layout/container';
 import React from 'react';
 import clsx from 'clsx';
 

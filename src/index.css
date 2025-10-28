@@ -12,6 +12,7 @@
   --color-theme-blue: #0020ff;
   --color-theme-light-gray: #cacaca;
   --color-fog-steel: #848da0;
+  --color-fog-blue: #5c7295;
 
   /* --color-theme-brand-primary: #db0000;
   --color-theme-brand-secondary: #fff100;
@@ -157,11 +158,15 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@utility transition-ease {
+  @apply transition-all duration-400 ease-in-out;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground selection:bg-theme-navy/50;
   }
 }

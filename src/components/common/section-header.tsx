@@ -22,7 +22,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
       {label && (
         <span
           className={clsx(
-            'absolute -top-9 left-1/2 -translate-x-1/2 capitalize text-9xl font-black',
+            'absolute -top-9 left-1/2 -translate-x-1/2 capitalize text-9xl font-black select-none',
             'text-white'
           )}
         >

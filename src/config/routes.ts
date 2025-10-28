@@ -7,7 +7,8 @@ const ROUTES = {
   //   },
   ABOUT_US: { path: '/about-us', name: 'Dashboard' },
   CONTACT_US: { path: '/contact-us', name: 'Contact Us' },
-  SERVICES: { path: '/servivces', name: 'Services' },
+  SERVICES: { path: '/services', name: 'Services' },
+  INSTAGRAM: { path: '/instagram', name: 'Instagram' },
 };
 
 export default ROUTES;
