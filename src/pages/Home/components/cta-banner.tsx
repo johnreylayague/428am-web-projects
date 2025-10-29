@@ -1,4 +1,4 @@
-import IconCircle from '@/components/common/icon-circle';
+import IconCircle from '@/components/ui/app/icon-circle';
 import Mark from '@/components/common/mark';
 import Container from '@/components/layout/container';
 import Wrapper from '@/components/layout/wrapper';

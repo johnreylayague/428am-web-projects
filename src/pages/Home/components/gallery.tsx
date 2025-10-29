@@ -14,9 +14,9 @@ import FontAwesome from '@/components/common/fontawesome';
 
 const images: string[] = [NH_2, NH_3];
 
-interface BannerProps {}
+interface GalleryProps {}
 
-const Banner: React.FC<BannerProps> = () => {
+const Gallery: React.FC<GalleryProps> = () => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
@@ -104,4 +104,4 @@ const Banner: React.FC<BannerProps> = () => {
   );
 };
 
-export default Banner;
+export default Gallery;

@@ -1,4 +1,4 @@
-import SectionHeader from '@/components/common/section-header';
+import SectionHeader from '@/components/ui/app/section-header';
 import Container from '@/components/layout/container';
 import Wrapper from '@/components/layout/wrapper';
 import { SOCIAL_LINKS } from '@/config/constants';

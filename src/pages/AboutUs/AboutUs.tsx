@@ -1,4 +1,4 @@
-import SectionHeader from '@/components/common/section-header';
+import SectionHeader from '@/components/ui/app/section-header';
 import Container from '@/components/layout/container';
 import Wrapper from '@/components/layout/wrapper';
 import clsx from 'clsx';
@@ -8,12 +8,14 @@ import Text from '@/components/common/text';
 import TitleBar from '@/pages/AboutUs/components/title-bar';
 import Experience from '@/pages/AboutUs/components/experience';
 import ImageWrapper from '@/pages/AboutUs/components/image-wrapper';
+import Banner from '@/components/ui/app/banner';
 
 interface AboutUsPageProps {}
 
 const AboutUsPage: React.FC<AboutUsPageProps> = () => {
   return (
     <React.Fragment>
+      <Banner title="About Us" />
       <Wrapper className={clsx('pt-25 pb-40')}>
         <Container>
           <div className={clsx('grid grid-cols-12 gap-5 relative')}>

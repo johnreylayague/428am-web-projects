@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import IconCircle from '@/components/common/icon-circle';
+import IconCircle from '@/components/ui/app/icon-circle';
 // Clsx
 import clsx from 'clsx';
 import CTAButtonLink from '@/components/common/cta-button-link';

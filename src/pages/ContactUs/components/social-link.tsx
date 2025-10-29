@@ -1,4 +1,4 @@
-import IconCircle from '@/components/common/icon-circle';
+import IconCircle from '@/components/ui/app/icon-circle';
 import clsx from 'clsx';
 import React from 'react';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 // Components
-import IconCircle from '@/components/common/icon-circle';
+import IconCircle from '@/components/ui/app/icon-circle';
 import InfoItem from '@/components/layout/Footer/components/info-item';
 // Clsx
 import clsx from 'clsx';
