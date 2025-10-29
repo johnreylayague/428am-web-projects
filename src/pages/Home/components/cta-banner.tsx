@@ -4,7 +4,7 @@ import Container from '@/components/layout/container';
 import Wrapper from '@/components/layout/wrapper';
 import clsx from 'clsx';
 import React from 'react';
-import NH_1 from '@/assets/images/banner/non-home-1.jpg';
+import DISK from '@/assets/images/background/disk.jpg';
 
 interface CTABannerProps {}
 
@@ -12,7 +12,7 @@ const CTABanner: React.FC<CTABannerProps> = () => {
   return (
     <Wrapper>
       <Container>
-        <div className={clsx('relative rounded-xs overflow-hidden')}>
+        <div className={clsx('relative rounded-sm overflow-hidden')}>
           <figure
             className={clsx(
               'absolute inset-0 size-full',
@@ -20,35 +20,35 @@ const CTABanner: React.FC<CTABannerProps> = () => {
             )}
           >
             <img
-              src={NH_1}
+              src={DISK}
               alt="dummmy image"
               className={clsx('object-center object-cover size-full ')}
             />
           </figure>
 
           <div
-            className={clsx('relative flex items-center justify-between p-7')}
+            className={clsx('relative flex items-center justify-between p-8')}
           >
-            <h3 className={clsx('text-3xl font-semibold', 'text-white')}>
+            <h3 className={clsx('text-4xl font-semibold', 'text-white')}>
               Get a professional qoute now!
             </h3>
 
-            <div className={clsx('flex items-center gap-3 max-w-96 w-full')}>
+            <div className={clsx('flex items-center gap-4 max-w-96 w-full')}>
               <IconCircle
                 iconProps={{
                   icon: 'fa-solid fa-phone-volume',
-                  size: 'lg',
+                  size: '2x',
                   className: 'text-theme-orange',
                 }}
-                className={clsx('size-14', 'bg-white ')}
+                className={clsx('size-16', 'bg-white ')}
               />
               <div>
                 <Mark
-                  className={clsx('block text-xl font-semibold', 'text-white')}
+                  className={clsx('block text-2xl font-semibold', 'text-white')}
                 >
                   6043372045
                 </Mark>
-                <span className={clsx('block text-sm', 'text-white')}>
+                <span className={clsx('block text-base', 'text-white')}>
                   Call Us Now
                 </span>
               </div>

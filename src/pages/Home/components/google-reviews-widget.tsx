@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { useEffect } from 'react';
 
 interface GoogleReviewsWidgetProps {
@@ -20,8 +21,7 @@ const GoogleReviewsWidget: React.FC<GoogleReviewsWidgetProps> = ({
   }, []);
 
   return (
-    <div className={`mt-10 ${className ?? ''}`}>
-      <h2 className="text-3xl font-bold text-center mb-6">Customer Reviews</h2>
+    <div className={clsx('mt-10', className)}>
       <div
         className={`elfsight-app-${appId} mx-auto`}
         data-elfsight-app-lazy
