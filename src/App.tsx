@@ -7,7 +7,7 @@ function App() {
   return (
     <React.Fragment>
       <AppProviders>
-        <Routes />
+        <Routes /> 
       </AppProviders>
     </React.Fragment>
   );
