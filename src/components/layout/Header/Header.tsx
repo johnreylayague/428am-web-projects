@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = () => {
     <header>
       <Wrapper innerRef={divRef} className={clsx('bg-theme-navy')}>
         <Container>
-          <div className={clsx('py-2.5 flex items-center justify-between')}>
+          <div className={clsx('py-3 flex items-center justify-between')}>
             <ContactInformation
               address="Vancouver, BC"
               phoneNumber={{ text: '6043372045', link: 'tel:6043372045' }}

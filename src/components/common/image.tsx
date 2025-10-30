@@ -15,14 +15,11 @@ const Image: React.FC<ImageProps> = ({
   imageClassName,
 }) => {
   return (
-    <figure className={cn('w-full max-w-full', className)}>
+    <figure className={cn('size-full', className)}>
       <img
         src={src}
         alt={alt}
-        className={cn(
-          'max-w-full w-full object-center object-contain',
-          imageClassName
-        )}
+        className={cn('size-full object-center object-cover', imageClassName)}
       />
     </figure>
   );

@@ -4,19 +4,24 @@ import clsx from 'clsx';
 import React, { useEffect } from 'react';
 
 interface GoogleReviewsWidgetProps {
-  appId?: string;
+  appId: string;
+  scriptSrc: string;
 }
 
-const GoogleReviewsWidget: React.FC<GoogleReviewsWidgetProps> = ({ appId }) => {
+const GoogleReviewsWidget: React.FC<GoogleReviewsWidgetProps> = ({
+  appId,
+  scriptSrc,
+}) => {
   useEffect(() => {
+    if (!scriptSrc) return;
     if (!document.getElementById('elfsight-script')) {
       const script = document.createElement('script');
-      script.src = 'https://elfsightcdn.com/platform.js';
+      script.src = scriptSrc;
       script.async = true;
       script.id = 'elfsight-script';
       document.body.appendChild(script);
     }
-  }, []);
+  }, [scriptSrc]);
 
   return (
     <Wrapper className={clsx('mt-10')}>

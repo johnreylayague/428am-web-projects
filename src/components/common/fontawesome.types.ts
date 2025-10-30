@@ -21,6 +21,7 @@ import {
   faPhoneFlip,
   faStar as solidFaStar,
   faQuoteRight,
+  faQuestion,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Regular icons
@@ -66,7 +67,7 @@ export const iconDictionary: IconMap = {
   'fa-solid fa-chevron-left': faChevronLeft,
   'fa-solid fa-chevron-right': faChevronRight,
   'fa-solid fa-magnifying-glass': faSearch,
-  'fa-solid fa-question': faSearch,
+  'fa-solid fa-question': faQuestion,
   'fa-solid fa-location-dot': faLocationDot,
   'fa-solid fa-chevron-up': faChevronUp,
   'fa-solid fa-right-long': faRightLong,
@@ -76,4 +77,15 @@ export const iconDictionary: IconMap = {
   'fa-regular fa-envelope': faEnvelope,
   'fa-regular fa-star': faStar,
   'fa-regular fa-copyright': faCopyright,
+};
+
+// Fallback icon key to use when an unknown key is provided
+export const FALLBACK_ICON: IconKeys = 'fa-solid fa-question';
+
+// Runtime type guard to validate icon keys
+export const isValidIconKey: (key: string) => boolean = (
+  key: string
+): boolean => {
+  const isValid = key in iconDictionary;
+  return isValid;
 };

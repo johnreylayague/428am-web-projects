@@ -8,9 +8,11 @@ import {
   CarouselItem,
   type CarouselApi,
 } from '@/components/ui/shadcn/carousel';
-import NH_2 from '@/assets/images/banner/non-home-2.jpg';
-import NH_3 from '@/assets/images/banner/non-home-3.jpg';
+import NH_1 from '@/assets/images/banner/non-home-1.png';
+import NH_2 from '@/assets/images/banner/non-home-2.png';
+import NH_3 from '@/assets/images/banner/non-home-3.png';
 import FontAwesome from '@/components/common/fontawesome';
+import Autoplay from 'embla-carousel-autoplay';
 
 const images: string[] = [NH_2, NH_3];
 
@@ -56,6 +58,11 @@ const Gallery: React.FC<GalleryProps> = () => {
       opts={{
         loop: true,
       }}
+      plugins={[
+        Autoplay({
+          delay: 5000,
+        }),
+      ]}
       className="w-full"
       setApi={setApi}
     >

@@ -4,11 +4,25 @@ import Container from '@/components/layout/container';
 import Wrapper from '@/components/layout/wrapper';
 import clsx from 'clsx';
 import React from 'react';
-import DISK from '@/assets/images/background/disk.jpg';
+import type { IconKeys } from '@/components/common/fontawesome.types';
 
-interface CTABannerProps {}
+interface CTABannerProps {
+  backgroundImage: string;
+  backgroundImageAlt: string;
+  headline: string;
+  callToActionLabel: string;
+  phoneNumber: string;
+  iconClass: IconKeys;
+}
 
-const CTABanner: React.FC<CTABannerProps> = () => {
+const CTABanner: React.FC<CTABannerProps> = ({
+  backgroundImage,
+  backgroundImageAlt,
+  headline,
+  callToActionLabel,
+  phoneNumber,
+  iconClass,
+}) => {
   return (
     <Wrapper>
       <Container>
@@ -20,8 +34,8 @@ const CTABanner: React.FC<CTABannerProps> = () => {
             )}
           >
             <img
-              src={DISK}
-              alt="dummmy image"
+              src={backgroundImage}
+              alt={backgroundImageAlt}
               className={clsx('object-center object-cover size-full ')}
             />
           </figure>
@@ -30,13 +44,13 @@ const CTABanner: React.FC<CTABannerProps> = () => {
             className={clsx('relative flex items-center justify-between p-8')}
           >
             <h3 className={clsx('text-4xl font-semibold', 'text-white')}>
-              Get a professional qoute now!
+              {headline}
             </h3>
 
             <div className={clsx('flex items-center gap-4 max-w-96 w-full')}>
               <IconCircle
                 iconProps={{
-                  icon: 'fa-solid fa-phone-volume',
+                  icon: iconClass,
                   size: '2x',
                   className: 'text-theme-orange',
                 }}
@@ -46,10 +60,10 @@ const CTABanner: React.FC<CTABannerProps> = () => {
                 <Mark
                   className={clsx('block text-2xl font-semibold', 'text-white')}
                 >
-                  6043372045
+                  {phoneNumber}
                 </Mark>
                 <span className={clsx('block text-base', 'text-white')}>
-                  Call Us Now
+                  {callToActionLabel}
                 </span>
               </div>
             </div>

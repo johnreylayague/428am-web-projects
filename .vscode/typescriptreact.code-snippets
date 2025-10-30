@@ -1,0 +1,28 @@
+{
+  "React Arrow Function Component (Filename-based)": {
+    "prefix": "racfe",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface ${1:ComponentName}Props {",
+      "  ",
+      "}",
+      "",
+      "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = () => {",
+      "  return (",
+      "    <React.Fragment>",
+      "      <h1>${1:ComponentName}</h1>",
+      "    </React.Fragment>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};",
+    ],
+    "description": "React Arrow Function Component with prop type and default export. Names match (use filename in PascalCase as convention)",
+  },
+  "Clsx className property": {
+    "prefix": "clsx",
+    "body": ["className={clsx(\"$1\")}"],
+    "description": "Add className with clsx function",
+  },
+}
