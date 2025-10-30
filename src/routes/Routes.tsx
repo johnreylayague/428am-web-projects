@@ -8,8 +8,17 @@ import {
   AboutUsPage,
   ContactUsPage,
   NotFoundPage,
-  ServicesPage,
+  ServicesLayoutPage,
   InstagramPage,
+  DrainagePage,
+  ServicesPage,
+  HardscapingPage,
+  CarpentryPage,
+  PressureWashingPage,
+  WindowCleaningPage,
+  GutterCleaningPage,
+  MossRemovalPage,
+  PaintingPage,
 } from '@/routes/components/lazy-pages';
 import ErrorBoundary from '@/pages/Error/ErrorBoundary';
 import RootLayout from '@/pages/RootLayout/RootLayout';
@@ -34,9 +43,47 @@ const Routes: React.FC<RoutesProps> = () => {
                 path={ROUTES.CONTACT_US.path}
                 element={<ContactUsPage />}
               />
-              <Route path={ROUTES.SERVICES.path} element={<ServicesPage />} />
-              <Route path={ROUTES.INSTAGRAM.path} element={<InstagramPage />} />
 
+              <Route
+                path={ROUTES.SERVICES.path}
+                element={<ServicesLayoutPage />}
+              >
+                <Route index element={<ServicesPage />} />
+                <Route
+                  path={ROUTES.SERVICES_DRAINAGE.path}
+                  element={<DrainagePage />}
+                />
+                <Route
+                  path={ROUTES.SERVICES_HARDSCAPING.path}
+                  element={<HardscapingPage />}
+                />
+                <Route
+                  path={ROUTES.SERVICES_CARPENTRY.path}
+                  element={<CarpentryPage />}
+                />
+                <Route
+                  path={ROUTES.SERVICES_PRESSURE_WASHING.path}
+                  element={<PressureWashingPage />}
+                />
+                <Route
+                  path={ROUTES.SERVICES_WINDOW_CLEANING.path}
+                  element={<WindowCleaningPage />}
+                />
+                <Route
+                  path={ROUTES.SERVICES_GUTTER_CLEANING.path}
+                  element={<GutterCleaningPage />}
+                />
+                <Route
+                  path={ROUTES.SERVICES_MOSS_REMOVAL.path}
+                  element={<MossRemovalPage />}
+                />
+                <Route
+                  path={ROUTES.SERVICES_PAINTING.path}
+                  element={<PaintingPage />}
+                />
+              </Route>
+
+              <Route path={ROUTES.INSTAGRAM.path} element={<InstagramPage />} />
               {/* Private */}
 
               {/* Not Found Page */}

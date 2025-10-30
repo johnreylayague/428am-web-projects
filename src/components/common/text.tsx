@@ -8,7 +8,7 @@ interface TextProps {
 
 const Text: React.FC<TextProps> = ({ children, className }) => {
   return (
-    <p className={cn('mt-8 text-sm leading-6', 'text-fog-steel', className)}>
+    <p className={cn('mt-8 text-base leading-7', 'text-fog-steel', className)}>
       {children}
     </p>
   );

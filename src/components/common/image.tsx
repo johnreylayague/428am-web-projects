@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 
 interface ImageProps {
   src: string;
@@ -15,11 +15,11 @@ const Image: React.FC<ImageProps> = ({
   imageClassName,
 }) => {
   return (
-    <figure className={clsx('w-full', className)}>
+    <figure className={cn('w-full max-w-full', className)}>
       <img
         src={src}
         alt={alt}
-        className={clsx(
+        className={cn(
           'max-w-full w-full object-center object-contain',
           imageClassName
         )}
