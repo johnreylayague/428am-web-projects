@@ -1,6 +1,6 @@
 import Wrapper from '@/components/layout/wrapper';
 import Banner from '@/components/ui/app/banner';
-import Gallery from '@/pages/Home/components/gallery';
+import Gallery from '@/components/ui/app/gallery';
 import clsx from 'clsx';
 import React from 'react';
 import insuredLicensedImg from '@/assets/images/logos/insured-licensed.jpg';
