@@ -10,35 +10,35 @@ const ROUTES = {
   SERVICES: { path: '/services', name: 'Services' },
   SERVICES_DRAINAGE: {
     path: '/services/drainage',
-    name: 'Services - Drainage',
+    name: 'Drainage',
   },
   SERVICES_HARDSCAPING: {
     path: '/services/hardscaping',
-    name: 'Services - Hardscaping',
+    name: 'Hardscaping',
   },
   SERVICES_CARPENTRY: {
     path: '/services/carpentry',
-    name: 'Services - Carpentry',
+    name: 'Carpentry',
   },
   SERVICES_PRESSURE_WASHING: {
     path: '/services/pressure-washing',
-    name: 'Services - Pressure Washing',
+    name: 'Pressure Washing',
   },
   SERVICES_WINDOW_CLEANING: {
     path: '/services/windowcleaning',
-    name: 'Services - Window Cleaning',
+    name: 'Window Cleaning',
   },
   SERVICES_GUTTER_CLEANING: {
     path: '/services/guttercleaning',
-    name: 'Services - Gutter Cleaning',
+    name: 'Gutter Cleaning',
   },
   SERVICES_MOSS_REMOVAL: {
     path: '/services/mossremoval',
-    name: 'Services - Moss Removal',
+    name: 'Moss Removal',
   },
   SERVICES_PAINTING: {
     path: '/services/painting',
-    name: 'Services - Painting',
+    name: 'Painting',
   },
   INSTAGRAM: { path: '/instagram', name: 'Instagram' },
 };

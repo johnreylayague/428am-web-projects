@@ -37,8 +37,8 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
       <ul
         className={clsx(
           'space-y-5',
-          '*:flex *:items-center *:gap-4 *:justify-center *:flex-col *:[&_div]:last:text-center *:[&_div_h6]:text-sm',
-          'lg:*:[&_div]:last:text-left lg:*:justify-start lg:*:flex-row lg:*:gap-8',
+          '*:flex *:items-center *:gap-4 *:justify-center *:flex-col *:[&_div]:last:text-center *:[&_div_h6]:text-base *:[&_div_a]:text-sm *:[&_div_address]:text-sm',
+          'lg:*:[&_div]:last:text-left lg:*:justify-start lg:*:flex-row lg:*:gap-8 lg:*:[&_div_h6]:text-sm lg:*:[&_div_a]:text-lg lg:*:[&_div_address]:text-lg',
           '*:[&_div_h6]:text-theme-light-gray'
         )}
       >
@@ -56,7 +56,7 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
                 <a
                   href={phoneNumber.link}
                   className={clsx(
-                    'text-xl font-semibold transition-all duration-400 ease-in-out',
+                    'font-semibold transition-all duration-400 ease-in-out',
                     'hover:text-theme-blue text-white'
                   )}
                 >
@@ -66,7 +66,6 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
             />
           </li>
         )}
-
         {/* Email */}
         {email && (
           <li>
@@ -82,7 +81,7 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
                 <a
                   href={email.link}
                   className={clsx(
-                    'text-xl font-semibold transition-all duration-400 ease-in-out',
+                    'font-semibold transition-all duration-400 ease-in-out',
                     'hover:text-theme-blue text-white'
                   )}
                 >
@@ -92,7 +91,6 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
             />
           </li>
         )}
-
         {/* Address */}
         {address && (
           <li>
@@ -102,13 +100,10 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
               }}
             />
             <InfoItem
-              title="Location"
+              title="Office Address"
               content={
                 <address
-                  className={clsx(
-                    'text-xl font-semibold not-italic',
-                    'text-white'
-                  )}
+                  className={clsx('font-semibold not-italic', 'text-white')}
                 >
                   {address}
                 </address>

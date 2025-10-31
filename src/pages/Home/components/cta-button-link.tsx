@@ -29,18 +29,13 @@ const CTAButtonLink: React.FC<CTAButtonLinkProps> = ({
     <Link
       to={buttonLink}
       className={cn(
-        'inline-flex items-center justify-center py-5 px-9 space-x-3 leading-none font-medium transition-ease cursor-pointer absolute left-1/2 -translate-x-1/2 -bottom-7 shadow-none rounded-xs p-5',
-        'bg-gray-100 text-white group-hover/service:bg-theme-orange',
+        'group-hover:max-w-45 group-hover:w-full inline-flex items-center justify-center py-5 px-9 space-x-3 leading-none font-medium transition-ease cursor-pointer absolute left-1/2 -translate-x-1/2 -bottom-7 shadow-none rounded-sm p-5',
+        'bg-gray-100 text-white group-hover:bg-theme-orange',
         className ? className : ''
       )}
     >
       {buttonText && (
-        <span
-          className={clsx(
-            'transition-ease',
-            'group-hover/service:block hidden'
-          )}
-        >
+        <span className={clsx('transition-ease', 'group-hover:block hidden')}>
           {buttonText}
         </span>
       )}
@@ -49,7 +44,7 @@ const CTAButtonLink: React.FC<CTAButtonLinkProps> = ({
           {...iconProps}
           className={clsx(
             'transition-ease',
-            'group-hover/service:text-white text-theme-orange'
+            'group-hover:text-white text-theme-orange'
           )}
           size={'xs'}
           icon={icon}

@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import clsx from 'clsx';
 import React from 'react';
 
 interface SectionHeaderProps {
@@ -7,6 +6,9 @@ interface SectionHeaderProps {
   subtitle?: string;
   label?: string;
   className?: string;
+  labelClassName?: string;
+  titleClassName?: string;
+  subtitleClassName?: string;
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -14,6 +16,9 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   subtitle,
   label,
   className,
+  labelClassName,
+  titleClassName,
+  subtitleClassName,
 }) => {
   return (
     <div
@@ -21,29 +26,35 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
     >
       {label && (
         <span
-          className={clsx(
+          className={cn(
             'absolute -top-9 left-1/2 -translate-x-1/2 capitalize text-9xl font-black select-none',
-            'text-white'
+            'text-white',
+            labelClassName
           )}
         >
           {label}
         </span>
       )}
 
-      <h2
-        className={clsx('relative text-lg mb-2 capitalize', 'text-fog-steel')}
+      <h4
+        className={cn(
+          'relative text-lg mb-2 capitalize',
+          'text-fog-steel',
+          titleClassName
+        )}
       >
         {title}
-      </h2>
+      </h4>
       {subtitle && (
-        <h3
-          className={clsx(
+        <h5
+          className={cn(
             'relative text-5xl font-bold capitalize',
-            'text-theme-navy'
+            'text-theme-navy',
+            subtitleClassName
           )}
         >
           {subtitle}
-        </h3>
+        </h5>
       )}
     </div>
   );

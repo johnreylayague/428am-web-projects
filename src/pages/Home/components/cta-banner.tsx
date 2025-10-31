@@ -12,7 +12,7 @@ interface CTABannerProps {
   headline: string;
   callToActionLabel: string;
   phoneNumber: string;
-  iconClass: IconKeys;
+  icon: IconKeys;
 }
 
 const CTABanner: React.FC<CTABannerProps> = ({
@@ -21,12 +21,14 @@ const CTABanner: React.FC<CTABannerProps> = ({
   headline,
   callToActionLabel,
   phoneNumber,
-  iconClass,
+  icon,
 }) => {
   return (
     <Wrapper>
       <Container>
+        {/* Banner container */}
         <div className={clsx('relative rounded-sm overflow-hidden')}>
+          {/* Background image with overlay */}
           <figure
             className={clsx(
               'absolute inset-0 size-full',
@@ -40,17 +42,34 @@ const CTABanner: React.FC<CTABannerProps> = ({
             />
           </figure>
 
+          {/* Content area: headline and call-to-action */}
           <div
-            className={clsx('relative flex items-center justify-between p-8')}
+            className={clsx(
+              'relative flex flex-col gap-y-4 items-center text-center justify-between p-4',
+              'lg:flex-row lg:gap-y-0 lg:p-8 '
+            )}
           >
-            <h3 className={clsx('text-4xl font-semibold', 'text-white')}>
+            {/* Headline text */}
+            <h3
+              className={clsx(
+                'text-2xl font-semibold',
+                'lg:text-3xl xl:text-4xl',
+                'text-white'
+              )}
+            >
               {headline}
             </h3>
 
-            <div className={clsx('flex items-center gap-4 max-w-96 w-full')}>
+            {/* Call to action: icon, phone number, and label */}
+            <div
+              className={clsx(
+                'flex items-center flex-col gap-4 max-w-fit w-full',
+                'lg:flex-row xl:max-w-96'
+              )}
+            >
               <IconCircle
                 iconProps={{
-                  icon: iconClass,
+                  icon: icon,
                   size: '2x',
                   className: 'text-theme-orange',
                 }}
@@ -58,11 +77,21 @@ const CTABanner: React.FC<CTABannerProps> = ({
               />
               <div>
                 <Mark
-                  className={clsx('block text-2xl font-semibold', 'text-white')}
+                  className={clsx(
+                    'block text-xl font-semibold',
+                    'lg:text-2xl',
+                    'text-white'
+                  )}
                 >
                   {phoneNumber}
                 </Mark>
-                <span className={clsx('block text-base', 'text-white')}>
+                <span
+                  className={clsx(
+                    'block text-sm',
+                    'lg:text-base',
+                    'text-white'
+                  )}
+                >
                   {callToActionLabel}
                 </span>
               </div>

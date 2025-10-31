@@ -9,8 +9,6 @@ import {
   type IconKeys,
 } from '@/components/common/fontawesome.types';
 
-// https://fontawesome.com/search?ic=free
-
 interface FontAwesomeProps extends Omit<FontAwesomeIconProps, 'icon'> {
   icon: IconKeys;
   className?: string;

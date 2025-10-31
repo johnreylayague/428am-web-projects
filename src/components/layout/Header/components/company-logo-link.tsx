@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { cn } from '@/lib/utils';
+import Image from '@/components/common/image';
 
 interface LogoProps {
   src: string;
@@ -16,9 +17,11 @@ export const CompanyLogoLink: React.FC<LogoProps> = ({
 }) => {
   return (
     <Link to={to}>
-      <figure>
-        <img className={cn('max-w-52 w-full', className)} src={src} alt={alt} />
-      </figure>
+      <Image
+        src={src}
+        alt={alt}
+        className={cn('max-w-40', 'min-[400px]:max-w-50', className)}
+      />
     </Link>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+import cn from 'clsx';
 import FontAwesome from '@/components/common/fontawesome';
 
 interface ContactLink {
@@ -11,19 +11,22 @@ interface ContactInformationProps {
   phoneNumber?: ContactLink;
   email?: ContactLink;
   address?: string;
+  className?: string;
 }
 
 const ContactInformation: React.FC<ContactInformationProps> = ({
   phoneNumber,
   email,
   address,
+  className,
 }) => {
   return (
     <ul
-      className={clsx(
-        'flex gap-8 items-center',
+      className={cn(
+        'flex gap-8 items-center text-xs',
         '*:flex *:items-center *:gap-3 *:[&_a]:flex *:[&_a]:items-center *:[&_a]:gap-3',
-        '*:text-white *:[&_svg]:text-theme-golden-yellow '
+        '*:text-white *:[&_svg]:text-theme-golden-yellow ',
+        className
       )}
     >
       {phoneNumber && (

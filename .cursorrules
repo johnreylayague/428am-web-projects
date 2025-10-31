@@ -1,0 +1,15 @@
+# Assistant rules for this workspace
+
+- Always use absolute imports starting with "@/..." for files under `src`; never "./" or "../".
+- Apply these rules only to the file(s) currently being edited; do not scan or change other files.
+- Convert existing relative imports to "@/..." within the current edit file only.
+- Prefer updating nearby imports in the same file for consistency; avoid cross-file edits.
+
+# File Naming Rules
+
+- When creating new files, always use lowercase letters.
+- Separate words with dashes (-).
+- Example filenames:
+  - file-component.tsx
+  - user-profile-card.tsx
+  - login-form.tsx

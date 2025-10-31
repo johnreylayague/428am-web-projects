@@ -3,6 +3,8 @@ import {
   faEnvelope,
   faCopyright,
   faStar,
+  faCircleXmark,
+  faCircle,
 } from '@fortawesome/free-regular-svg-icons';
 import {
   faFacebook,
@@ -22,7 +24,12 @@ import {
   faStar as solidFaStar,
   faQuoteRight,
   faQuestion,
+  faBars,
+  faMapLocationDot,
+  faChevronDown,
 } from '@fortawesome/free-solid-svg-icons';
+
+// https://fontawesome.com/search?ic=free
 
 // Regular icons
 type RegularIconKeys =
@@ -44,12 +51,17 @@ type SolidIconKeys =
   | 'fa-solid fa-chevron-up'
   | 'fa-solid fa-right-long'
   | 'fa-solid fa-phone-flip'
+  | 'fa-solid fa-chevron-down'
   | 'fa-solid fa-chevron-left'
   | 'fa-solid fa-question'
   | 'fa-solid fa-qoute-right'
   | 'fa-solid fa-chevron-right'
   | 'fa-solid fa-star'
-  | 'fa-solid fa-magnifying-glass';
+  | 'fa-solid fa-map-location-dot'
+  | 'fa-regular fa-circle'
+  | 'fa-regular fa-circle-x-mark'
+  | 'fa-solid fa-magnifying-glass'
+  | 'fa-solid fa-bars';
 
 type IconMap = Record<IconKeys, IconDefinition>;
 
@@ -68,15 +80,20 @@ export const iconDictionary: IconMap = {
   'fa-solid fa-chevron-right': faChevronRight,
   'fa-solid fa-magnifying-glass': faSearch,
   'fa-solid fa-question': faQuestion,
+  'fa-solid fa-map-location-dot': faMapLocationDot,
   'fa-solid fa-location-dot': faLocationDot,
   'fa-solid fa-chevron-up': faChevronUp,
+  'fa-solid fa-chevron-down': faChevronDown,
   'fa-solid fa-right-long': faRightLong,
   'fa-solid fa-qoute-right': faQuoteRight,
   'fa-solid fa-phone-flip': faPhoneFlip,
+  'fa-solid fa-bars': faBars,
   // Regular icons
   'fa-regular fa-envelope': faEnvelope,
   'fa-regular fa-star': faStar,
+  'fa-regular fa-circle': faCircle,
   'fa-regular fa-copyright': faCopyright,
+  'fa-regular fa-circle-x-mark': faCircleXmark,
 };
 
 // Fallback icon key to use when an unknown key is provided
@@ -89,3 +106,5 @@ export const isValidIconKey: (key: string) => boolean = (
   const isValid = key in iconDictionary;
   return isValid;
 };
+
+// isValidIconKey(icon) ? (icon as IconKeys) : FALLBACK_ICON,
