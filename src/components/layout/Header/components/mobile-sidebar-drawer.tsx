@@ -76,7 +76,7 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = () => {
               'mt-12 text-base',
               '*:[&>a]:uppercase *:[&>a]:space-x-3 *:[&>a]:block *:[&>a]:py-3 *:[&>a]:px-4 *:[&>a]:border-b',
               '*:[&>button]:bg-red-500',
-              'text-white *:[&>a]:border-black/15'
+              'text-white *:[&>a]:border-black/5'
             )}
           >
             <li>
@@ -86,7 +86,7 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = () => {
                     hideChevronDownIcon
                     className={clsx(
                       'py-3 px-4 uppercase font-normal text-base border-b rounded-none',
-                      'border-black/15'
+                      'border-black/5'
                     )}
                   >
                     <span>Services</span>
@@ -95,7 +95,7 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = () => {
                   <AccordionContent className={clsx('pb-0')}>
                     <ul
                       className={clsx(
-                        '*:border-b *:flex *:items-center *:gap-3 *:py-3 *:px-4 *:border-black/15'
+                        '*:border-b *:flex *:items-center *:gap-3 *:py-3 *:px-4 *:border-black/5'
                       )}
                     >
                       {serviceRoutes.map((route) => (
@@ -103,7 +103,10 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = () => {
                           <FontAwesome icon="fa-regular fa-circle" size="sm" />
                           <NavLink
                             to={route.path}
-                            className={clsx('capitalize', 'text-white')}
+                            className={clsx(
+                              'capitalize text-base',
+                              'text-white'
+                            )}
                           >
                             {route.name}
                           </NavLink>
