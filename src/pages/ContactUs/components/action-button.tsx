@@ -25,7 +25,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
       className={clsx(
         'mx-auto block capitalize min-h-17 max-w-56 w-full py-3 px-3 cursor-pointer font-semibold transition-ease',
         'active:ring-2 active:ring-offset-2',
-        'text-white bg-theme-navy hover:bg-theme-blue active:ring-theme-orange'
+        'text-white bg-theme-navy hover:bg-theme-navy active:ring-theme-navy'
       )}
     >
       {text}

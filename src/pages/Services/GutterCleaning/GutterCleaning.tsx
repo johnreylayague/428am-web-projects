@@ -14,6 +14,8 @@ import WhyChooseUs from '@/components/ui/app/why-choose-us';
 import WHY_PEOPLE_CHOOSE_US from '@/assets/json/why-people-choose-us.json';
 import ROUTES from '@/config/routes';
 import Gallery from '@/components/ui/app/gallery';
+import DRAINAGE_1_IMAGE from '@/assets/images/banner/drainage/drainage-1.png';
+import DRAINAGE_2_IMAGE from '@/assets/images/banner/drainage/drainage-2.png';
 
 const WHY_IT_MATTERS_CLEANING_PROCESS_ITEMS = [
   {
@@ -63,7 +65,12 @@ const GutterCleaningPage: React.FC<GutterCleaningPageProps> = () => {
       <Wrapper className={clsx('pt-25 pb-35')}>
         <Container>
           <main>
-            <Gallery />
+            <Gallery
+              gallery={[
+                { id: 1, alt: 'image alt', image: DRAINAGE_1_IMAGE },
+                { id: 2, alt: 'image alt', image: DRAINAGE_2_IMAGE },
+              ]}
+            />
             <div className={clsx('relative grid grid-cols-12 gap-10 mt-15')}>
               <div className={clsx('col-span-6')}>
                 <ContentTitle className={clsx('text-4xl font-bold')}>

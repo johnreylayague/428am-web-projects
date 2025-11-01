@@ -19,14 +19,12 @@ const Wrapper: React.FC<WrapperProps> = ({
   innerRef,
   ...props
 }) => {
-  const wrapperClassName = cn(
-    position,
-    !disablePaddingX && 'px-4',
-    className ? className : ''
-  );
-
   return (
-    <section {...props} ref={innerRef} className={wrapperClassName}>
+    <section
+      {...props}
+      ref={innerRef}
+      className={cn(position, !disablePaddingX && 'px-4', className)}
+    >
       {children}
     </section>
   );

@@ -8,7 +8,13 @@ interface ContentTitleProps {
 
 const ContentTitle: React.FC<ContentTitleProps> = ({ children, className }) => {
   return (
-    <h3 className={cn('font-medium text-4xl', 'text-theme-navy', className)}>
+    <h3
+      className={cn(
+        'font-semibold text-4xl',
+        'text-theme-dark-navy',
+        className
+      )}
+    >
       {children}
     </h3>
   );

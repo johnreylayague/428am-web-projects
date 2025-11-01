@@ -15,10 +15,17 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   videoClassName,
 }) => {
   return (
-    <div className={cn('relative w-full max-w-full h-100 mt-10', className)}>
+    <div
+      className={cn(
+        'relative w-full max-w-full h-100 mt-10',
+        'lg:h-150',
+        className
+      )}
+    >
       <video
         className={cn(
-          'w-full h-100 max-w-full object-cover object-center',
+          'w-full h-100 max-w-full object-contain object-center',
+          'lg:h-150',
           videoClassName
         )}
         controls

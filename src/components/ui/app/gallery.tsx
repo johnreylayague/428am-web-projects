@@ -13,6 +13,12 @@ import { useCarousel } from '@/hooks/useCarousel';
 import Image from '@/components/common/image';
 import { cn } from '@/lib/utils';
 
+interface Gallery {
+  id: number;
+  alt: string;
+  image: string;
+}
+
 interface CarouselNavigationButtonProps {
   onClick: () => void;
   icon: IconKeys;
@@ -23,11 +29,11 @@ interface CarouselNavigationButtonProps {
 interface GalleryProps {
   className?: string;
   imageClassName?: string;
-  items: string[];
+  gallery: Gallery[];
 }
 
 const Gallery: React.FC<GalleryProps> = ({
-  items,
+  gallery,
   className,
   imageClassName,
 }) => {
@@ -48,12 +54,16 @@ const Gallery: React.FC<GalleryProps> = ({
         setApi={setApi}
       >
         <CarouselContent>
-          {items.map((src, index) => (
-            <CarouselItem key={index}>
+          {gallery.map(({ alt, id, image }) => (
+            <CarouselItem key={id}>
               <Image
-                alt=""
-                src={src}
-                className={clsx('select-none', imageClassName)}
+                alt={alt}
+                src={image}
+                className={cn(
+                  'select-none min-h-45 lg:min-h-auto',
+                  'min-h-45 lg:min-h-auto',
+                  imageClassName
+                )}
               />
             </CarouselItem>
           ))}

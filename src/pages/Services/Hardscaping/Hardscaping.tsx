@@ -13,6 +13,8 @@ import WhyChooseUs from '@/components/ui/app/why-choose-us';
 import insuredLicensedImg from '@/assets/images/logos/insured-licensed.jpg';
 import ROUTES from '@/config/routes';
 import whyPeopleChooseUs from '@/assets/json/why-people-choose-us.json';
+import DRAINAGE_1_IMAGE from '@/assets/images/banner/drainage/drainage-1.png';
+import DRAINAGE_2_IMAGE from '@/assets/images/banner/drainage/drainage-2.png';
 
 interface HardscapingPageProps {}
 
@@ -32,7 +34,12 @@ const HardscapingPage: React.FC<HardscapingPageProps> = () => {
       <Banner title="Hardscaping" />
       <Wrapper className={clsx('pt-15 pb-15')}>
         <Container>
-          <Gallery />
+          <Gallery
+            gallery={[
+              { id: 1, alt: 'image alt', image: DRAINAGE_1_IMAGE },
+              { id: 2, alt: 'image alt', image: DRAINAGE_2_IMAGE },
+            ]}
+          />
           <div className={clsx('grid grid-cols-12 relative gap-5 my-15')}>
             <div className={clsx('col-span-6')}>
               <ContentTitle>Hardscraping</ContentTitle>

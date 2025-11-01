@@ -16,7 +16,12 @@ interface HomePageProps {}
 const HomePage: React.FC<HomePageProps> = () => {
   return (
     <React.Fragment>
-      <Gallery items={[NH_2, NH_3]} imageClassName={'min-h-45 lg:min-h-auto'} />
+      <Gallery
+        gallery={[
+          { id: 1, alt: 'image alt', image: NH_2 },
+          { id: 2, alt: 'image alt', image: NH_3 },
+        ]}
+      />
 
       <Services
         services={SERVICES}
