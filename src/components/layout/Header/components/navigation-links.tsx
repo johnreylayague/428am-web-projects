@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { NavLink, useLocation } from 'react-router';
 
-interface RouteItem {
+export interface RouteItem {
   name: string;
   path: string;
 }
@@ -41,7 +41,8 @@ const NavigationLinks: React.FC<NavigationLinksProps> = ({
   return (
     <ul
       className={clsx(
-        'grow flex items-center gap-10 pl-10',
+        'grow items-center justify-center gap-0 pl-5 hidden z-50',
+        'xl:justify-start xl:gap-10 xl:pl-10 lg:flex lg:pl-0',
         '*:[&_a]:uppercase *:[&_a]:font-semibold',
         '*:[&_a]:text-theme-navy',
         className

@@ -24,7 +24,7 @@ const GoogleReviewsWidget: React.FC<GoogleReviewsWidgetProps> = ({
   }, [scriptSrc]);
 
   return (
-    <Wrapper className={clsx('mt-10')}>
+    <Wrapper className={clsx('pb-35')}>
       <Container>
         <div
           className={`elfsight-app-${appId} mx-auto`}

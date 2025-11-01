@@ -18,10 +18,7 @@ const TextField: React.FC<TextFieldProps> = ({
     <div className={clsx('flex flex-col gap-2')}>
       <label
         htmlFor={id}
-        className={clsx(
-          'capitalize font-semibold text-base',
-          'text-theme-navy'
-        )}
+        className={clsx('capitalize font-bold text-sm', 'text-theme-navy')}
       >
         {label}
       </label>
@@ -31,7 +28,7 @@ const TextField: React.FC<TextFieldProps> = ({
         name={name}
         placeholder={placeholder}
         className={clsx(
-          'capitalize rounded-xs px-5 py-3 text-sm focus-input transition-ease',
+          'capitalize rounded-xs px-8 py-5 text-base focus-input transition-ease min-h-17',
           'bg-gray-200'
         )}
       />

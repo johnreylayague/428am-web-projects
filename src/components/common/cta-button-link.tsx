@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import type { IconKeys } from '@/components/common/fontawesome.types';
+import type { IconKeys } from '@/components/common/fontawesome.helpers';
 import FontAwesome from '@/components/common/fontawesome';
 import { cn } from '@/lib/utils';
 import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,7 @@ interface IconProps extends Omit<FontAwesomeIconProps, 'icon'> {
 }
 
 interface CTAButtonLinkProps {
-  buttonText?: string;
+  buttonText: string;
   buttonLink: string;
   className?: string;
   iconProps?: IconProps;

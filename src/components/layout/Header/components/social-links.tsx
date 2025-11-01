@@ -1,11 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
 import FontAwesome from '@/components/common/fontawesome';
-import type { IconKeys } from '@/components/common/fontawesome.types';
+import type { IconKeys } from '@/components/common/fontawesome.helpers';
 
 interface SocialLink {
   icon: IconKeys;
-  link: string;
+  href: string;
 }
 
 interface SocialLinksProps {
@@ -21,7 +21,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, className }) => {
       {links.map((item, index) => (
         <li key={index}>
           <a
-            href={item.link}
+            href={item.href}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Social media link"

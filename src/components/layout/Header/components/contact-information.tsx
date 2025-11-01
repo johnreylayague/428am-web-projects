@@ -23,8 +23,9 @@ const ContactInformation: React.FC<ContactInformationProps> = ({
   return (
     <ul
       className={cn(
-        'flex gap-8 items-center text-xs',
-        '*:flex *:items-center *:gap-3 *:[&_a]:flex *:[&_a]:items-center *:[&_a]:gap-3',
+        'flex gap-8 items-center',
+        '*:[&>a>span]:text-sm *:[&>address]:text-sm *:flex *:items-center *:gap-3 *:[&_a]:flex *:[&_a]:items-center *:[&_a]:gap-3',
+        'xl:*:[&>address]:text-base xl:*:[&>a>span]:text-base',
         '*:text-white *:[&_svg]:text-theme-golden-yellow ',
         className
       )}

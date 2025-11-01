@@ -4,11 +4,12 @@ import Wrapper from '@/components/layout/wrapper';
 import Container from '@/components/layout/container';
 import ContactInformation from '@/components/layout/Header/components/contact-information';
 import SocialLinks from '@/components/layout/Header/components/social-links';
-import type { IconKeys } from '@/components/common/fontawesome.types';
+import type { IconKeys } from '@/components/common/fontawesome.helpers';
+import type { divRefType } from '@/components/layout/Header/Header';
 
 export interface SocialLinkItem {
   icon: IconKeys;
-  link: string;
+  href: string;
 }
 
 export interface TopHeaderBarProps {
@@ -17,6 +18,7 @@ export interface TopHeaderBarProps {
   email: { text: string; link: string };
   socialLinks: SocialLinkItem[];
   className?: string;
+  divRef: React.RefObject<divRefType>;
 }
 
 const TopHeaderBar: React.FC<TopHeaderBarProps> = ({
@@ -25,23 +27,26 @@ const TopHeaderBar: React.FC<TopHeaderBarProps> = ({
   email,
   socialLinks,
   className,
+  divRef,
 }) => {
   return (
-    <Wrapper className={clsx('bg-theme-navy', 'hidden', className)}>
-      <Container>
-        <div
-          className={clsx(
-            'py-3 flex flex-col gap-y-2 items-center justify-between'
-          )}
-        >
-          <ContactInformation
-            address={address}
-            phoneNumber={phoneNumber}
-            email={email}
-          />
+    <Wrapper
+      innerRef={divRef}
+      className={clsx('hidden lg:block', 'bg-theme-navy', className)}
+    >
+      <Container
+        className={clsx(
+          'py-3 flex flex-col gap-y-2 justify-between',
+          'lg:flex-row'
+        )}
+      >
+        <ContactInformation
+          address={address}
+          phoneNumber={phoneNumber}
+          email={email}
+        />
 
-          <SocialLinks links={socialLinks} />
-        </div>
+        <SocialLinks links={socialLinks} />
       </Container>
     </Wrapper>
   );

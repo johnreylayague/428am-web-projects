@@ -4,7 +4,7 @@ import Container from '@/components/layout/container';
 import Wrapper from '@/components/layout/wrapper';
 import clsx from 'clsx';
 import React from 'react';
-import type { IconKeys } from '@/components/common/fontawesome.types';
+import type { IconKeys } from '@/components/common/fontawesome.helpers';
 
 interface CTABannerProps {
   backgroundImage: string;

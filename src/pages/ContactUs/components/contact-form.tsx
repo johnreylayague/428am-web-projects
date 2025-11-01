@@ -1,47 +1,60 @@
 import SectionHeader from '@/components/ui/app/section-header';
 import Container from '@/components/layout/container';
 import Wrapper from '@/components/layout/wrapper';
-import { SOCIAL_LINKS } from '@/config/constants';
 import ActionButton from '@/pages/ContactUs/components/action-button';
 import SocialLinks from '@/pages/ContactUs/components/social-link';
 import TextAreaField from '@/pages/ContactUs/components/text-area-field';
 import TextField from '@/pages/ContactUs/components/text-field';
 import clsx from 'clsx';
 import React from 'react';
-import COMPANY_LOGO_IMG from '@/assets/images/logos/company_logo.png';
+import Image from '@/components/common/image';
 
-interface ContactFormProps {}
+interface ContactFormProps {
+  headerTitle: string;
+  headerSubTitle: string;
+  imageSrc: string;
+  imgAlt: string;
+  facebookUrl: string;
+  instagramUrl: string;
+}
 
-const ContactForm: React.FC<ContactFormProps> = () => {
+const ContactForm: React.FC<ContactFormProps> = ({
+  headerSubTitle,
+  headerTitle,
+  imageSrc,
+  imgAlt,
+  facebookUrl,
+  instagramUrl,
+}) => {
   return (
     <Wrapper className={clsx('pt-20 pb-30')}>
       <Container>
         <div className={clsx('grid grid-cols-12 relative gap-5')}>
-          <div className={clsx('col-span-6')}>
+          <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <div
               className={clsx(
                 'flex items-center justify-center flex-col gap-7'
               )}
             >
-              <SectionHeader title="Time To Reach Out" subtitle="Contact Us" />
-              <img
-                src={COMPANY_LOGO_IMG}
-                alt=""
-                className={clsx(
-                  'size-64 rounded-full block object-center object-cover',
-                  'bg-theme-navy'
-                )}
+              <SectionHeader title={headerTitle} subtitle={headerSubTitle} />
+
+              <Image
+                src={imageSrc}
+                alt={imgAlt}
+                className={clsx('size-64 rounded-full')}
+                imageClassName={clsx('object-contain')}
               />
+
               <SocialLinks
-                facebookUrl={SOCIAL_LINKS.FACEBOOK}
-                instagramUrl={SOCIAL_LINKS.INSTAGRAM}
+                facebookUrl={facebookUrl}
+                instagramUrl={instagramUrl}
               />
             </div>
           </div>
-          <div className={clsx('col-span-6')}>
+          <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <form className={clsx('mt-10')}>
               <div className={clsx('grid grid-cols-12 relative gap-5')}>
-                <div className={clsx('col-span-6')}>
+                <div className={clsx('col-span-12', 'lg:col-span-6')}>
                   <TextField
                     id="in-full-name"
                     name="full-name"
@@ -49,7 +62,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                     placeholder="Enter name"
                   />
                 </div>
-                <div className={clsx('col-span-6')}>
+                <div className={clsx('col-span-12', 'lg:col-span-6')}>
                   <TextField
                     id="in-email-address"
                     name="email-address"
@@ -57,7 +70,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                     placeholder="Enter Email Address"
                   />
                 </div>
-                <div className={clsx('col-span-6')}>
+                <div className={clsx('col-span-12', 'lg:col-span-6')}>
                   <TextField
                     id="in-phone-number"
                     name="phone-number"
@@ -65,7 +78,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
                     placeholder="Enter Number"
                   />
                 </div>
-                <div className={clsx('col-span-6')}>
+                <div className={clsx('col-span-12', 'lg:col-span-6')}>
                   <TextField
                     id="in-subject"
                     name="subject"

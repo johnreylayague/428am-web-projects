@@ -1,5 +1,5 @@
 import FlatIcon from '@/components/common/flat-icon';
-import { resolveFlatIcon } from '@/components/common/flat-icon.constants';
+import { resolveFlatIcon } from '@/components/common/flat-icon.helpers';
 import Image from '@/components/common/image';
 import CTAButtonLink from '@/pages/Home/components/cta-button-link';
 import clsx from 'clsx';

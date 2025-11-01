@@ -7,6 +7,8 @@ import VideoReels from '@/pages/Home/components/video-reels';
 import DISK from '@/assets/images/background/disk.jpg';
 import HOME_VIDEO from '@/assets/images/vidoes/vidoe-home.mov';
 import HOME_VIDEO_IMAGE from '@/assets/images/background/vidoe_home.png';
+import NH_2 from '@/assets/images/banner/non-home-2.png';
+import NH_3 from '@/assets/images/banner/non-home-3.png';
 import { SERVICES } from '@/config/constants';
 
 interface HomePageProps {}
@@ -14,7 +16,7 @@ interface HomePageProps {}
 const HomePage: React.FC<HomePageProps> = () => {
   return (
     <React.Fragment>
-      <Gallery />
+      <Gallery items={[NH_2, NH_3]} imageClassName={'min-h-45 lg:min-h-auto'} />
 
       <Services
         services={SERVICES}

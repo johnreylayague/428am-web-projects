@@ -15,7 +15,7 @@ const Image: React.FC<ImageProps> = ({
   imageClassName,
 }) => {
   return (
-    <figure className={cn('size-full', className)}>
+    <figure className={cn('size-full overflow-hidden', className)}>
       <img
         src={src}
         alt={alt}

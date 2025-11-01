@@ -23,11 +23,15 @@ import {
 import ErrorBoundary from '@/pages/Error/ErrorBoundary';
 import RootLayout from '@/pages/RootLayout/RootLayout';
 import ScrollToTop from '@/hooks/useScrollToTop';
+import { useScreenSize } from '@/hooks/useScreenSize';
 import ROUTES from '@/config/routes';
 
 interface RoutesProps {}
 
 const Routes: React.FC<RoutesProps> = () => {
+  // Initialize screen size tracking
+  useScreenSize();
+
   return (
     <BrowserRouter>
       <ErrorBoundary>

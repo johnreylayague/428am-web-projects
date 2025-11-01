@@ -30,7 +30,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = ({
         name={name}
         placeholder={placeholder}
         className={clsx(
-          'w-full px-5 py-3 min-h-40 text-sm rounded-xs resize-none focus-input transition-ease',
+          'w-full px-5 py-3 min-h-55 text-base rounded-xs resize-none focus-input transition-ease ',
           'bg-gray-200'
         )}
       />

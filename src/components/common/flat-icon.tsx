@@ -7,8 +7,8 @@ import {
   DEFAULT_ICON_HOVER_CLASS,
   flatIconSelfHoverMap,
   DEFAULT_ICON_SELF_HOVER_CLASS,
-} from '@/components/common/flat-icon.constants';
-import type { FlatIconProps } from '@/components/common/flat-icon.types';
+  type FlatIconProps,
+} from '@/components/common/flat-icon.helpers';
 
 const FlatIcon: React.FC<FlatIconProps> = ({ className, icon, ...props }) => {
   let finalIcon = icon;

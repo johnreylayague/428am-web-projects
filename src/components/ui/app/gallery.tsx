@@ -1,112 +1,99 @@
-import Container from '@/components/layout/container';
-import Wrapper from '@/components/layout/wrapper';
 import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  type CarouselApi,
 } from '@/components/ui/shadcn/carousel';
-import NH_1 from '@/assets/images/banner/non-home-1.png';
-import NH_2 from '@/assets/images/banner/non-home-2.png';
-import NH_3 from '@/assets/images/banner/non-home-3.png';
 import FontAwesome from '@/components/common/fontawesome';
 import Autoplay from 'embla-carousel-autoplay';
+import Wrapper from '@/components/layout/wrapper';
+import type { IconKeys } from '@/components/common/fontawesome.helpers';
+import { useCarousel } from '@/hooks/useCarousel';
+import Image from '@/components/common/image';
+import { cn } from '@/lib/utils';
 
-const images: string[] = [NH_2, NH_3];
+interface CarouselNavigationButtonProps {
+  onClick: () => void;
+  icon: IconKeys;
+  position: 'left' | 'right';
+  className?: string;
+}
 
-interface GalleryProps {}
+interface GalleryProps {
+  className?: string;
+  imageClassName?: string;
+  items: string[];
+}
 
-interface GalleryProps {}
-
-const Gallery: React.FC<GalleryProps> = () => {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = useState<number>(0);
-  const [count, setCount] = useState<number>(0);
-  const [canPrev, setCanPrev] = useState<boolean>(false);
-  const [canNext, setCanNext] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (!api) return;
-
-    // Initialize state from API
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-    setCanPrev(api.canScrollPrev());
-    setCanNext(api.canScrollNext());
-
-    const handleSelect = () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-      setCanPrev(api.canScrollPrev());
-      setCanNext(api.canScrollNext());
-    };
-
-    api.on('select', handleSelect);
-
-    return () => {
-      api.off('select', handleSelect);
-    };
-  }, [api]);
-
-  // Handlers for custom buttons
-  const handlePrev = () => api?.scrollPrev();
-  const handleNext = () => api?.scrollNext();
+const Gallery: React.FC<GalleryProps> = ({
+  items,
+  className,
+  imageClassName,
+}) => {
+  const { setApi, handlePrev, handleNext } = useCarousel();
 
   return (
-    <Carousel
-      opts={{
-        loop: true,
-      }}
-      plugins={[
-        Autoplay({
-          delay: 5000,
-        }),
-      ]}
-      className="w-full"
-      setApi={setApi}
-    >
-      <CarouselContent>
-        {images.map((src, index) => (
-          <CarouselItem key={index}>
-            <figure>
-              <img
-                src={src}
+    <Wrapper disablePaddingX>
+      <Carousel
+        opts={{
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+        className={cn('w-full', className)}
+        setApi={setApi}
+      >
+        <CarouselContent>
+          {items.map((src, index) => (
+            <CarouselItem key={index}>
+              <Image
                 alt=""
-                className={clsx(
-                  'select-none size-full object-center object-contain'
-                )}
+                src={src}
+                className={clsx('select-none', imageClassName)}
               />
-            </figure>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <button
-        onClick={handlePrev}
-        className={clsx(
-          'cursor-pointer top-1/2 -translate-y-1/2 absolute left-0'
-        )}
-      >
-        <FontAwesome
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        <CarouselNavigationButton
+          onClick={handlePrev}
           icon="fa-solid fa-chevron-left"
-          size="4x"
-          className={clsx('text-gray-300')}
+          position="left"
         />
-      </button>
-      <button
-        onClick={handleNext}
-        className={clsx(
-          'cursor-pointer top-1/2 -translate-y-1/2 absolute right-0'
-        )}
-      >
-        <FontAwesome
+        <CarouselNavigationButton
+          onClick={handleNext}
           icon="fa-solid fa-chevron-right"
-          size="4x"
-          className={clsx('text-gray-300')}
+          position="right"
         />
-      </button>
-    </Carousel>
+      </Carousel>
+    </Wrapper>
   );
 };
 
 export default Gallery;
+
+const CarouselNavigationButton: React.FC<CarouselNavigationButtonProps> = ({
+  onClick,
+  icon,
+  position,
+  className,
+}) => {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={clsx(
+        'cursor-pointer top-1/2 -translate-y-1/2 absolute',
+        position === 'left' ? 'left-0 lg:left-3' : 'right-0 lg:right-3',
+        className
+      )}
+      aria-label={position === 'left' ? 'Previous slide' : 'Next slide'}
+    >
+      <FontAwesome icon={icon} className={clsx('text-5xl', 'text-gray-300')} />
+    </button>
+  );
+};

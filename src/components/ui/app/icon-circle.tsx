@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesome from '@/components/common/fontawesome';
-import type { IconKeys } from '@/components/common/fontawesome.types';
+import type { IconKeys } from '@/components/common/fontawesome.helpers';
 import { cn } from '@/lib/utils';
 import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 

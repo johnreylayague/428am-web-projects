@@ -1,4 +1,4 @@
-import type { IconKeys } from '@/components/common/fontawesome.types';
+import type { IconKeys } from '@/components/common/fontawesome.helpers';
 import IconCircle from '@/components/ui/app/icon-circle';
 import clsx from 'clsx';
 import React from 'react';
@@ -27,9 +27,10 @@ const ContactCard: React.FC<ContactCardProps> = ({
   return (
     <div
       className={clsx(
-        'group p-10 rounded-xs flex gap-5 transition-ease',
-        'hover:cursor-pointer hover:bg-theme-orange',
-        'bg-gray-100',
+        'group p-10 rounded-xs flex gap-5 transition-ease flex-col items-center text-center',
+        'hover:cursor-pointer',
+        'lg:flex-row lg:text-left',
+        'bg-gray-100 hover:bg-theme-orange',
         className
       )}
     >

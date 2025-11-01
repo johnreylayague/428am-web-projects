@@ -1,9 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
+import TextWithBoldWords from '@/pages/AboutUs/components/text-with-bold-words';
 
 interface ExperienceProps {
   number: string | number;
-  label: React.ReactNode;
+  label: string;
+  boldWords?: string | string[];
   bgImage: string;
   className?: string;
 }
@@ -11,6 +13,7 @@ interface ExperienceProps {
 const Experience: React.FC<ExperienceProps> = ({
   number,
   label,
+  boldWords,
   bgImage,
   className,
 }) => {
@@ -20,19 +23,25 @@ const Experience: React.FC<ExperienceProps> = ({
     >
       <span
         className={clsx(
-          'block font-bold leading-none text-transparent bg-clip-text bg-cover bg-center',
-          'text-[400px]'
+          'block text-[250px] font-bold leading-none text-transparent bg-(image:--card-bg) bg-clip-text bg-bottom bg-size-[1500px] bg-no-repeat ',
+          'lg:text-[500px] lg:bg-size-[3000px]'
         )}
-        style={{
-          backgroundImage: `url(${bgImage})`,
-        }}
+        style={
+          {
+            '--card-bg': `url(${bgImage})`,
+          } as React.CSSProperties
+        }
       >
         {number}
       </span>
       <span
-        className={clsx('capitalize text-base font-medium -mt-5 text-gray-600')}
+        className={clsx(
+          'capitalize text-base font-semibold text-center',
+          'lg:-mt-5 lg:text-left lg:text-xl',
+          'text-gray-600'
+        )}
       >
-        {label}
+        <TextWithBoldWords label={label} boldWords={boldWords} />
       </span>
     </h4>
   );
