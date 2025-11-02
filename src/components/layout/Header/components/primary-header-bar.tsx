@@ -10,6 +10,7 @@ import HeaderNavigation, {
   type RouteItem,
 } from '@/components/layout/Header/components/header-navigation';
 import type { ServiceRoute } from '@/components/layout/Header/components/header-menu-trigger';
+import { useLocation } from 'react-router';
 
 interface PrimaryHeaderBarProps {
   className?: string;
@@ -32,6 +33,15 @@ const PrimaryHeaderBar: React.FC<PrimaryHeaderBarProps> = ({
   onOpen,
   serviceRoutes,
 }) => {
+  const location = useLocation();
+
+  const handleCTAButtonClick = (buttonLink: string) => {
+    if (location.pathname === buttonLink) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    // otherwise let navigation happen naturally
+  };
+
   return (
     <Wrapper className={clsx('', className)}>
       <Container className={clsx('flex items-center min-h-24 justify-between')}>
@@ -40,6 +50,7 @@ const PrimaryHeaderBar: React.FC<PrimaryHeaderBarProps> = ({
         <HeaderNavigation serviceRoutes={serviceRoutes} routes={routes} />
 
         <CTAButtonLink
+          onClick={() => handleCTAButtonClick(buttonLink)}
           buttonLink={buttonLink}
           buttonText={buttonText}
           className={clsx(

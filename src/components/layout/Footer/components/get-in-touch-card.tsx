@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import CTAButtonLink from '@/components/common/cta-button-link';
 import Image from '@/components/common/image';
 import imageContact from '@/assets/images/logos/image-contact.jpg';
+import { useLocation } from 'react-router';
 
 interface GetInTouchCardProps {
   paragraph: string;
@@ -22,6 +23,15 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = ({
   facebookLink,
   instagramLink,
 }) => {
+  const location = useLocation();
+
+  const handleCTAButtonClick = (buttonLink: string) => {
+    if (location.pathname === buttonLink) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    // otherwise let navigation happen naturally
+  };
+
   return (
     <div
       className={clsx(
@@ -55,6 +65,7 @@ const GetInTouchCard: React.FC<GetInTouchCardProps> = ({
           size: 'sm',
         }}
         className={clsx('rounded-xs cursor-pointer ')}
+        onClick={() => handleCTAButtonClick(buttonLink)}
       />
 
       {/* Social icons */}

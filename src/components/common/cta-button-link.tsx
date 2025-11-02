@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, type LinkProps } from 'react-router';
 import type { IconKeys } from '@/components/common/fontawesome.helpers';
 import FontAwesome from '@/components/common/fontawesome';
 import { cn } from '@/lib/utils';
@@ -9,7 +9,7 @@ interface IconProps extends Omit<FontAwesomeIconProps, 'icon'> {
   icon: IconKeys;
 }
 
-interface CTAButtonLinkProps {
+interface CTAButtonLinkProps extends Omit<LinkProps, 'to'> {
   buttonText: string;
   buttonLink: string;
   className?: string;
@@ -21,11 +21,13 @@ const CTAButtonLink: React.FC<CTAButtonLinkProps> = ({
   buttonLink,
   className,
   iconProps,
+  ...props
 }) => {
   const { icon } = iconProps ?? { icon: null };
 
   return (
     <Link
+      {...props}
       to={buttonLink}
       className={cn(
         'group inline-flex items-center justify-center py-5 px-9 mb-8 space-x-3 leading-none rounded-sm font-medium transition-all duration-400 ease-in-out cursor-pointer',
