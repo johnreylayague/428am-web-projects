@@ -95,6 +95,7 @@ const Header: React.FC<HeaderProps> = () => {
         buttonLink={ROUTES.CONTACT_US.path}
         buttonText="Get A Qoute"
         routes={ROUTES_DATA}
+        serviceRoutes={serviceRoutes}
         onOpen={handleOpen}
       />
 
@@ -105,6 +106,7 @@ const Header: React.FC<HeaderProps> = () => {
         buttonText="Get A Qoute"
         onOpen={handleOpen}
         routes={ROUTES_DATA}
+        serviceRoutes={serviceRoutes}
         className={clsx(
           hasScrolledPastDiv
             ? 'visible opacity-100 translate-y-0'

@@ -22,7 +22,6 @@ const HomePage: React.FC<HomePageProps> = () => {
           { id: 2, alt: 'image alt', image: NH_3 },
         ]}
       />
-
       <Services
         services={SERVICES}
         headerTitle="Our Services"

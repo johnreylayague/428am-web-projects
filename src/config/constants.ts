@@ -8,6 +8,34 @@ import SERVICE_5 from '@/assets/images/background/service-5.jpg';
 import SERVICE_6 from '@/assets/images/background/service-6.jpg';
 import SERVICE_7 from '@/assets/images/background/service-7.jpg';
 import SERVICE_8 from '@/assets/images/background/service-8.jpg';
+import {
+  HARDSCAPING_BANNER_1,
+  HARDSCAPING_BANNER_2,
+  HARDSCAPING_BANNER_3,
+  HARDSCAPING_BANNER_4,
+  CARPENTRY_BANNER_1_IMG,
+  CARPENTRY_BANNER_2_IMG,
+  CARPENTRY_BANNER_3_IMG,
+  PRESSURE_WASHING_BANNER_1_IMG,
+  PRESSURE_WASHING_BANNER_2_IMG,
+  PRESSURE_WASHING_BANNER_3_IMG,
+  PRESSURE_WASHING_BANNER_4_IMG,
+  WINDOW_CLEANING_BANNER_2_IMG,
+  WINDOW_CLEANING_BANNER_1_IMG,
+  GUTTER_CLEANING_BANNER_1_IMG,
+  GUTTER_CLEANING_BANNER_2_IMG,
+  GUTTER_CLEANING_BANNER_3_IMG,
+  GUTTER_CLEANING_BANNER_4_IMG,
+  MOSS_REMOVAL_BANNER_1_IMG,
+  MOSS_REMOVAL_BANNER_2_IMG,
+  MOSS_REMOVAL_BANNER_3_IMG,
+  MOSS_REMOVAL_BANNER_4_IMG,
+  MOSS_REMOVAL_BANNER_5_IMG,
+  MOSS_REMOVAL_BANNER_6_IMG,
+  PAINTING_BANNER_1_IMG,
+  PAINTING_BANNER_2_IMG,
+  PAINTING_BANNER_3_IMG,
+} from '@/assets/index';
 
 export const SOCIAL_LINKS = {
   FACEBOOK: 'https://www.facebook.com/LPmaintenance604',
@@ -89,5 +117,156 @@ export const SERVICES = [
     icon: 'paint-roller',
     link: ROUTES.SERVICES_PAINTING.path,
     image: SERVICE_8,
+  },
+];
+
+export const HARDSCAPING_GALLERY = [
+  {
+    id: 1,
+    alt: 'Hardscaping banner 1',
+    image: HARDSCAPING_BANNER_1,
+  },
+  {
+    id: 2,
+    alt: 'Hardscaping banner 2',
+    image: HARDSCAPING_BANNER_2,
+  },
+  {
+    id: 3,
+    alt: 'Hardscaping banner 3',
+    image: HARDSCAPING_BANNER_3,
+  },
+  {
+    id: 4,
+    alt: 'Hardscaping banner 4',
+    image: HARDSCAPING_BANNER_4,
+  },
+];
+
+export const CARPENTRY_GALLERY = [
+  {
+    id: 1,
+    alt: 'Carpentry banner 1',
+    image: CARPENTRY_BANNER_1_IMG,
+  },
+  {
+    id: 2,
+    alt: 'Carpentry banner 2',
+    image: CARPENTRY_BANNER_2_IMG,
+  },
+  {
+    id: 3,
+    alt: 'Carpentry banner 3',
+    image: CARPENTRY_BANNER_3_IMG,
+  },
+];
+
+export const PRESSURE_WASHING_GALLERY = [
+  {
+    id: 1,
+    alt: 'Pressure Washing banner 1',
+    image: PRESSURE_WASHING_BANNER_1_IMG,
+  },
+  {
+    id: 2,
+    alt: 'Pressure Washing banner 2',
+    image: PRESSURE_WASHING_BANNER_2_IMG,
+  },
+  {
+    id: 3,
+    alt: 'Pressure Washing banner 3',
+    image: PRESSURE_WASHING_BANNER_3_IMG,
+  },
+  {
+    id: 4,
+    alt: 'Pressure Washing banner 4',
+    image: PRESSURE_WASHING_BANNER_4_IMG,
+  },
+];
+
+export const WINDOW_CLEANING_GALLERY = [
+  {
+    id: 1,
+    alt: 'Window Cleaning banner 1',
+    image: WINDOW_CLEANING_BANNER_1_IMG,
+  },
+  {
+    id: 2,
+    alt: 'Window Cleaning banner 2',
+    image: WINDOW_CLEANING_BANNER_2_IMG,
+  },
+];
+
+export const GUTTER_CLEANING_GALLERY = [
+  {
+    id: 1,
+    alt: 'Gutter Cleaning banner 1',
+    image: GUTTER_CLEANING_BANNER_1_IMG,
+  },
+  {
+    id: 2,
+    alt: 'Gutter Cleaning banner 2',
+    image: GUTTER_CLEANING_BANNER_2_IMG,
+  },
+  {
+    id: 3,
+    alt: 'Gutter Cleaning banner 3',
+    image: GUTTER_CLEANING_BANNER_3_IMG,
+  },
+  {
+    id: 4,
+    alt: 'Gutter Cleaning banner 4',
+    image: GUTTER_CLEANING_BANNER_4_IMG,
+  },
+];
+
+export const MOSS_REMOVAL_GALLERY = [
+  {
+    id: 1,
+    alt: 'Moss Removal banner 1',
+    image: MOSS_REMOVAL_BANNER_1_IMG,
+  },
+  {
+    id: 2,
+    alt: 'Moss Removal banner 2',
+    image: MOSS_REMOVAL_BANNER_2_IMG,
+  },
+  {
+    id: 3,
+    alt: 'Moss Removal banner 3',
+    image: MOSS_REMOVAL_BANNER_3_IMG,
+  },
+  {
+    id: 4,
+    alt: 'Moss Removal banner 4',
+    image: MOSS_REMOVAL_BANNER_4_IMG,
+  },
+  {
+    id: 5,
+    alt: 'Moss Removal banner 5',
+    image: MOSS_REMOVAL_BANNER_5_IMG,
+  },
+  {
+    id: 6,
+    alt: 'Moss Removal banner 6',
+    image: MOSS_REMOVAL_BANNER_6_IMG,
+  },
+];
+
+export const PAINTING_GALLERY = [
+  {
+    id: 1,
+    alt: 'Painting banner 1',
+    image: PAINTING_BANNER_1_IMG,
+  },
+  {
+    id: 2,
+    alt: 'Painting banner 2',
+    image: PAINTING_BANNER_2_IMG,
+  },
+  {
+    id: 3,
+    alt: 'Painting banner 3',
+    image: PAINTING_BANNER_3_IMG,
   },
 ];

@@ -4,24 +4,27 @@ import Image from '@/components/common/image';
 import ContentTitle from '@/components/common/content-title';
 import List from '@/components/common/list';
 import CTAButtonLink from '@/components/common/cta-button-link';
+import insuredLicensedImg from '@/assets/images/logos/insured-licensed.jpg';
+import WHY_PEOPLE_CHOOSE_US from '@/assets/json/why-people-choose-us.json';
+import ROUTES from '@/config/routes';
 
 interface WhyChooseUsProps {
-  imageSrc: string;
+  imageSrc?: string;
   imageAlt?: string;
   title?: string;
-  items: string[];
+  items?: string[];
   ctaText?: string;
-  ctaLink: string;
+  ctaLink?: string;
   className?: string;
 }
 
 const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
-  imageSrc,
+  imageSrc = insuredLicensedImg,
   imageAlt = 'image',
   title = 'Why people choose us?',
-  items,
+  items = WHY_PEOPLE_CHOOSE_US,
   ctaText = 'Get a Quote',
-  ctaLink,
+  ctaLink = ROUTES.CONTACT_US.path,
   className,
 }) => {
   return (
@@ -46,7 +49,9 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({
             'lg:items-start'
           )}
         >
-          <ContentTitle className={clsx('text-center', 'lg:text-left')}>
+          <ContentTitle
+            className={clsx('text-center text-3xl', 'lg:text-4xl lg:text-left')}
+          >
             {title}
           </ContentTitle>
 

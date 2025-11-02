@@ -1,7 +1,5 @@
 import React from 'react';
-import Wrapper from '@/components/layout/wrapper';
 import Banner from '@/components/ui/app/banner';
-import Container from '@/components/layout/container';
 import clsx from 'clsx';
 import ContentTitle from '@/components/common/content-title';
 import Text from '@/components/common/text';
@@ -12,6 +10,14 @@ import WhyChooseUs from '@/components/ui/app/why-choose-us';
 import WHY_PEOPLE_CHOOSE_US from '@/assets/json/why-people-choose-us.json';
 import ROUTES from '@/config/routes';
 import VideoPlayer from '@/components/common/video-player';
+import PageContainer from '@/components/layout/page-container';
+import { PAINTING_GALLERY } from '@/config/constants';
+import {
+  PAINTING_VIDEO_1_IMG,
+  PAINTING_VIDEO_1_MOV,
+  PAINTING_VIDEO_2_IMG,
+  PAINTING_VIDEO_2_MOV,
+} from '@/assets';
 
 interface PaintingPageProps {}
 
@@ -19,124 +25,118 @@ const PaintingPage: React.FC<PaintingPageProps> = () => {
   return (
     <React.Fragment>
       <Banner title="Painting" />
-      <Wrapper className={clsx('pt-25 pb-35')}>
-        <Container>
-          <main>
-            <Gallery />
-            <div className={clsx('grid grid-cols-12 relative gap-10 mt-15')}>
-              <div className={clsx('col-span-6')}>
-                <ContentTitle className={clsx('text-4xl font-bold')}>
-                  Painting
-                </ContentTitle>
-                <Text>
-                  We provide professional service that handles the{' '}
-                  <Strong>application of paint or coatings</Strong> to
-                  surfaces—mainly walls, ceilings, trim, and exteriors of
-                  buildings. These services can be for{' '}
-                  <Strong>
-                    homes (residential) or businesses (commercial)
-                  </Strong>
-                  , and sometimes even <Strong>industrial projects</Strong>.
-                </Text>
+      <PageContainer>
+        <Gallery gallery={PAINTING_GALLERY} />
+        <div className={clsx('grid grid-cols-12 relative gap-10 mt-15')}>
+          <div className={clsx('col-span-12', 'lg:col-span-6')}>
+            <ContentTitle className={clsx('text-center', 'lg:text-left')}>
+              Painting
+            </ContentTitle>
 
-                <ul
-                  role="list"
-                  className={clsx(
-                    'list-disc pl-5 text-base w-full mt-5',
-                    'text-fog-steel'
-                  )}
-                >
-                  <li>
-                    <Strong>Interior painting</Strong> (walls, ceilings, trim,
-                    doors)
-                  </li>
-                  <li>
-                    <Strong>Exterior painting</Strong> (siding, stucco, brick,
-                    windows, fences)
-                  </li>
-                  <li>
-                    <Strong>Surface prep</Strong> (patching holes, sanding,
-                    priming)
-                  </li>
-                  <li>
-                    <Strong>Drywall repair</Strong> and caulking
-                  </li>
-                  <li>
-                    <Strong>Wallpaper removal</Strong>
-                  </li>
-                  <li>
-                    <Strong>Staining</Strong> (for decks, wood trim, fences)
-                  </li>
-                  <li>
-                    <Strong>Color consultations</Strong>
-                  </li>
-                  <li>
-                    <Strong>Protective coatings</Strong> (for durability and
-                    weatherproofing)
-                  </li>
-                </ul>
+            <Text>
+              We provide professional service that handles the{' '}
+              <Strong>application of paint or coatings</Strong> to
+              surfaces—mainly walls, ceilings, trim, and exteriors of buildings.
+              These services can be for{' '}
+              <Strong>homes (residential) or businesses (commercial)</Strong>,
+              and sometimes even <Strong>industrial projects</Strong>.
+            </Text>
 
-                <ContentTitle
-                  className={clsx('text-2xl font-semibold mt-5', 'text-black')}
-                >
-                  Advantages of hiring us
-                </ContentTitle>
+            <ul
+              role="list"
+              className={clsx(
+                'list-disc pl-5 text-base w-full mt-5',
+                'text-fog-steel'
+              )}
+            >
+              <li>
+                <Strong>Interior painting</Strong> (walls, ceilings, trim,
+                doors)
+              </li>
+              <li>
+                <Strong>Exterior painting</Strong> (siding, stucco, brick,
+                windows, fences)
+              </li>
+              <li>
+                <Strong>Surface prep</Strong> (patching holes, sanding, priming)
+              </li>
+              <li>
+                <Strong>Drywall repair</Strong> and caulking
+              </li>
+              <li>
+                <Strong>Wallpaper removal</Strong>
+              </li>
+              <li>
+                <Strong>Staining</Strong> (for decks, wood trim, fences)
+              </li>
+              <li>
+                <Strong>Color consultations</Strong>
+              </li>
+              <li>
+                <Strong>Protective coatings</Strong> (for durability and
+                weatherproofing)
+              </li>
+            </ul>
 
-                <ul
-                  role="list"
-                  className={clsx(
-                    'list-disc pl-5 text-base w-full',
-                    'text-fog-steel'
-                  )}
-                >
-                  <li>
-                    <Strong>Better finish</Strong> (no streaks, drips, or patchy
-                    areas)
-                  </li>
-                  <li>
-                    <Strong>Saves time and hassle</Strong>
-                  </li>
-                  <li>
-                    <Strong>Handles hard-to-reach areas</Strong> like high
-                    ceilings or exteriors
-                  </li>
-                  <li>
-                    <Strong>Preps and protects your space</Strong> (furniture,
-                    floors, etc.)
-                  </li>
-                  <li>
-                    Often comes with a{' '}
-                    <Strong>warranty or satisfaction guarantee</Strong>
-                  </li>
-                </ul>
-              </div>
-              <div className={clsx('col-span-6')}>
-                <VideoPlayer
-                  videoClassName={clsx('min-h-120')}
-                  className={clsx('min-h-120 mt-0')}
-                  src="https://www.w3schools.com/html/mov_bbb.mp4"
-                  poster="https://via.placeholder.com/600x400.png?text=Video+Placeholder"
-                />
-                <VideoPlayer
-                  className={clsx('min-h-120')}
-                  videoClassName={clsx('min-h-120')}
-                  src="https://www.w3schools.com/html/mov_bbb.mp4"
-                  poster="https://via.placeholder.com/600x400.png?text=Video+Placeholder"
-                />
-              </div>
-            </div>
+            <h4
+              className={clsx(
+                'mt-5 text-2xl font-bold text-center',
+                'lg:text-left',
+                'text-black'
+              )}
+            >
+              Advantages of hiring us
+            </h4>
 
-            <WhyChooseUs
-              imageSrc={insuredLicensedImg}
-              imageAlt="Insured and Licensed"
-              title="Why people choose us?"
-              items={WHY_PEOPLE_CHOOSE_US}
-              ctaText="Get a Quote"
-              ctaLink={ROUTES.CONTACT_US.path}
+            <ul
+              role="list"
+              className={clsx(
+                'list-disc pl-5 text-base w-full',
+                'text-fog-steel'
+              )}
+            >
+              <li>
+                <Strong>Better finish</Strong> (no streaks, drips, or patchy
+                areas)
+              </li>
+              <li>
+                <Strong>Saves time and hassle</Strong>
+              </li>
+              <li>
+                <Strong>Handles hard-to-reach areas</Strong> like high ceilings
+                or exteriors
+              </li>
+              <li>
+                <Strong>Preps and protects your space</Strong> (furniture,
+                floors, etc.)
+              </li>
+              <li>
+                Often comes with a{' '}
+                <Strong>warranty or satisfaction guarantee</Strong>
+              </li>
+            </ul>
+          </div>
+          <div className={clsx('col-span-12', 'lg:col-span-6')}>
+            <VideoPlayer
+              src={PAINTING_VIDEO_1_MOV}
+              poster={PAINTING_VIDEO_1_IMG}
             />
-          </main>
-        </Container>
-      </Wrapper>
+            <VideoPlayer
+              src={PAINTING_VIDEO_2_MOV}
+              poster={PAINTING_VIDEO_2_IMG}
+            />
+          </div>
+        </div>
+
+        <WhyChooseUs
+          imageSrc={insuredLicensedImg}
+          imageAlt="Insured and Licensed"
+          title="Why people choose us?"
+          items={WHY_PEOPLE_CHOOSE_US}
+          ctaText="Get a Quote"
+          ctaLink={ROUTES.CONTACT_US.path}
+        />
+      </PageContainer>
     </React.Fragment>
   );
 };

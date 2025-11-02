@@ -3,12 +3,13 @@ import clsx from 'clsx';
 import Wrapper from '@/components/layout/wrapper';
 import Container from '@/components/layout/container';
 import { CompanyLogoLink } from '@/components/layout/Header/components/company-logo-link';
-import NavigationLinks, {
-  type RouteItem,
-} from '@/components/layout/Header/components/navigation-links';
 import CTAButtonLink from '@/components/common/cta-button-link';
 import MobileMenuButton from '@/components/layout/Header/components/mobile-menu-button';
 import ROUTES from '@/config/routes';
+import HeaderNavigation, {
+  type RouteItem,
+} from '@/components/layout/Header/components/header-navigation';
+import type { ServiceRoute } from '@/components/layout/Header/components/header-menu-trigger';
 
 interface PrimaryHeaderBarProps {
   className?: string;
@@ -18,6 +19,7 @@ interface PrimaryHeaderBarProps {
   buttonText: string;
   routes: RouteItem[];
   onOpen: () => void;
+  serviceRoutes: ServiceRoute[];
 }
 
 const PrimaryHeaderBar: React.FC<PrimaryHeaderBarProps> = ({
@@ -28,13 +30,14 @@ const PrimaryHeaderBar: React.FC<PrimaryHeaderBarProps> = ({
   buttonText,
   routes,
   onOpen,
+  serviceRoutes,
 }) => {
   return (
-    <Wrapper className={clsx('overflow-hidden', className)}>
+    <Wrapper className={clsx('', className)}>
       <Container className={clsx('flex items-center min-h-24 justify-between')}>
         <CompanyLogoLink to={ROUTES.HOME.path} src={logoSrc} alt={logoAlt} />
 
-        <NavigationLinks routes={routes} />
+        <HeaderNavigation serviceRoutes={serviceRoutes} routes={routes} />
 
         <CTAButtonLink
           buttonLink={buttonLink}

@@ -90,7 +90,6 @@ function NavigationMenuTrigger({
   );
 }
 
-
 function NavigationMenuContent({
   className,
   ...props

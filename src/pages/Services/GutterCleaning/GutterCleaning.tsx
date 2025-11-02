@@ -8,72 +8,23 @@ import Text from '@/components/common/text';
 import Strong from '@/components/common/strong';
 import Image from '@/components/common/image';
 import gutterCleaningImg from '@/assets/images/background/gutter-cleaning.png';
-import List from '@/components/common/list';
-import insuredLicensedImg from '@/assets/images/logos/insured-licensed.jpg';
 import WhyChooseUs from '@/components/ui/app/why-choose-us';
-import WHY_PEOPLE_CHOOSE_US from '@/assets/json/why-people-choose-us.json';
-import ROUTES from '@/config/routes';
 import Gallery from '@/components/ui/app/gallery';
-import DRAINAGE_1_IMAGE from '@/assets/images/banner/drainage/drainage-1.png';
-import DRAINAGE_2_IMAGE from '@/assets/images/banner/drainage/drainage-2.png';
-
-const WHY_IT_MATTERS_CLEANING_PROCESS_ITEMS = [
-  {
-    label: 'Prevents water damage',
-    description: 'to your home’s roof, walls, and foundation.',
-  },
-  {
-    label: 'Reduces risk of mold, pests, and wood rot.',
-    description: '',
-  },
-];
-
-const GUTTER_CLEANING_PROCESS_ITEMS = [
-  {
-    label: 'Removing debris',
-    description: 'from gutters and down spouts.',
-  },
-  {
-    label: 'Flushing the system',
-    description: 'with water to check for clogs or proper flow.',
-  },
-  {
-    label: 'Checking for leaks, sagging, or damage',
-    description: 'to gutters or brackets.',
-  },
-  {
-    label: 'Disposing',
-    description: 'of the debris properly.',
-  },
-];
-
-const GUTTER_CLEANING_ADVANTAGES = [
-  'Safety First',
-  'Proper Tools & Techniques',
-  'Thorough Inspection',
-  'Time & Convenience',
-  'Preventative Maintenance',
-  'Peace of Mind',
-];
+import { GUTTER_CLEANING_GALLERY } from '@/config/constants';
 
 interface GutterCleaningPageProps {}
 
 const GutterCleaningPage: React.FC<GutterCleaningPageProps> = () => {
   return (
     <React.Fragment>
-      <Banner title="Drainage" />
+      <Banner title="Gutter Cleaning" />
       <Wrapper className={clsx('pt-25 pb-35')}>
         <Container>
           <main>
-            <Gallery
-              gallery={[
-                { id: 1, alt: 'image alt', image: DRAINAGE_1_IMAGE },
-                { id: 2, alt: 'image alt', image: DRAINAGE_2_IMAGE },
-              ]}
-            />
+            <Gallery gallery={GUTTER_CLEANING_GALLERY} />
             <div className={clsx('relative grid grid-cols-12 gap-10 mt-15')}>
-              <div className={clsx('col-span-6')}>
-                <ContentTitle className={clsx('text-4xl font-bold')}>
+              <div className={clsx('col-span-12', 'lg:col-span-6')}>
+                <ContentTitle className={clsx('text-center', 'lg:text-left')}>
                   Gutter Cleaning
                 </ContentTitle>
                 <Text>
@@ -85,34 +36,84 @@ const GutterCleaningPage: React.FC<GutterCleaningPageProps> = () => {
                   preventing water damage.
                 </Text>
 
-                <ContentTitle className={clsx('text-2xl font-semibold mt-5')}>
+                <ContentTitle
+                  className={clsx('text-2xl mt-5 text-center', 'lg:text-left')}
+                >
                   Our process includes:
                 </ContentTitle>
 
-                <List
-                  items={GUTTER_CLEANING_PROCESS_ITEMS}
-                  className={clsx('columns-1')}
-                />
+                <ul
+                  role="list"
+                  className={clsx(
+                    'mt-5 list-disc pl-5 text-base',
+                    '*:[&>strong]:font-bold',
+                    '*:[&>span]:text-fog-steel'
+                  )}
+                >
+                  <li>
+                    <Strong>Removing debris</Strong>
+                    <span> from gutters and down spouts.</span>
+                  </li>
+                  <li>
+                    <Strong>Flushing the system</Strong>
+                    <span> with water to check for clogs or proper flow.</span>
+                  </li>
+                  <li>
+                    <Strong>Checking for leaks, sagging, or damage</Strong>
+                    <span> to gutters or brackets.</span>
+                  </li>
+                  <li>
+                    <Strong>Disposing</Strong>
+                    <span> of the debris properly.</span>
+                  </li>
+                </ul>
 
-                <ContentTitle className={clsx('text-2xl font-semibold mt-5')}>
+                <ContentTitle
+                  className={clsx('text-2xl mt-5 text-center', 'lg:text-left')}
+                >
                   Why it matters:
                 </ContentTitle>
 
-                <List
-                  items={WHY_IT_MATTERS_CLEANING_PROCESS_ITEMS}
-                  className={clsx('columns-1')}
-                />
+                <ul
+                  role="list"
+                  className={clsx(
+                    'mt-5 list-disc pl-5 text-base',
+                    '*:[&>strong]:font-bold',
+                    '*:[&>span]:text-fog-steel'
+                  )}
+                >
+                  <li>
+                    <Strong>Prevents water damage</Strong>
+                    <span> to your home’s roof, walls, and foundation.</span>
+                  </li>
+                  <li>
+                    <Strong>Reduces risk of mold, pests, and wood rot</Strong>
+                    <span>.</span>
+                  </li>
+                </ul>
 
-                <ContentTitle className={clsx('text-2xl font-semibold mt-5')}>
+                <ContentTitle
+                  className={clsx('text-2xl mt-5 text-center', 'lg:text-left')}
+                >
                   Advantages of hiring us
                 </ContentTitle>
 
-                <List
-                  items={GUTTER_CLEANING_ADVANTAGES}
-                  className={clsx('columns-1')}
-                />
+                <ul
+                  role="list"
+                  className={clsx(
+                    'mt-5 list-disc pl-5 text-base',
+                    '*:text-fog-steel'
+                  )}
+                >
+                  <li>Safety First</li>
+                  <li>Proper Tools &amp; Techniques</li>
+                  <li>Thorough Inspection</li>
+                  <li>Time &amp; Convenience</li>
+                  <li>Preventative Maintenance</li>
+                  <li>Peace of Mind</li>
+                </ul>
               </div>
-              <div className={clsx('col-span-6')}>
+              <div className={clsx('col-span-12', 'lg:col-span-6')}>
                 <Image
                   src={gutterCleaningImg}
                   alt="Professional gutter cleaning service with ladder and tools"
@@ -120,14 +121,7 @@ const GutterCleaningPage: React.FC<GutterCleaningPageProps> = () => {
               </div>
             </div>
 
-            <WhyChooseUs
-              imageSrc={insuredLicensedImg}
-              imageAlt="Insured and Licensed"
-              title="Why people choose us?"
-              items={WHY_PEOPLE_CHOOSE_US}
-              ctaText="Get a Quote"
-              ctaLink={ROUTES.CONTACT_US.path}
-            />
+            <WhyChooseUs />
           </main>
         </Container>
       </Wrapper>
