@@ -20,7 +20,7 @@ const CarpentryPage: React.FC<CarpentryPageProps> = () => {
       <PageContainer>
         <Gallery gallery={CARPENTRY_GALLERY} />
 
-        <div className={clsx('relative grid grid-cols-12 gap-5 mt-15')}>
+        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle>Carpentry</ContentTitle>
 

@@ -78,7 +78,9 @@ const DrainagePage: React.FC<DrainagePageProps> = () => {
             className={clsx('mt-15')}
           />
 
-          <div className={clsx('grid grid-cols-12 mt-15 relative gap-5')}>
+          <div
+            className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}
+          >
             <div className={clsx('col-span-12', 'lg:col-span-6')}>
               <VideoPlayer
                 src={DRAINAGE_2_VIDEO}

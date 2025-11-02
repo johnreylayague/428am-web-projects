@@ -22,7 +22,9 @@ const GutterCleaningPage: React.FC<GutterCleaningPageProps> = () => {
         <Container>
           <main>
             <Gallery gallery={GUTTER_CLEANING_GALLERY} />
-            <div className={clsx('relative grid grid-cols-12 gap-10 mt-15')}>
+            <div
+              className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}
+            >
               <div className={clsx('col-span-12', 'lg:col-span-6')}>
                 <ContentTitle className={clsx('text-center', 'lg:text-left')}>
                   Gutter Cleaning

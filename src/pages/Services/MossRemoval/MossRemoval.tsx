@@ -22,7 +22,7 @@ const MossRemovalPage: React.FC<MossRemovalPageProps> = () => {
       <Banner title="Moss Removal" />
       <PageContainer>
         <Gallery gallery={MOSS_REMOVAL_GALLERY} />
-        <div className={clsx('grid grid-cols-12 relative gap-10 mt-15')}>
+        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Moss Removal

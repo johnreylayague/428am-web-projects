@@ -19,7 +19,7 @@ const WindowCleaningPage: React.FC<WindowCleaningPageProps> = () => {
       <Banner title="Window Cleaning" />
       <PageContainer>
         <Gallery gallery={WINDOW_CLEANING_GALLERY} />
-        <div className={clsx('relative grid grid-cols-12 gap-10 mt-15')}>
+        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Window Cleaning

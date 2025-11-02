@@ -19,7 +19,7 @@ const PressureWashingPage: React.FC<PressureWashingPageProps> = () => {
       <Banner title="Pressure Washing" />
       <PageContainer>
         <Gallery gallery={PRESSURE_WASHING_GALLERY} />
-        <div className={clsx('grid grid-cols-12 relative gap-10 mt-15')}>
+        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Pressure Washing
