@@ -45,12 +45,18 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = ({
   onClose,
   onOpenChange,
 }) => {
+  const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
+    clsx(isActive ? 'text-theme-navy font-bold' : 'text-white');
+
   return (
     <React.Fragment>
       <Sheet open={isOpen} onOpenChange={onOpenChange}>
         <SheetContent
           hideClose
-          className={clsx('p-4', 'bg-theme-orange border-theme-orange')}
+          className={clsx(
+            'p-4 overflow-y-auto',
+            'bg-theme-orange border-theme-orange'
+          )}
         >
           <SheetTitle hidden />
           <SheetDescription hidden />
@@ -69,7 +75,11 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = ({
             )}
           >
             <li>
-              <NavLink to={ROUTES.HOME.path} onClick={onClose}>
+              <NavLink
+                to={ROUTES.HOME.path}
+                onClick={onClose}
+                className={navLinkClassName}
+              >
                 {ROUTES.HOME.name}
               </NavLink>
             </li>
@@ -102,7 +112,9 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = ({
                             className={({ isActive }) =>
                               clsx(
                                 'capitalize text-base',
-                                isActive ? 'text-theme-dark-navy' : 'text-white'
+                                isActive
+                                  ? 'text-theme-dark-navy font-bold'
+                                  : 'text-white'
                               )
                             }
                           >
@@ -120,17 +132,29 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = ({
               </Accordion>
             </li>
             <li>
-              <NavLink to={ROUTES.ABOUT_US.path} onClick={onClose}>
+              <NavLink
+                to={ROUTES.ABOUT_US.path}
+                onClick={onClose}
+                className={navLinkClassName}
+              >
                 About Us
               </NavLink>
             </li>
             <li>
-              <NavLink to={ROUTES.CONTACT_US.path} onClick={onClose}>
+              <NavLink
+                to={ROUTES.CONTACT_US.path}
+                onClick={onClose}
+                className={navLinkClassName}
+              >
                 Contact Us
               </NavLink>
             </li>
             <li>
-              <NavLink to={ROUTES.INSTAGRAM.path} onClick={onClose}>
+              <NavLink
+                to={ROUTES.INSTAGRAM.path}
+                onClick={onClose}
+                className={navLinkClassName}
+              >
                 Instagram
               </NavLink>
             </li>

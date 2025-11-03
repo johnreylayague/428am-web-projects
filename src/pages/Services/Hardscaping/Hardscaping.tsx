@@ -9,17 +9,30 @@ import React from 'react';
 import WhyChooseUs from '@/components/ui/app/why-choose-us';
 import { HARDSCAPING_GALLERY } from '@/config/constants';
 import { OUTDOOR_TILES_BACKGROUND_IMG } from '@/assets';
+import MetaTags from '@/components/seo/meta-tags';
+import GridSection from '@/components/layout/grid-section';
 
 interface HardscapingPageProps {}
 
 const HardscapingPage: React.FC<HardscapingPageProps> = () => {
   return (
     <React.Fragment>
+      <MetaTags
+        title="Hardscaping - Leader Property Maintenance - Drainage Service"
+        description="Hardscaping Hardscaping refers to the non-living, solid elements of a landscape, such as patios, walkways, driveways, retaining walls, and other constructed features. It's the opposite of softscaping, which focuses on the living elements like plants. Hardscaping provides structure and permanence to a yard, delineating spaces and creating pathways.Hardscaping in landscaping is the integration of non-living elements in"
+        keywords="hardscaping, landscape, patios, walkways, driveways, retaining walls, property maintenance, Vancouver, drainage service"
+        canonical="https://www.lpmaintenance.ca/hardscaping/"
+        ogTitle="Hardscaping - Leader Property Maintenance - Drainage Service"
+        ogDescription="Hardscaping Hardscaping refers to the non-living, solid elements of a landscape, such as patios, walkways, driveways, retaining walls, and other constructed features. It's the opposite of softscaping, which focuses on the living elements like plants. Hardscaping provides structure and permanence to a yard, delineating spaces and creating pathways.Hardscaping in landscaping is the integration of non-living elements in"
+        ogType="article"
+        ogUrl="https://www.lpmaintenance.ca/hardscaping/"
+      />
       <Banner title="Hardscaping" />
       <PageContainer>
         <Gallery gallery={HARDSCAPING_GALLERY} />
-        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
-          <div className={clsx('col-span-12', 'lg:col-span-6')}>
+
+        <GridSection>
+          <div className={clsx('col-span-12 ', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Hardscraping
             </ContentTitle>
@@ -67,8 +80,7 @@ const HardscapingPage: React.FC<HardscapingPageProps> = () => {
               alt="Outdoor tiles hardscaping"
             />
           </div>
-        </div>
-
+        </GridSection>
         <WhyChooseUs />
       </PageContainer>
     </React.Fragment>

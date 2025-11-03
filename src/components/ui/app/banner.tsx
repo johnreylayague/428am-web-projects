@@ -13,8 +13,8 @@ const Banner: React.FC<BannerProps> = ({ src, alt, title }) => {
   return (
     <Wrapper
       className={clsx(
-        'relative py-28 overflow-hidden',
-
+        'relative py-18 overflow-hidden',
+        'md:py-25 lg:py-28',
         !hasImage && 'bg-fog-blue'
       )}
     >
@@ -34,7 +34,13 @@ const Banner: React.FC<BannerProps> = ({ src, alt, title }) => {
       )}
 
       <Container>
-        <h2 className={clsx('text-center text-6xl font-bold', 'text-white')}>
+        <h2
+          className={clsx(
+            'text-center text-5xl font-bold break-all',
+            'lg:text-6xl',
+            'text-white'
+          )}
+        >
           {title}
         </h2>
       </Container>

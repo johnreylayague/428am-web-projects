@@ -4,14 +4,24 @@ import ContactSection from '@/pages/ContactUs/components/contact-section';
 import GoogleMapEmbed from '@/pages/ContactUs/components/google-map-embed';
 import Banner from '@/components/ui/app/banner';
 import COMPANY_LOGO_IMG from '@/assets/images/background/contact-us-estimate.png';
-
 import React from 'react';
+import MetaTags from '@/components/seo/meta-tags';
 
 interface ContactUsPageProps {}
 
 const ContactUsPage: React.FC<ContactUsPageProps> = () => {
   return (
     <React.Fragment>
+      <MetaTags
+        title="Contact Us - Leader Property Maintenance - Drainage Service"
+        description="Email Address info@lpmaintenance.ca Phone Number 6043372045 Office Address Vancouver, BC Full Name Email Address Phone Number Subject Enter Message Services Time to reach out Contact us Facebook Twitter Youtube"
+        canonical="https://www.lpmaintenance.ca/contact-us/"
+        ogType="article"
+        ogTitle="Contact Us - Leader Property Maintenance - Drainage Service"
+        ogDescription="Email Address info@lpmaintenance.ca Phone Number 6043372045 Office Address Vancouver, BC Full Name Email Address Phone Number Subject Enter Message Services Time to reach out Contact us Facebook Twitter Youtube"
+        ogUrl="https://www.lpmaintenance.ca/contact-us/"
+      />
+
       <Banner title="Contact Us" />
 
       <ContactSection

@@ -1,4 +1,5 @@
 import React from 'react';
+import MetaTags from '@/components/seo/meta-tags';
 import Banner from '@/components/ui/app/banner';
 import clsx from 'clsx';
 import ContentTitle from '@/components/common/content-title';
@@ -18,16 +19,27 @@ import {
   PAINTING_VIDEO_2_IMG,
   PAINTING_VIDEO_2_MOV,
 } from '@/assets';
+import GridSection from '@/components/layout/grid-section';
 
 interface PaintingPageProps {}
 
 const PaintingPage: React.FC<PaintingPageProps> = () => {
   return (
     <React.Fragment>
+      <MetaTags
+        title="Painting - Leader Property Maintenance - Drainage Service"
+        description="Painting We provide professional service that handles the application of paint or coatings to surfaces—mainly walls, ceilings, trim, and exteriors of buildings. These services can be for homes (residential) or businesses (commercial), and sometimes even industrial projects.Interior painting (walls, ceilings, trim, doors)Exterior painting (siding, stucco, brick, windows, fences)Surface prep (patching holes, sanding, priming)Drywall repair and caulkingWallpaper removalStaining"
+        canonical="https://www.lpmaintenance.ca/painting/"
+        ogTitle="Painting - Leader Property Maintenance - Drainage Service"
+        ogDescription="Painting We provide professional service that handles the application of paint or coatings to surfaces—mainly walls, ceilings, trim, and exteriors of buildings. These services can be for homes (residential) or businesses (commercial), and sometimes even industrial projects.Interior painting (walls, ceilings, trim, doors)Exterior painting (siding, stucco, brick, windows, fences)Surface prep (patching holes, sanding, priming)Drywall repair and caulkingWallpaper removalStaining"
+        ogType="article"
+        ogUrl="https://www.lpmaintenance.ca/painting/"
+        ogImage="https://www.lpmaintenance.ca/wp-content/uploads/2019/11/cropped-LogoWebNew-1.png"
+      />
       <Banner title="Painting" />
       <PageContainer>
         <Gallery gallery={PAINTING_GALLERY} />
-        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
+        <GridSection>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Painting
@@ -126,7 +138,7 @@ const PaintingPage: React.FC<PaintingPageProps> = () => {
               poster={PAINTING_VIDEO_2_IMG}
             />
           </div>
-        </div>
+        </GridSection>
 
         <WhyChooseUs
           imageSrc={insuredLicensedImg}

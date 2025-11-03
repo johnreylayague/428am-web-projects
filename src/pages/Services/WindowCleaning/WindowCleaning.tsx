@@ -1,3 +1,4 @@
+import MetaTags from '@/components/seo/meta-tags';
 import PageContainer from '@/components/layout/page-container';
 import Banner from '@/components/ui/app/banner';
 import Gallery from '@/components/ui/app/gallery';
@@ -10,16 +11,26 @@ import Strong from '@/components/common/strong';
 import Image from '@/components/common/image';
 import windowCleaningImg from '@/assets/images/background/window-cleaning.png';
 import { WINDOW_CLEANING_GALLERY } from '@/config/constants';
+import GridSection from '@/components/layout/grid-section';
 
 interface WindowCleaningPageProps {}
 
 const WindowCleaningPage: React.FC<WindowCleaningPageProps> = () => {
   return (
     <React.Fragment>
+      <MetaTags
+        title="Window Cleaning - Leader Property Maintenance - Drainage Service"
+        description="Window Cleaning We specialize in cleaning the interior and/or exterior surfaces of windows in homes, offices, or commercial buildings. The goal is to remove dirt, dust, water spots, smudges, and other debris to leave the glass looking clear and streak-free.What’s Included in Window Cleaning? Basic Services:Exterior window cleaning (using ladders or water-fed poles)Interior window cleaningScreen cleaningSill and"
+        canonical="https://www.lpmaintenance.ca/windowcleaning/"
+        ogTitle="Window Cleaning - Leader Property Maintenance - Drainage Service"
+        ogDescription="Window Cleaning We specialize in cleaning the interior and/or exterior surfaces of windows in homes, offices, or commercial buildings. The goal is to remove dirt, dust, water spots, smudges, and other debris to leave the glass looking clear and streak-free.What’s Included in Window Cleaning? Basic Services:Exterior window cleaning (using ladders or water-fed poles)Interior window cleaningScreen cleaningSill and"
+        ogType="article"
+        ogUrl="https://www.lpmaintenance.ca/windowcleaning/"
+      />
       <Banner title="Window Cleaning" />
       <PageContainer>
         <Gallery gallery={WINDOW_CLEANING_GALLERY} />
-        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
+        <GridSection>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Window Cleaning
@@ -59,24 +70,24 @@ const WindowCleaningPage: React.FC<WindowCleaningPageProps> = () => {
               className={clsx(
                 'list-disc pl-5 text-base',
                 '*:[&>p]:inline',
-                '*:[&>span]:text-fog-steel'
+                'text-fog-steel'
               )}
             >
               <li>
-                <strong>Exterior window cleaning</strong>
+                <Strong>Exterior window cleaning</Strong>
                 <span> (using ladders or water-fed poles)</span>
               </li>
               <li>
-                <strong>Interior window cleaning</strong>
+                <Strong>Interior window cleaning</Strong>
               </li>
               <li>
-                <strong>Screen cleaning</strong>
+                <Strong>Screen cleaning</Strong>
               </li>
               <li>
-                <strong>Sill and frame wiping</strong>
+                <Strong>Sill and frame wiping</Strong>
               </li>
               <li>
-                <strong>Removal of cobwebs or bugs from window areas</strong>
+                <Strong>Removal of cobwebs or bugs from window areas</Strong>
               </li>
             </ul>
 
@@ -99,24 +110,24 @@ const WindowCleaningPage: React.FC<WindowCleaningPageProps> = () => {
               )}
             >
               <li>
-                <strong>Hard water stain removal</strong>
+                <Strong>Hard water stain removal</Strong>
               </li>
               <li>
-                <strong>Paint or construction debris removal</strong>{' '}
+                <Strong>Paint or construction debris removal</Strong>{' '}
                 <span>(often after renovations)</span>
               </li>
               <li>
-                <strong>Skylight or high window cleaning</strong>
+                <Strong>Skylight or high window cleaning</Strong>
               </li>
               <li>
-                <strong>Glass restoration or polishing</strong>
+                <Strong>Glass restoration or polishing</Strong>
               </li>
             </ul>
           </div>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <Image src={windowCleaningImg} alt="Window Cleaning Service" />
           </div>
-        </div>
+        </GridSection>
         <WhyChooseUs />
       </PageContainer>
     </React.Fragment>

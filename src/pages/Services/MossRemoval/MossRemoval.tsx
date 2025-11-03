@@ -1,4 +1,5 @@
 import React from 'react';
+import MetaTags from '@/components/seo/meta-tags';
 import insuredLicensedImg from '@/assets/images/logos/insured-licensed.jpg';
 import WhyChooseUs from '@/components/ui/app/why-choose-us';
 import WHY_PEOPLE_CHOOSE_US from '@/assets/json/why-people-choose-us.json';
@@ -13,16 +14,26 @@ import Strong from '@/components/common/strong';
 import Gallery from '@/components/ui/app/gallery';
 import PageContainer from '@/components/layout/page-container';
 import { MOSS_REMOVAL_GALLERY } from '@/config/constants';
+import GridSection from '@/components/layout/grid-section';
 
 interface MossRemovalPageProps {}
 
 const MossRemovalPage: React.FC<MossRemovalPageProps> = () => {
   return (
     <React.Fragment>
+      <MetaTags
+        title="Moss Removal - Leader Property Maintenance - Drainage Service"
+        description="Moss Removal We provide amazing window cleaning services for any home or building 4 stories or under. Our method to clean windows is by using a high quality, carbon fiber water-fed pole. This pole can reach heights of up to 40 feet and leaves a streak free mirror finish. We not only clean the glass on"
+        canonical="https://www.lpmaintenance.ca/mossremoval/"
+        ogTitle="Moss Removal - Leader Property Maintenance - Drainage Service"
+        ogDescription="Moss Removal We provide amazing window cleaning services for any home or building 4 stories or under. Our method to clean windows is by using a high quality, carbon fiber water-fed pole. This pole can reach heights of up to 40 feet and leaves a streak free mirror finish. We not only clean the glass on"
+        ogType="article"
+        ogUrl="https://www.lpmaintenance.ca/mossremoval/"
+      />
       <Banner title="Moss Removal" />
       <PageContainer>
         <Gallery gallery={MOSS_REMOVAL_GALLERY} />
-        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
+        <GridSection>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Moss Removal
@@ -60,7 +71,11 @@ const MossRemovalPage: React.FC<MossRemovalPageProps> = () => {
 
             <ul
               role="list"
-              className={clsx('list-disc pl-5 text-base', 'text-fog-steel')}
+              className={clsx(
+                'list-disc pl-5 text-base mt-3 mx-auto max-w-max',
+                'lg:mx-0 lg:max-w-full',
+                'text-fog-steel'
+              )}
             >
               <li>
                 <Strong>Safe roof access</Strong> without damaging shingles
@@ -83,7 +98,7 @@ const MossRemovalPage: React.FC<MossRemovalPageProps> = () => {
               alt="Professional moss removal service cleaning roof and exterior surfaces"
             />
           </div>
-        </div>
+        </GridSection>
         <WhyChooseUs
           imageSrc={insuredLicensedImg}
           imageAlt="Insured and Licensed"

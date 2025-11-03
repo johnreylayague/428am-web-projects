@@ -14,12 +14,25 @@ import {
   DRAINAGE_VIDEO_2_MOV,
   DRAINAGE_VIDEO_2_IMG,
 } from '@/assets';
+import MetaTags from '@/components/seo/meta-tags';
+import GridSection from '@/components/layout/grid-section';
 
 interface DrainagePageProps {}
 
 const DrainagePage: React.FC<DrainagePageProps> = () => {
   return (
     <React.Fragment>
+      <MetaTags
+        title="Drainage - Leader Property Maintenance - Drainage Service"
+        description="Drainage The number one way to maintain your drainage system is to regularly clean it and inspect it. This doesn’t necessarily need to be done every single year, but if you’ve never cleaned or inspected your system, we highly suggest booking one of our trained technicians that have years in the drainage field. The way we"
+        keywords="Drainage Vancouver, property maintenance, perimeter drain cleaning, hydro-flushing, drainage inspection, storm main line cleaning, drain tile replacement, drain repair, preventative maintenance, drainage camera inspection"
+        canonical="https://www.lpmaintenance.ca/drainage/"
+        ogTitle="Drainage - Leader Property Maintenance - Drainage Service"
+        ogDescription="Drainage The number one way to maintain your drainage system is to regularly clean it and inspect it. This doesn’t necessarily need to be done every single year, but if you’ve never cleaned or inspected your system, we highly suggest booking one of our trained technicians that have years in the drainage field. The way we"
+        ogType="article"
+        ogUrl="https://www.lpmaintenance.ca/drainage/"
+      />
+
       <Banner title="Drainage" />
       <PageContainer>
         <Gallery gallery={DRAINAGE_GALLERY} />
@@ -34,14 +47,14 @@ const DrainagePage: React.FC<DrainagePageProps> = () => {
           every single year, but if you’ve never cleaned or inspected your
           system, we highly suggest booking one of our trained technicians that
           have years in the drainage field. The way we clean a drainage system
-          Is by hydro-flushing the perimeter pipes, we use a high-pressure reel
+          is by hydro-flushing the perimeter pipes—we use a high-pressure reel
           that gets fed into the pipes and cleans the inside with water
           pressure. We then perform a final camera inspection to make sure we
           properly cleaned all the problem areas. Not only do we clean the pipes
           surrounding the perimeter of the house, we also clean the main line to
-          the city storm system, until the end of the property line, this is
+          the city storm system, until the end of the property line; this is
           still your responsibility to maintain. In worst cases, the full system
-          may need to be replaced, this is especially common in older houses
+          may need to be replaced—this is especially common in older houses
           where the drain tiles are made of either cement or clay and cannot be
           repaired.
         </Text>
@@ -71,12 +84,7 @@ const DrainagePage: React.FC<DrainagePageProps> = () => {
           className={clsx('mt-15')}
         />
 
-        <div
-          className={clsx(
-            'grid grid-cols-12 relative mt-15 gap-y-5',
-            ' lg:gap-x-10'
-          )}
-        >
+        <GridSection>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <VideoPlayer
               src={DRAINAGE_VIDEO_2_MOV}
@@ -86,7 +94,7 @@ const DrainagePage: React.FC<DrainagePageProps> = () => {
           </div>
           <div className={clsx('col-span-12', 'lg:col-start-8 lg:col-span-6')}>
             <ContentTitle className={clsx('mt-2 text-center', 'lg:text-left')}>
-              We offer :
+              We offer:
             </ContentTitle>
 
             <ul
@@ -97,13 +105,13 @@ const DrainagePage: React.FC<DrainagePageProps> = () => {
                 'text-fog-steel'
               )}
             >
-              <li>French drains and trench drains installation</li>
-              <li>Downspout extensions and gutter drainage</li>
-              <li>Foundation waterproofing and grading solutions</li>
-              <li>Sump pump installation and maintenance</li>
+              <li>Full Drainage Replacement</li>
+              <li>Excavation and Waterproofing</li>
+              <li>Sump and Catch Basin Installation</li>
+              <li>Drain Cleaning</li>
             </ul>
           </div>
-        </div>
+        </GridSection>
 
         <WhyChooseUs />
       </PageContainer>

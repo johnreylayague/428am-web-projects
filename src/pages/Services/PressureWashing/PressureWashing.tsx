@@ -1,7 +1,8 @@
+import React from 'react';
+import MetaTags from '@/components/seo/meta-tags';
 import PageContainer from '@/components/layout/page-container';
 import Gallery from '@/components/ui/app/gallery';
 import WhyChooseUs from '@/components/ui/app/why-choose-us';
-import React from 'react';
 import personCuttingImg from '@/assets/images/background/person-cutting.png';
 import clsx from 'clsx';
 import ContentTitle from '@/components/common/content-title';
@@ -10,16 +11,26 @@ import Strong from '@/components/common/strong';
 import Image from '@/components/common/image';
 import Banner from '@/components/ui/app/banner';
 import { PRESSURE_WASHING_GALLERY } from '@/config/constants';
+import GridSection from '@/components/layout/grid-section';
 
 interface PressureWashingPageProps {}
 
 const PressureWashingPage: React.FC<PressureWashingPageProps> = () => {
   return (
     <React.Fragment>
+      <MetaTags
+        title="Pressure Washing - Leader Property Maintenance - Drainage Service"
+        description="Pressure WashingPressure washing (also called power washing) is the process of using a high-pressure stream of water to clean surfaces like buildings, sidewalks, decks, driveways, fences, and vehicles. It’s a super effective way to remove:Dirt and mudMold and mildewAlgaePaint or graffitiOil stains and grimeAt Leader Property Maintenance, we do a professional cleaning service that uses"
+        canonical="https://www.lpmaintenance.ca/pressure-washing/"
+        ogTitle="Pressure Washing - Leader Property Maintenance - Drainage Service"
+        ogDescription="Pressure WashingPressure washing (also called power washing) is the process of using a high-pressure stream of water to clean surfaces like buildings, sidewalks, decks, driveways, fences, and vehicles. It’s a super effective way to remove:Dirt and mudMold and mildewAlgaePaint or graffitiOil stains and grimeAt Leader Property Maintenance, we do a professional cleaning service that uses"
+        ogType="article"
+        ogUrl="https://www.lpmaintenance.ca/pressure-washing/"
+      />
       <Banner title="Pressure Washing" />
       <PageContainer>
         <Gallery gallery={PRESSURE_WASHING_GALLERY} />
-        <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
+        <GridSection>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Pressure Washing
@@ -35,13 +46,26 @@ const PressureWashingPage: React.FC<PressureWashingPageProps> = () => {
 
             <ul
               role="list"
-              className={clsx('mt-5 list-disc pl-5 text-base font-bold')}
+              className={clsx(
+                'mt-5 list-disc pl-5 text-base font-bold',
+                'text-fog-steel'
+              )}
             >
-              <li>Dirt and mud</li>
-              <li>Mold and mildew</li>
-              <li>Algae</li>
-              <li>Paint or graffiti</li>
-              <li>Oil stains and grime</li>
+              <li>
+                <Strong>Dirt and mud</Strong>
+              </li>
+              <li>
+                <Strong>Mold and mildew</Strong>
+              </li>
+              <li>
+                <Strong>Algae</Strong>
+              </li>
+              <li>
+                <Strong>Paint or graffiti</Strong>
+              </li>
+              <li>
+                <Strong>Oil stains and grime</Strong>
+              </li>
             </ul>
 
             <Text>
@@ -54,15 +78,32 @@ const PressureWashingPage: React.FC<PressureWashingPageProps> = () => {
 
             <ul
               role="list"
-              className={clsx('mt-5 list-disc pl-5 text-base font-bold')}
+              className={clsx(
+                'mt-5 list-disc pl-5 text-base font-bold',
+                'text-fog-steel'
+              )}
             >
-              <li>Houses (siding, brick, stucco)</li>
-              <li>Driveways and sidewalks</li>
-              <li>Decks, patios, and fences</li>
-              <li>Roofs and gutters</li>
-              <li>Commercial buildings, parking lots</li>
-              <li>Graffiti removal</li>
-              <li>Fleet vehicles or heavy equipment</li>
+              <li>
+                <Strong>Houses (siding, brick, stucco)</Strong>
+              </li>
+              <li>
+                <Strong>Driveways and sidewalks</Strong>
+              </li>
+              <li>
+                <Strong>Decks, patios, and fences</Strong>
+              </li>
+              <li>
+                <Strong>Roofs and gutters</Strong>
+              </li>
+              <li>
+                <Strong>Commercial buildings, parking lots</Strong>
+              </li>
+              <li>
+                <Strong>Graffiti removal</Strong>
+              </li>
+              <li>
+                <Strong>Fleet vehicles or heavy equipment</Strong>
+              </li>
             </ul>
           </div>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
@@ -71,7 +112,7 @@ const PressureWashingPage: React.FC<PressureWashingPageProps> = () => {
               alt="Person pressure washing exterior surface"
             />
           </div>
-        </div>
+        </GridSection>
 
         <h4
           className={clsx(
@@ -88,28 +129,28 @@ const PressureWashingPage: React.FC<PressureWashingPageProps> = () => {
           className={clsx(
             'list-disc pl-5 text-base',
             '*:[&>p]:inline',
-            '*:[&>p]:text-fog-steel'
+            'text-fog-steel'
           )}
         >
           <li>
-            <strong>Time-saving</strong>
+            <Strong>Time-saving</Strong>
             <p>: They’ve got the equipment and experience to do it quickly.</p>
           </li>
           <li>
-            <strong>Better results</strong>
+            <Strong>Better results</Strong>
             <p>
               : Commercial-grade tools and cleaning agents get a deeper clean.
             </p>
           </li>
           <li>
-            <strong>Safety</strong>
+            <Strong>Safety</Strong>
             <p>
               : They know how to handle high pressure without damaging surfaces
               or getting hurt.
             </p>
           </li>
           <li>
-            <strong>Proper disposal</strong>
+            <Strong>Proper disposal</Strong>
             <p>
               : Some services handle runoff and chemicals responsibly,
               especially for commercial or eco-sensitive areas.
