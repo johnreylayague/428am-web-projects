@@ -1,3 +1,13 @@
+import { NOT_FOUND_BACKGROUND_IMG } from '@/assets';
+import ContentTitle from '@/components/common/content-title';
+import CTAButtonLink from '@/components/common/cta-button-link';
+import Image from '@/components/common/image';
+import Text from '@/components/common/text';
+import Footer from '@/components/layout/Footer/Footer';
+import Header from '@/components/layout/Header/Header';
+import PageContainer from '@/components/layout/page-container';
+import Banner from '@/components/ui/app/banner';
+import clsx from 'clsx';
 import React, { Component } from 'react';
 
 interface ErrorBoundaryProps {
@@ -27,16 +37,21 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     if (this.state.hasError) {
       return (
         this.props.fallback ?? (
-          <div className="h-screen w-screen flex flex-col items-center justify-center bg-red-50 text-center px-6">
-            <div className="text-4xl font-semibold text-red-600 mb-4">
-              Something went wrong
-            </div>
-            <p className="text-gray-700 mb-6">
+          <div className="h-screen w-screen flex flex-col items-center justify-center text-theme-dark-navy-50 text-center px-6">
+            <h3 className={clsx('font-semibold text-4xl', 'text-red-500')}>
+              Oops! Something went wrong.
+            </h3>
+
+            <Text className={clsx('mt-5')}>
               An unexpected error occurred. Please try refreshing the page.
-            </p>
+            </Text>
+
             <button
               onClick={() => window.location.reload()}
-              className="px-5 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
+              className={clsx(
+                'mt-3 group inline-flex items-center justify-center py-5 px-9 mb-8 space-x-3 leading-none rounded-sm font-medium transition-all duration-400 ease-in-out cursor-pointer',
+                'bg-theme-orange text-white hover:bg-theme-blue'
+              )}
             >
               Refresh Page
             </button>

@@ -35,6 +35,13 @@ import {
   PAINTING_BANNER_1_IMG,
   PAINTING_BANNER_2_IMG,
   PAINTING_BANNER_3_IMG,
+  DRAINAGE_2_IMAGE,
+  DRAINAGE_3_IMAGE,
+  DRAINAGE_4_IMAGE,
+  DRAINAGE_1_IMAGE,
+  HOME_BANNER_1_IMG,
+  HOME_BANNER_2_IMG,
+  HOME_BANNER_3_IMG,
 } from '@/assets/index';
 
 export const SOCIAL_LINKS = {
@@ -268,5 +275,46 @@ export const PAINTING_GALLERY = [
     id: 3,
     alt: 'Painting banner 3',
     image: PAINTING_BANNER_3_IMG,
+  },
+];
+
+export const DRAINAGE_GALLERY = [
+  {
+    id: 1,
+    alt: 'Drainage banner 1',
+    image: DRAINAGE_1_IMAGE,
+  },
+  {
+    id: 2,
+    alt: 'Drainage banner 2',
+    image: DRAINAGE_2_IMAGE,
+  },
+  {
+    id: 3,
+    alt: 'Drainage banner 3',
+    image: DRAINAGE_3_IMAGE,
+  },
+  {
+    id: 4,
+    alt: 'Drainage banner 4',
+    image: DRAINAGE_4_IMAGE,
+  },
+];
+
+export const HOME_BANNERS = [
+  {
+    id: 1,
+    alt: 'Home banner 1',
+    image: HOME_BANNER_1_IMG,
+  },
+  {
+    id: 2,
+    alt: 'Home banner 2',
+    image: HOME_BANNER_2_IMG,
+  },
+  {
+    id: 3,
+    alt: 'Home banner 3',
+    image: HOME_BANNER_3_IMG,
   },
 ];

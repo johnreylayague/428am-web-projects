@@ -4,7 +4,6 @@ import { BrowserRouter, Routes as Router, Route } from 'react-router';
 // App
 import {
   HomePage,
-  Loading,
   AboutUsPage,
   ContactUsPage,
   NotFoundPage,
@@ -25,6 +24,7 @@ import RootLayout from '@/pages/RootLayout/RootLayout';
 import ScrollToTop from '@/hooks/useScrollToTop';
 import { useScreenSize } from '@/hooks/useScreenSize';
 import ROUTES from '@/config/routes';
+import Loading from '@/components/ui/app/loading';
 
 interface RoutesProps {}
 

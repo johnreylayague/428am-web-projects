@@ -19,7 +19,10 @@ const Image: React.FC<ImageProps> = ({
       <img
         src={src}
         alt={alt}
-        className={cn('size-full object-center object-cover', imageClassName)}
+        className={cn(
+          'size-full object-center object-cover block',
+          imageClassName
+        )}
       />
     </figure>
   );

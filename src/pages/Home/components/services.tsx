@@ -1,11 +1,11 @@
 import SectionHeader from '@/components/ui/app/section-header';
 import Container from '@/components/layout/container';
-import Wrapper from '@/components/layout/wrapper';
 import clsx from 'clsx';
 import React from 'react';
 import ServiceCard from '@/pages/Home/components/service-card';
 import ROUTES from '@/config/routes';
 import { DEFAULT_IMAGE } from '@/config/constants';
+import Wrapper from '@/components/layout/wrapper';
 
 interface ServiceItem {
   id: number;

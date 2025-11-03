@@ -29,10 +29,32 @@ import PAINTING_BANNER_1_IMG from '@/assets/images/banner/painting/1.png';
 import PAINTING_BANNER_2_IMG from '@/assets/images/banner/painting/2.png';
 import PAINTING_BANNER_3_IMG from '@/assets/images/banner/painting/3.png';
 
-import PAINTING_VIDEO_1_MOV from '@/assets/vidoes/painting/1.mov';
+import PAINTING_VIDEO_1_MOV from '@/assets/vidoes/painting/1.mp4';
 import PAINTING_VIDEO_1_IMG from '@/assets/vidoes/painting/1.png';
-import PAINTING_VIDEO_2_MOV from '@/assets/vidoes/painting/2.mov';
+import PAINTING_VIDEO_2_MOV from '@/assets/vidoes/painting/2.mp4';
 import PAINTING_VIDEO_2_IMG from '@/assets/vidoes/painting/2.png';
+
+import DRAINAGE_1_IMAGE from '@/assets/images/banner/drainage/drainage-1.png';
+import DRAINAGE_2_IMAGE from '@/assets/images/banner/drainage/drainage-2.png';
+import DRAINAGE_3_IMAGE from '@/assets/images/banner/drainage/drainage-3.png';
+import DRAINAGE_4_IMAGE from '@/assets/images/banner/drainage/drainage-4.png';
+
+import HOME_BANNER_1_IMG from '@/assets/images/banner/home/1.png';
+import HOME_BANNER_2_IMG from '@/assets/images/banner/home/2.png';
+import HOME_BANNER_3_IMG from '@/assets/images/banner/home/3.png';
+
+import DRAINAGE_VIDEO_1_IMG from '@/assets/vidoes/drainage/1.png';
+import DRAINAGE_VIDEO_1_MOV from '@/assets/vidoes/drainage/1.mp4';
+import DRAINAGE_VIDEO_2_IMG from '@/assets/vidoes/drainage/2.png';
+import DRAINAGE_VIDEO_2_MOV from '@/assets/vidoes/drainage/2.mp4';
+
+import HOME_VIDEO_1_MOV from '@/assets/vidoes/home/1.mp4';
+import HOME_VIDEO_1_IMG from '@/assets/vidoes/home/1.png';
+
+import LOGO_ICO_IMG from '@/assets/images/logos/logo.ico';
+import LOGO_PNG_IMG from '@/assets/images/logos/logo.png';
+
+import NOT_FOUND_BACKGROUND_IMG from '@/assets/images/background/404.png';
 
 export const ROUTES_DATA = ROUTES;
 export const COMPANY_LOGO = COMPANY_LOGO_IMG;
@@ -70,4 +92,20 @@ export {
   PAINTING_VIDEO_1_IMG,
   PAINTING_VIDEO_2_MOV,
   PAINTING_VIDEO_2_IMG,
+  DRAINAGE_1_IMAGE,
+  DRAINAGE_2_IMAGE,
+  DRAINAGE_3_IMAGE,
+  DRAINAGE_4_IMAGE,
+  DRAINAGE_VIDEO_1_IMG,
+  DRAINAGE_VIDEO_1_MOV,
+  DRAINAGE_VIDEO_2_IMG,
+  DRAINAGE_VIDEO_2_MOV,
+  HOME_VIDEO_1_MOV,
+  HOME_VIDEO_1_IMG,
+  HOME_BANNER_1_IMG,
+  HOME_BANNER_2_IMG,
+  HOME_BANNER_3_IMG,
+  LOGO_ICO_IMG,
+  LOGO_PNG_IMG,
+  NOT_FOUND_BACKGROUND_IMG,
 };

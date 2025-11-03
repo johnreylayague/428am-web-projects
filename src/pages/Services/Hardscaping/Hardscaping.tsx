@@ -6,20 +6,9 @@ import Banner from '@/components/ui/app/banner';
 import Gallery from '@/components/ui/app/gallery';
 import clsx from 'clsx';
 import React from 'react';
-import List from '@/components/common/list';
 import WhyChooseUs from '@/components/ui/app/why-choose-us';
 import { HARDSCAPING_GALLERY } from '@/config/constants';
 import { OUTDOOR_TILES_BACKGROUND_IMG } from '@/assets';
-
-const whyHireUsItems = [
-  'Time-Saving',
-  'Expertise & Experience',
-  'Safety',
-  'Quality Workmanship',
-  'Right Tools & Materials',
-  'Cost-Effective in the Long Run',
-  'Compliance & Permits',
-];
 
 interface HardscapingPageProps {}
 
@@ -31,7 +20,7 @@ const HardscapingPage: React.FC<HardscapingPageProps> = () => {
         <Gallery gallery={HARDSCAPING_GALLERY} />
         <div className={clsx('grid grid-cols-12 relative mt-15', 'lg:gap-10')}>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
-            <ContentTitle className={clsx('text-center')}>
+            <ContentTitle className={clsx('text-center', 'lg:text-left')}>
               Hardscraping
             </ContentTitle>
 
@@ -59,7 +48,18 @@ const HardscapingPage: React.FC<HardscapingPageProps> = () => {
               Why hiring us?
             </ContentTitle>
 
-            <List items={whyHireUsItems} className={clsx('columns-1')} />
+            <ul
+              role="list"
+              className={clsx('list-disc pl-5 text-base', 'text-fog-steel')}
+            >
+              <li>Time-Saving</li>
+              <li>Expertise & Experience</li>
+              <li>Safety</li>
+              <li>Quality Workmanship</li>
+              <li>Right Tools & Materials</li>
+              <li>Cost-Effective in the Long Run</li>
+              <li>Compliance & Permits</li>
+            </ul>
           </div>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <Image

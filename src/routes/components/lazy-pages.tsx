@@ -35,5 +35,3 @@ export const MossRemovalPage = lazy(
 export const PaintingPage = lazy(
   () => import('@/pages/Services/Painting/Painting')
 );
-
-export const Loading = lazy(() => import('@/components/ui/app/loading'));

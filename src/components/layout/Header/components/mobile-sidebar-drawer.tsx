@@ -99,10 +99,12 @@ const MobileSidebarDrawer: React.FC<MobileSidebarDrawerProps> = ({
                           <NavLink
                             to={route.path}
                             onClick={onClose}
-                            className={clsx(
-                              'capitalize text-base',
-                              'text-white'
-                            )}
+                            className={({ isActive }) =>
+                              clsx(
+                                'capitalize text-base',
+                                isActive ? 'text-theme-dark-navy' : 'text-white'
+                              )
+                            }
                           >
                             <FontAwesome
                               icon="fa-regular fa-circle"

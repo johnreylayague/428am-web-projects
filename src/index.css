@@ -13,6 +13,7 @@
   --color-theme-light-gray: #cacaca;
   --color-fog-steel: #848da0;
   --color-fog-blue: #5c7295;
+  --color-moss-blue: #005a94;
 }
 
 @custom-variant dark (&:is(.dark *));

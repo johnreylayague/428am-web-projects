@@ -2,12 +2,11 @@ import React from 'react';
 import {
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuTrigger,
 } from '@/components/ui/shadcn/navigation-menu';
 import clsx from 'clsx';
 import FontAwesome from '@/components/common/fontawesome';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 export interface ServiceRoute {
   path: string;
@@ -30,7 +29,7 @@ const HeaderMenuTrigger: React.FC<HeaderMenuTriggerProps> = ({
         className={clsx(
           'cursor-pointer uppercase items-center gap-2 transition-ease',
           'hover:bg-transparent focus:bg-transparent',
-          'data-[state=open]:[&>svg]:rotate-90 data-[state=open]:bg-transparent data-[state=open]:hover:bg-transparent data-[state=open]:focus:bg-transparent',
+          'data-[state=open]:[&>svg]:rotate-180 data-[state=open]:bg-transparent data-[state=open]:hover:bg-transparent data-[state=open]:focus:bg-transparent',
           'data-[state=open]:[&>span]:text-theme-orange data-[state=open]:[&>svg]:text-theme-orange'
         )}
       >
@@ -58,17 +57,18 @@ const HeaderMenuTrigger: React.FC<HeaderMenuTriggerProps> = ({
         )}
       >
         {serviceRoutes.map((route) => (
-          <NavigationMenuLink asChild key={route.path}>
-            <Link
-              to={route.path}
-              className={clsx(
-                'capitalize font-semibold py-2.5 px-6',
-                'hover:text-theme-dark-navy text-white hover:bg-transparent focus:bg-transparent'
-              )}
-            >
-              {route.name}
-            </Link>
-          </NavigationMenuLink>
+          <NavLink
+            to={route.path}
+            className={({ isActive }) =>
+              clsx(
+                isActive ? 'text-theme-dark-navy' : 'text-white',
+                'capitalize font-semibold py-2.5 px-6 block',
+                'hover:text-theme-dark-navy hover:bg-transparent focus:bg-transparent'
+              )
+            }
+          >
+            {route.name}
+          </NavLink>
         ))}
       </NavigationMenuContent>
     </NavigationMenuItem>

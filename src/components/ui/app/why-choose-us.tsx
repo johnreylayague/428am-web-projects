@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Image from '@/components/common/image';
 import ContentTitle from '@/components/common/content-title';
-import List from '@/components/common/list';
+import List from '@/components/common/check-list';
 import CTAButtonLink from '@/components/common/cta-button-link';
 import insuredLicensedImg from '@/assets/images/logos/insured-licensed.jpg';
 import WHY_PEOPLE_CHOOSE_US from '@/assets/json/why-people-choose-us.json';

@@ -101,11 +101,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = () => {
                   'lg:col-span-6 lg:order-2'
                 )}
               >
-                <Image
-                  src={aboutUsImage}
-                  alt="Example Image"
-                  className="rounded-lg"
-                />
+                <Image src={aboutUsImage} alt="Example Image" />
               </div>
             </div>
           </main>

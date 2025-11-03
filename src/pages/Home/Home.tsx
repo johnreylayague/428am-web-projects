@@ -5,23 +5,16 @@ import GoogleReviewsWidget from '@/pages/Home/components/google-reviews-widget';
 import Gallery from '@/components/ui/app/gallery';
 import VideoReels from '@/pages/Home/components/video-reels';
 import DISK from '@/assets/images/background/disk.jpg';
-import HOME_VIDEO from '@/assets/images/vidoes/vidoe-home.mov';
-import HOME_VIDEO_IMAGE from '@/assets/images/background/vidoe_home.png';
-import NH_2 from '@/assets/images/banner/non-home-2.png';
-import NH_3 from '@/assets/images/banner/non-home-3.png';
-import { SERVICES } from '@/config/constants';
+import { HOME_BANNERS, SERVICES } from '@/config/constants';
+import { HOME_VIDEO_1_IMG, HOME_VIDEO_1_MOV } from '@/assets';
 
 interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = () => {
   return (
     <React.Fragment>
-      <Gallery
-        gallery={[
-          { id: 1, alt: 'image alt', image: NH_2 },
-          { id: 2, alt: 'image alt', image: NH_3 },
-        ]}
-      />
+      <Gallery gallery={HOME_BANNERS} />
+
       <Services
         services={SERVICES}
         headerTitle="Our Services"
@@ -41,15 +34,14 @@ const HomePage: React.FC<HomePageProps> = () => {
       <VideoReels
         title="Showreel"
         subtitle="Watch More About Us"
-        src={HOME_VIDEO}
-        poster={HOME_VIDEO_IMAGE}
+        src={HOME_VIDEO_1_MOV}
+        poster={HOME_VIDEO_1_IMG}
       />
 
       <GoogleReviewsWidget
-        appId=""
-        scriptSrc=""
-        // scriptSrc="https://elfsightcdn.com/platform.js"
-        // appId="5d5006e8-cdd1-43de-b0d9-71b10b56f890"
+        disableScriptLoad
+        scriptSrc="https://elfsightcdn.com/platform.js"
+        appId="5d5006e8-cdd1-43de-b0d9-71b10b56f890"
       />
     </React.Fragment>
   );

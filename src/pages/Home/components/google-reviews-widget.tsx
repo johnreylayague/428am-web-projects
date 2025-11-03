@@ -6,13 +6,17 @@ import React, { useEffect } from 'react';
 interface GoogleReviewsWidgetProps {
   appId: string;
   scriptSrc: string;
+  disableScriptLoad?: boolean; // if true, script will NOT be loaded
 }
 
 const GoogleReviewsWidget: React.FC<GoogleReviewsWidgetProps> = ({
   appId,
   scriptSrc,
+  disableScriptLoad,
 }) => {
   useEffect(() => {
+    // Only load the script if disableScriptLoad is strictly false or undefined
+    if (disableScriptLoad) return;
     if (!scriptSrc) return;
     if (!document.getElementById('elfsight-script')) {
       const script = document.createElement('script');
@@ -21,7 +25,11 @@ const GoogleReviewsWidget: React.FC<GoogleReviewsWidgetProps> = ({
       script.id = 'elfsight-script';
       document.body.appendChild(script);
     }
-  }, [scriptSrc]);
+  }, [scriptSrc, disableScriptLoad]);
+
+  if (disableScriptLoad) {
+    return null;
+  }
 
   return (
     <Wrapper className={clsx('pb-35')}>
