@@ -22,12 +22,15 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   return (
     <div
-      className={cn('w-full max-w-80 mx-auto text-center relative', className)}
+      className={cn('w-full max-w-xl mx-auto text-center relative', className)}
     >
       {label && (
         <span
           className={cn(
-            'absolute -top-9 left-1/2 -translate-x-1/2 capitalize text-9xl font-black select-none',
+            'absolute top-0 left-1/2 -translate-x-1/2 capitalize text-6xl font-black select-none',
+            'min-[400px]:-top-2 min-[400px]:text-7xl',
+            'min-[500px]:-top-5 min-[500px]:text-8xl',
+            'md:text-[160px] md:-top-11',
             'text-white',
             labelClassName
           )}
@@ -36,7 +39,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
         </span>
       )}
 
-      <h4
+      <h2
         className={cn(
           'relative text-lg mb-2 capitalize',
           'text-fog-steel',
@@ -44,17 +47,18 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
         )}
       >
         {title}
-      </h4>
+      </h2>
       {subtitle && (
-        <h5
+        <h3
           className={cn(
-            'relative text-5xl font-bold capitalize',
+            'relative text-4xl font-bold capitalize',
+            'md:text-6xl',
             'text-theme-navy',
             subtitleClassName
           )}
         >
           {subtitle}
-        </h5>
+        </h3>
       )}
     </div>
   );

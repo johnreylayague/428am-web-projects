@@ -29,9 +29,9 @@ const CTAButtonLink: React.FC<CTAButtonLinkProps> = ({
     <Link
       to={buttonLink}
       className={cn(
-        'group-hover:max-w-45 group-hover:w-full inline-flex items-center justify-center py-5 px-9 space-x-3 leading-none font-medium transition-ease cursor-pointer absolute left-1/2 -translate-x-1/2 -bottom-7 shadow-none rounded-sm p-5',
+        'group-hover:max-w-45 group-hover:w-full inline-flex items-center justify-center py-5 px-7 space-x-3 leading-none font-medium transition-ease cursor-pointer absolute left-1/2 -translate-x-1/2 -bottom-7 shadow-none rounded-sm',
         'bg-gray-100 text-white group-hover:bg-theme-orange',
-        className ? className : ''
+        className
       )}
     >
       {buttonText && (

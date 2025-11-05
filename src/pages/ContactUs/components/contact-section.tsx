@@ -3,6 +3,7 @@ import Container from '@/components/layout/container';
 import React from 'react';
 import clsx from 'clsx';
 import ContactCard from '@/pages/ContactUs/components/contact-card';
+import GridSection from '@/components/layout/grid-section';
 
 export interface ContactItem {
   title: string;
@@ -27,7 +28,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   return (
     <Wrapper className={clsx('py-5')}>
       <Container>
-        <div className={clsx('grid grid-cols-12 gap-5')}>
+        <GridSection className={clsx('mt-0')}>
           <div className={clsx('col-span-12', 'lg:col-span-6 xl:col-span-4')}>
             <ContactCard
               icon="fa-regular fa-envelope"
@@ -53,7 +54,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
               className={clsx('justify-center', 'xl:justify-start')}
             />
           </div>
-        </div>
+        </GridSection>
       </Container>
     </Wrapper>
   );

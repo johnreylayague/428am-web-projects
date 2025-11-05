@@ -50,7 +50,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           )}
         />
       </div>
-
       {/* Icon group - Holds the circular colored icon at the top of the card */}
       <div
         className={clsx(
@@ -68,7 +67,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           )}
         />
       </div>
-
       {/* Label group - Displays the name/label of the service */}
       <h3
         className={clsx(
@@ -80,8 +78,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       >
         {label}
       </h3>
-
-      {/* Call-to-action button group - The area for the action button */}
+        {/* Call-to-action button group - The area for the action button */}
       <CTAButtonLink
         buttonLink={buttonLink}
         buttonText={buttonText}

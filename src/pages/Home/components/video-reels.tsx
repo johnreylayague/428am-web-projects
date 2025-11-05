@@ -25,8 +25,6 @@ const VideoReels: React.FC<VideoReelsProps> = ({
           title={title}
           subtitle={subtitle}
           className={clsx('max-w-3xl')}
-          titleClassName="text-base lg:text-lg"
-          subtitleClassName="text-3xl lg:text-4xl"
         />
 
         <VideoPlayer

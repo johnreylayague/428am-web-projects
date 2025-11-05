@@ -8,6 +8,7 @@ import TextField from '@/pages/ContactUs/components/text-field';
 import clsx from 'clsx';
 import React from 'react';
 import Image from '@/components/common/image';
+import GridSection from '@/components/layout/grid-section';
 
 interface ContactFormProps {
   headerTitle: string;
@@ -27,9 +28,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
   instagramUrl,
 }) => {
   return (
-    <Wrapper className={clsx('pt-20 pb-30')}>
+    <Wrapper className={clsx('pt-15 pb-30')}>
       <Container>
-        <div className={clsx('grid grid-cols-12 relative gap-5')}>
+        <GridSection className={clsx('mt-0')}>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <div
               className={clsx(
@@ -53,7 +54,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           </div>
           <div className={clsx('col-span-12', 'lg:col-span-6')}>
             <form className={clsx('mt-10')}>
-              <div className={clsx('grid grid-cols-12 relative gap-5')}>
+              <GridSection>
                 <div className={clsx('col-span-12', 'lg:col-span-6')}>
                   <TextField
                     id="in-full-name"
@@ -102,10 +103,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     text="Get a qoute"
                   />
                 </div>
-              </div>
+              </GridSection>
             </form>
           </div>
-        </div>
+        </GridSection>
       </Container>
     </Wrapper>
   );

@@ -1,12 +1,4 @@
-import { NOT_FOUND_BACKGROUND_IMG } from '@/assets';
-import ContentTitle from '@/components/common/content-title';
-import CTAButtonLink from '@/components/common/cta-button-link';
-import Image from '@/components/common/image';
 import Text from '@/components/common/text';
-import Footer from '@/components/layout/Footer/Footer';
-import Header from '@/components/layout/Header/Header';
-import PageContainer from '@/components/layout/page-container';
-import Banner from '@/components/ui/app/banner';
 import clsx from 'clsx';
 import React, { Component } from 'react';
 

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import React from 'react';
 
 interface GridSectionProps {
@@ -9,7 +9,7 @@ interface GridSectionProps {
 const GridSection: React.FC<GridSectionProps> = ({ children, className }) => {
   return (
     <div
-      className={clsx(
+      className={cn(
         'grid grid-cols-12 relative mt-15 gap-y-5',
         'lg:gap-x-10',
         className

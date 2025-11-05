@@ -6,6 +6,7 @@ import ServiceCard from '@/pages/Home/components/service-card';
 import ROUTES from '@/config/routes';
 import { DEFAULT_IMAGE } from '@/config/constants';
 import Wrapper from '@/components/layout/wrapper';
+import GridSection from '@/components/layout/grid-section';
 
 interface ServiceItem {
   id: number;
@@ -30,50 +31,49 @@ const Services: React.FC<ServicesProps> = ({
   headerLabel,
 }) => {
   return (
-    <Wrapper className={clsx('py-20', 'md:py-20 md:pb-40', 'bg-gray-100')}>
-      <Container>
-        <SectionHeader
-          title={headerTitle}
-          subtitle={headerSubtitle}
-          label={headerLabel}
-          className={clsx('')}
-          titleClassName={clsx('text-base md:text-lg')}
-          subtitleClassName={clsx('text-3xl md:text-4xl')}
-          labelClassName={clsx('text-6xl sm:text-7xl md:text-9xl')}
-        />
+    <React.Fragment>
+      <Wrapper className={clsx('pt-20 pb-140 ', 'bg-gray-100')}>
+        <Container className="">
+          <SectionHeader
+            title={headerTitle}
+            subtitle={headerSubtitle}
+            label={headerLabel}
+          />
+        </Container>
+      </Wrapper>
 
-        <div
-          className={clsx(
-            'mt-15 grid grid-cols-12 relative gap-y-10 gap-x-5',
-            'md:mt-20 lg:mt-30'
-          )}
-        >
-          {services.map(({ icon, id, label, link, image }) => {
-            return (
-              <div
-                key={id}
-                className={clsx(
-                  'col-span-12 relative',
-                  'min-[400px]:col-span-6',
-                  'sm:col-span-6',
-                  'lg:col-span-3'
-                )}
-              >
-                <ServiceCard
+      <Wrapper className={clsx('-mt-130 pb-40', 'bg-transparent')}>
+        <Container className="">
+          <GridSection className={clsx('gap-y-10 gap-x-5', 'lg:gap-x-5')}>
+            {services.map(({ icon, id, label, link, image }) => {
+              return (
+                <div
                   key={id}
-                  src={image ?? DEFAULT_IMAGE}
-                  alt={label}
-                  label={label}
-                  buttonLink={link ?? ROUTES.SERVICES.path}
-                  buttonText="Learn More"
-                  icon={icon}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </Container>
-    </Wrapper>
+                  className={clsx(
+                    'col-span-12 relative',
+                    'min-[400px]:col-span-6',
+                    'sm:col-span-6',
+                    'lg:col-span-3'
+                  )}
+                >
+                  <ServiceCard
+                    key={id}
+                    src={image ?? DEFAULT_IMAGE}
+                    alt={label}
+                    label={label}
+                    buttonLink={link ?? ROUTES.SERVICES.path}
+                    buttonText="Learn More"
+                    icon={icon}
+                  />
+                </div>
+              );
+            })}
+          </GridSection>
+        </Container>
+      </Wrapper>
+    </React.Fragment>
+
+    // </React.Fragment>
   );
 };
 
