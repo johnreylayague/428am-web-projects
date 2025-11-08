@@ -62,10 +62,8 @@
         🔄 Sync with Server
       </button>
 
-      <div class="dev-controls">
-        <span>Dev: </span>
-        <button class="dev-btn" id="forceOnlineBtn">Set Online</button>
-        <button class="dev-btn" id="forceOfflineBtn">Set Offline</button>
+      <div class="dev-controls" style="display:none">
+        <!-- Offline/Online controls removed -->
       </div>
     </div>
 
@@ -84,8 +82,7 @@
       const statusText = document.getElementById("statusText");
       const statusDot = document.getElementById("statusDot");
       const syncBtn = document.getElementById("syncBtn");
-      const forceOnlineBtn = document.getElementById("forceOnlineBtn");
-      const forceOfflineBtn = document.getElementById("forceOfflineBtn");
+      
 
       // Service Worker Registration
       if ("serviceWorker" in navigator) {
@@ -127,7 +124,7 @@
       }
 
       function checkOnlineStatus() {
-        isOnline = getSimulatedOnlineStatus();
+        isOnline = navigator.onLine;
         if (isOnline) {
           updateStatus("Online - Syncing with server", true);
           loadFromServer();
@@ -357,32 +354,6 @@
         ).textContent = `${completed} completed`;
       }
 
-      // ---------- DEV: Simulated Online/Offline Toggle ---------------
-      // Use localStorage to remember forced state during this session/tab.
-      const ONLINE_KEY = "dev_simulatedOnline";
-      function setSimulatedOnline(val) {
-        localStorage.setItem(ONLINE_KEY, val ? "1" : "0");
-        updateDevButtons();
-      }
-      function getSimulatedOnlineStatus() {
-        // If user has not forced, use native status.
-        if (!localStorage.hasOwnProperty(ONLINE_KEY)) return navigator.onLine;
-        return localStorage.getItem(ONLINE_KEY) === "1";
-      }
-      function clearSimulatedOnlineOverride() {
-        localStorage.removeItem(ONLINE_KEY);
-        updateDevButtons();
-      }
-      function updateDevButtons() {
-        const simVal = localStorage.getItem(ONLINE_KEY);
-        forceOnlineBtn.classList.toggle("active", simVal === "1");
-        forceOfflineBtn.classList.toggle("active", simVal === "0");
-        forceOnlineBtn.textContent =
-          simVal === "1" ? "Set Online (active)" : "Set Online";
-        forceOfflineBtn.textContent =
-          simVal === "0" ? "Set Offline (active)" : "Set Offline";
-      }
-
       // -------------- Event Listeners and Startup Logic ---------------
 
       window.toggleTodo = toggleTodo;
@@ -404,52 +375,19 @@
 
       syncBtn.addEventListener("click", syncWithServer);
 
-      // DEV buttons for online/offline simulation:
-      forceOnlineBtn.addEventListener("click", () => {
-        setSimulatedOnline(true);
-        isOnline = true;
-        updateStatus("Manually set: Online (dev tool)", true);
-        loadFromServer();
-      });
-      forceOfflineBtn.addEventListener("click", () => {
-        setSimulatedOnline(false);
-        isOnline = false;
-        updateStatus("Manually set: Offline (dev tool)", false);
-        loadFromLocal();
-      });
-      // Double-click Set Online button to unset override and revert to real browser status
-      forceOnlineBtn.addEventListener("dblclick", () => {
-        clearSimulatedOnlineOverride();
-        isOnline = navigator.onLine;
-        updateStatus("Online state back to browser", isOnline);
-        checkOnlineStatus();
-      });
-      forceOfflineBtn.addEventListener("dblclick", () => {
-        clearSimulatedOnlineOverride();
-        isOnline = navigator.onLine;
-        updateStatus("Online state back to browser", isOnline);
-        checkOnlineStatus();
-      });
-
       // Listen for real browser connectivity changes.
       window.addEventListener("online", () => {
-        // Only update if not dev overridden!
-        if (!localStorage.hasOwnProperty(ONLINE_KEY)) {
-          isOnline = true;
-          updateStatus("Back online - Syncing...", true);
-          loadFromServer();
-        }
+        isOnline = true;
+        updateStatus("Back online - Syncing...", true);
+        loadFromServer();
       });
 
       window.addEventListener("offline", () => {
-        if (!localStorage.hasOwnProperty(ONLINE_KEY)) {
-          isOnline = false;
-          updateStatus("Offline - Working locally", false);
-        }
+        isOnline = false;
+        updateStatus("Offline - Working locally", false);
       });
 
       // Initialize app
-      updateDevButtons();
       checkOnlineStatus();
     </script>
   </body>
