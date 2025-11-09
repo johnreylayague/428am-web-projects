@@ -41,6 +41,9 @@
       <button class="sync-btn" id="syncBtn" type="button">
         🔄 Sync with Server
       </button>
+      <div style="margin-top: 24px">
+        <a href="example.html" id="exampleRouteLink">Go to Example Page</a>
+      </div>
     </div>
 
     <script>
@@ -64,6 +67,7 @@
       const statusText = document.getElementById("statusText");
       const statusDot = document.getElementById("statusDot");
       const syncBtn = document.getElementById("syncBtn");
+      const exampleRouteLink = document.getElementById("exampleRouteLink");
 
       // Service Worker Registration
       if ("serviceWorker" in navigator) {
@@ -424,6 +428,23 @@
       document.addEventListener("DOMContentLoaded", () => {
         checkOnlineStatus();
       });
+
+      // Route for example.html (optional: SPA navigation, fallback to normal link)
+      if (
+        window.location.pathname === "/" &&
+        window.location.hash === "#example"
+      ) {
+        window.location.replace("example.html");
+      }
+      if (exampleRouteLink) {
+        exampleRouteLink.addEventListener("click", function (e) {
+          // SPA-like navigation: for demonstration, just navigate normally
+          // You could use fetch() here to replace content if you wish
+          // For strict HTML, we just follow the link
+          // e.preventDefault();
+          // window.location.href = "example.html";
+        });
+      }
     </script>
   </body>
 </html>
