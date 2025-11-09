@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do App</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Dexie CDN -->
+    <script src="https://unpkg.com/dexie@3.2.4/dist/dexie.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -39,13 +41,16 @@
       <button class="sync-btn" id="syncBtn" type="button">
         🔄 Sync with Server
       </button>
-
-      <div class="dev-controls" style="display: none">
-        <!-- Offline/Online controls removed -->
-      </div>
     </div>
 
     <script>
+      // ---- Dexie Setup ----
+      const db = new Dexie("todoAppDB");
+      db.version(1).stores({
+        todos: "id, text, completed", // id is primary key
+        unsynced: "++_id,type,todo,id", // for offline changes queue
+      });
+
       const API_URL = "http://localhost:3000/api/todos";
       let isOnline = navigator.onLine;
       let todos = [];
@@ -70,40 +75,51 @@
           );
       }
 
-      // -------------- LocalStorage and Unsynced Helpers --------------
+      // --------- Dexie/IndexedDB Helpers (replace LocalStorage) ---------
 
-      function getStoredTodos() {
+      async function getStoredTodos() {
         try {
-          const local = localStorage.getItem("todos");
-          if (local) {
-            const parsed = JSON.parse(local);
-            if (Array.isArray(parsed)) return parsed;
-          }
-        } catch (e) {}
-        return [];
+          const all = await db.todos.toArray();
+          return Array.isArray(all) ? all : [];
+        } catch (e) {
+          return [];
+        }
       }
 
-      function saveTodosLocally() {
-        localStorage.setItem("todos", JSON.stringify(todos));
+      async function saveTodosLocally() {
+        try {
+          await db.todos.clear();
+          if (todos.length > 0) await db.todos.bulkAdd(todos);
+        } catch (e) {
+          console.error("Dexie: Error saving todos", e);
+        }
       }
 
-      function getUnsynced() {
-        return JSON.parse(localStorage.getItem("unsynced")) || [];
+      async function getUnsynced() {
+        try {
+          const unsyncedArr = await db.unsynced.toArray();
+          return unsyncedArr || [];
+        } catch (e) {
+          return [];
+        }
       }
 
-      function saveUnsynced(arr) {
-        localStorage.setItem("unsynced", JSON.stringify(arr));
+      async function saveUnsynced(arr) {
+        try {
+          await db.unsynced.clear();
+          if (arr.length > 0) await db.unsynced.bulkAdd(arr);
+        } catch (e) {
+          console.error("Dexie: Error saving unsynced", e);
+        }
       }
 
       // --------- Get Cached Todos From Service Worker ---------
-      async function getCachedTodosFromSW() { 
+      async function getCachedTodosFromSW() {
         if ("caches" in window) {
-          console.log(caches);
           try {
             const response = await caches.match(API_URL);
             if (response) {
               const data = await response.json();
-              // Make sure it's an array!
               return Array.isArray(data) ? data : [];
             }
           } catch (err) {
@@ -146,7 +162,7 @@
             let serverTodos = await response.json();
             todos = serverTodos;
 
-            saveTodosLocally();
+            await saveTodosLocally();
             renderTodos();
             updateStatus("Online - Connected", true);
           } else {
@@ -161,13 +177,14 @@
         }
       }
 
-      // If there's no todos on localStorage, just use the cache (and show them in UI!)
+      // If there's no todos on IndexedDB, just use the cache (and show them in UI!)
       async function loadFromLocalOrCache() {
-        let local = getStoredTodos();
+        let local = await getStoredTodos();
         if (!local || local.length === 0) {
           // No local todos, try from cache
           const cached = await getCachedTodosFromSW();
           todos = cached;
+          await saveTodosLocally(); // Sync Dexie with cache fallback for offline mode
 
           renderTodos();
           if (cached.length > 0) {
@@ -183,7 +200,7 @@
 
       async function saveToServer(todo, method = "POST", id = null) {
         if (!isOnline) {
-          saveTodosLocally();
+          await saveTodosLocally();
           return;
         }
 
@@ -204,11 +221,11 @@
               todos = todos.map((t) =>
                 t.id === updatedTodo.id ? updatedTodo : t
               );
-              saveTodosLocally();
+              await saveTodosLocally();
             }
             // Remove from unsynced if present
             if (["POST", "PUT", "DELETE"].includes(method)) {
-              let unsyncedArr = getUnsynced();
+              let unsyncedArr = await getUnsynced();
               if (method === "DELETE" && id) {
                 unsyncedArr = unsyncedArr.filter(
                   (action) => !(action.type === "delete" && action.id === id)
@@ -227,17 +244,17 @@
                     )
                 );
               }
-              saveUnsynced(unsyncedArr);
+              await saveUnsynced(unsyncedArr);
             }
           }
         } catch (error) {
           console.error("Failed to save to server:", error);
-          saveTodosLocally();
+          await saveTodosLocally();
         }
       }
 
       async function pushUnsyncedChanges() {
-        let unsyncedArr = getUnsynced();
+        let unsyncedArr = await getUnsynced();
 
         for (const action of unsyncedArr) {
           if (action.type === "add") {
@@ -248,7 +265,7 @@
             await saveToServer(null, "DELETE", action.id);
           }
         }
-        saveUnsynced([]);
+        await saveUnsynced([]);
       }
 
       // -------------- Todo Actions ------------------------------------
@@ -263,14 +280,14 @@
         };
 
         todos.push(todo);
-        saveTodosLocally();
+        await saveTodosLocally();
 
         if (isOnline) {
           await saveToServer(todo, "POST");
         } else {
-          let u = getUnsynced();
+          let u = await getUnsynced();
           u.push({ type: "add", todo: todo });
-          saveUnsynced(u);
+          await saveUnsynced(u);
         }
 
         todoInput.value = "";
@@ -286,12 +303,12 @@
         if (isOnline) {
           await saveToServer(null, "DELETE", id);
         } else {
-          let u = getUnsynced();
+          let u = await getUnsynced();
           u.push({ type: "delete", id: id });
-          saveUnsynced(u);
+          await saveUnsynced(u);
         }
 
-        saveTodosLocally();
+        await saveTodosLocally();
         renderTodos();
       }
 
@@ -299,14 +316,14 @@
         const todo = todos.find((t) => t.id === id);
         if (todo) {
           todo.completed = !todo.completed;
-          saveTodosLocally();
+          await saveTodosLocally();
 
           if (isOnline) {
             await saveToServer(todo, "PUT", id);
           } else {
-            let u = getUnsynced();
+            let u = await getUnsynced();
             u.push({ type: "update", todo: { ...todo } });
-            saveUnsynced(u);
+            await saveUnsynced(u);
           }
           renderTodos();
         }
