@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Dexie CDN -->
+    <script src="https://unpkg.com/dexie@3.2.4/dist/dexie.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 My To-Do List</h1>
+      <div class="status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Initializing...</span>
+      </div>
+
+      <div class="input-container">
+        <input
+          type="text"
+          id="todoInput"
+          placeholder="What needs to be done?"
+        />
+        <button id="addBtn" type="button">Add</button>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="todoList"></ul>
+
+      <div class="stats">
+        <span id="totalTasks">0 tasks</span>
+        <span id="completedTasks">0 completed</span>
+      </div>
+
+      <button class="sync-btn" id="syncBtn" type="button">
+        🔄 Sync with Server
+      </button>
+    </div>
+
+    <script>
+      // ---- Dexie Setup ----
+      const db = new Dexie("todoAppDB");
+      db.version(1).stores({
+        todos: "id, text, completed", // id is primary key
+        unsynced: "++_id,type,todo,id", // for offline changes queue
+      });
+
+      const API_URL = "http://localhost:3000/api/todos";
+      let isOnline = navigator.onLine;
+      let todos = [];
+      let currentFilter = "all";
+
+      // DOM Elements
+      const todoInput = document.getElementById("todoInput");
+      const addBtn = document.getElementById("addBtn");
+      const todoList = document.getElementById("todoList");
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const statusText = document.getElementById("statusText");
+      const statusDot = document.getElementById("statusDot");
+      const syncBtn = document.getElementById("syncBtn");
+
+      // Service Worker Registration
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then((reg) => console.log("Service Worker registered!", reg))
+          .catch((err) =>
+            console.log("Service Worker registration failed:", err)
+          );
+      }
+
+      // --------- Dexie/IndexedDB Helpers (replace LocalStorage) ---------
+
+      async function getStoredTodos() {
+        try {
+          const all = await db.todos.toArray();
+          return Array.isArray(all) ? all : [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      async function saveTodosLocally() {
+        try {
+          await db.todos.clear();
+          if (todos.length > 0) await db.todos.bulkAdd(todos);
+        } catch (e) {
+          console.error("Dexie: Error saving todos", e);
+        }
+      }
+
+      async function getUnsynced() {
+        try {
+          const unsyncedArr = await db.unsynced.toArray();
+          return unsyncedArr || [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      async function saveUnsynced(arr) {
+        try {
+          await db.unsynced.clear();
+          if (arr.length > 0) await db.unsynced.bulkAdd(arr);
+        } catch (e) {
+          console.error("Dexie: Error saving unsynced", e);
+        }
+      }
+
+      // --------- Get Cached Todos From Service Worker ---------
+      async function getCachedTodosFromSW() {
+        if ("caches" in window) {
+          try {
+            const response = await caches.match(API_URL);
+            if (response) {
+              const data = await response.json();
+              return Array.isArray(data) ? data : [];
+            }
+          } catch (err) {
+            console.error("Error retrieving cached todos:", err);
+          }
+        }
+        return [];
+      }
+
+      // -------------- Status and Online/Offline logic -----------------
+
+      function updateStatus(text, online = true) {
+        statusText.textContent = text;
+        if (online) {
+          statusDot.classList.remove("offline");
+        } else {
+          statusDot.classList.add("offline");
+        }
+      }
+
+      async function checkOnlineStatus() {
+        isOnline = navigator.onLine;
+        if (isOnline) {
+          updateStatus("Online - Syncing with server", true);
+          await loadFromServer();
+        } else {
+          updateStatus("Offline - Working locally", false);
+          await loadFromLocalOrCache();
+        }
+      }
+
+      // ------------- Server Sync and Data Handling ---------------------
+
+      async function loadFromServer() {
+        try {
+          await pushUnsyncedChanges();
+
+          const response = await fetch(API_URL);
+          if (response.ok) {
+            let serverTodos = await response.json();
+            todos = serverTodos;
+
+            await saveTodosLocally();
+            renderTodos();
+            updateStatus("Online - Connected", true);
+          } else {
+            // fallback to cache if no network or not ok
+            await loadFromLocalOrCache();
+            updateStatus("Offline - Using local or cached data", false);
+          }
+        } catch (error) {
+          console.error("Failed to load from server:", error);
+          await loadFromLocalOrCache();
+          updateStatus("Offline - Using local or cached data", false);
+        }
+      }
+
+      // If there's no todos on IndexedDB, just use the cache (and show them in UI!)
+      async function loadFromLocalOrCache() {
+        let local = await getStoredTodos();
+        if (!local || local.length === 0) {
+          // No local todos, try from cache
+          const cached = await getCachedTodosFromSW();
+          todos = cached;
+          await saveTodosLocally(); // Sync Dexie with cache fallback for offline mode
+
+          renderTodos();
+          if (cached.length > 0) {
+            updateStatus("Offline - Using cached data", false);
+          } else {
+            updateStatus("Offline - No tasks cached", false);
+          }
+        } else {
+          todos = local;
+          renderTodos();
+        }
+      }
+
+      async function saveToServer(todo, method = "POST", id = null) {
+        if (!isOnline) {
+          await saveTodosLocally();
+          return;
+        }
+
+        try {
+          const url = id ? `${API_URL}/${id}` : API_URL;
+          let options = {
+            method: method,
+            headers: { "Content-Type": "application/json" },
+          };
+          if (todo !== null) options.body = JSON.stringify(todo);
+
+          const response = await fetch(url, options);
+
+          if (response.ok) {
+            // If POST, update todo with response (ID, etc.)
+            if (method === "POST") {
+              let updatedTodo = await response.json();
+              todos = todos.map((t) =>
+                t.id === updatedTodo.id ? updatedTodo : t
+              );
+              await saveTodosLocally();
+            }
+            // Remove from unsynced if present
+            if (["POST", "PUT", "DELETE"].includes(method)) {
+              let unsyncedArr = await getUnsynced();
+              if (method === "DELETE" && id) {
+                unsyncedArr = unsyncedArr.filter(
+                  (action) => !(action.type === "delete" && action.id === id)
+                );
+              } else if (
+                (method === "PUT" || method === "POST") &&
+                todo &&
+                todo.id
+              ) {
+                unsyncedArr = unsyncedArr.filter(
+                  (action) =>
+                    !(
+                      (action.type === "add" || action.type === "update") &&
+                      action.todo &&
+                      action.todo.id === todo.id
+                    )
+                );
+              }
+              await saveUnsynced(unsyncedArr);
+            }
+          }
+        } catch (error) {
+          console.error("Failed to save to server:", error);
+          await saveTodosLocally();
+        }
+      }
+
+      async function pushUnsyncedChanges() {
+        let unsyncedArr = await getUnsynced();
+
+        for (const action of unsyncedArr) {
+          if (action.type === "add") {
+            await saveToServer(action.todo, "POST");
+          } else if (action.type === "update") {
+            await saveToServer(action.todo, "PUT", action.todo.id);
+          } else if (action.type === "delete") {
+            await saveToServer(null, "DELETE", action.id);
+          }
+        }
+        await saveUnsynced([]);
+      }
+
+      // -------------- Todo Actions ------------------------------------
+
+      async function addTodo() {
+        const text = todoInput.value.trim();
+        if (text === "") return;
+        const todo = {
+          id: Date.now(),
+          text: text,
+          completed: false,
+        };
+
+        todos.push(todo);
+        await saveTodosLocally();
+
+        if (isOnline) {
+          await saveToServer(todo, "POST");
+        } else {
+          let u = await getUnsynced();
+          u.push({ type: "add", todo: todo });
+          await saveUnsynced(u);
+        }
+
+        todoInput.value = "";
+        renderTodos();
+      }
+
+      async function deleteTodo(id) {
+        const index = todos.findIndex((todo) => todo.id === id);
+        if (index === -1) return;
+
+        todos.splice(index, 1);
+
+        if (isOnline) {
+          await saveToServer(null, "DELETE", id);
+        } else {
+          let u = await getUnsynced();
+          u.push({ type: "delete", id: id });
+          await saveUnsynced(u);
+        }
+
+        await saveTodosLocally();
+        renderTodos();
+      }
+
+      async function toggleTodo(id) {
+        const todo = todos.find((t) => t.id === id);
+        if (todo) {
+          todo.completed = !todo.completed;
+          await saveTodosLocally();
+
+          if (isOnline) {
+            await saveToServer(todo, "PUT", id);
+          } else {
+            let u = await getUnsynced();
+            u.push({ type: "update", todo: { ...todo } });
+            await saveUnsynced(u);
+          }
+          renderTodos();
+        }
+      }
+
+      // -------------- Manual and Automatic Syncing --------------------
+
+      async function syncWithServer() {
+        if (!isOnline) {
+          alert("Cannot sync while offline");
+          return;
+        }
+        updateStatus("Syncing pending local changes...", true);
+        await pushUnsyncedChanges();
+        await loadFromServer();
+        alert("Sync complete!");
+      }
+
+      // -------------- Rendering and Stats -----------------------------
+
+      function renderTodos() {
+        const filteredTodos = todos.filter((todo) => {
+          if (currentFilter === "active") return !todo.completed;
+          if (currentFilter === "completed") return todo.completed;
+          return true;
+        });
+
+        todoList.innerHTML = "";
+
+        if (filteredTodos.length === 0) {
+          todoList.innerHTML =
+            '<div class="empty-state">No tasks to show</div>';
+        } else {
+          filteredTodos.forEach((todo) => {
+            const li = document.createElement("li");
+            li.className = `todo-item ${todo.completed ? "completed" : ""}`;
+            li.innerHTML = `
+                        <input type="checkbox" ${
+                          todo.completed ? "checked" : ""
+                        } onchange="toggleTodo(${todo.id})" />
+                        <span class="todo-text">${todo.text}</span>
+                        <button class="delete-btn" onclick="deleteTodo(${
+                          todo.id
+                        })">Delete</button>
+                    `;
+            todoList.appendChild(li);
+          });
+        }
+
+        updateStats();
+      }
+
+      function updateStats() {
+        const total = todos.length;
+        const completed = todos.filter((t) => t.completed).length;
+        document.getElementById("totalTasks").textContent = `${total} ${
+          total === 1 ? "task" : "tasks"
+        }`;
+        document.getElementById(
+          "completedTasks"
+        ).textContent = `${completed} completed`;
+      }
+
+      // -------------- Event Listeners and Startup Logic ---------------
+
+      window.toggleTodo = toggleTodo;
+      window.deleteTodo = deleteTodo;
+
+      addBtn.addEventListener("click", addTodo);
+      todoInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") addTodo();
+      });
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentFilter = btn.dataset.filter;
+          renderTodos();
+        });
+      });
+
+      syncBtn.addEventListener("click", syncWithServer);
+
+      window.addEventListener("online", async () => {
+        isOnline = true;
+        updateStatus("Back online - Syncing...", true);
+        await loadFromServer();
+      });
+
+      window.addEventListener("offline", async () => {
+        isOnline = false;
+        updateStatus("Offline - Working locally", false);
+        await loadFromLocalOrCache();
+      });
+
+      // Ensure cache is tried on startup if no local todos
+      document.addEventListener("DOMContentLoaded", () => {
+        checkOnlineStatus();
+      });
+    </script>
+  </body>
+</html>
