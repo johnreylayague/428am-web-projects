@@ -5,28 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do App</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      .dev-controls {
-        margin: 16px 0 0 0;
-        padding: 8px 0 0 0;
-        border-top: 1px solid #eee;
-        text-align: right;
-      }
-      .dev-btn {
-        margin-left: 6px;
-        background: #ddd;
-        color: #333;
-        border-radius: 5px;
-        padding: 3px 10px;
-        border: none;
-        cursor: pointer;
-        font-size: 12px;
-      }
-      .dev-btn.active {
-        background: #059669;
-        color: #fff;
-      }
-    </style>
   </head>
   <body>
     <div class="container">
@@ -71,7 +49,6 @@
       const API_URL = "http://localhost:3000/api/todos";
       let isOnline = navigator.onLine;
       let todos = [];
-      let unsynced = [];
       let currentFilter = "all";
 
       // DOM Elements
@@ -93,10 +70,17 @@
           );
       }
 
-      // -------------- LocalStorage Helpers --------------
+      // -------------- LocalStorage and Unsynced Helpers --------------
 
       function getStoredTodos() {
-        return JSON.parse(localStorage.getItem("todos")) || [];
+        try {
+          const local = localStorage.getItem("todos");
+          if (local) {
+            const parsed = JSON.parse(local);
+            if (Array.isArray(parsed)) return parsed;
+          }
+        } catch (e) {}
+        return [];
       }
 
       function saveTodosLocally() {
@@ -111,6 +95,24 @@
         localStorage.setItem("unsynced", JSON.stringify(arr));
       }
 
+      // --------- Get Cached Todos From Service Worker ---------
+      async function getCachedTodosFromSW() { 
+        if ("caches" in window) {
+          console.log(caches);
+          try {
+            const response = await caches.match(API_URL);
+            if (response) {
+              const data = await response.json();
+              // Make sure it's an array!
+              return Array.isArray(data) ? data : [];
+            }
+          } catch (err) {
+            console.error("Error retrieving cached todos:", err);
+          }
+        }
+        return [];
+      }
+
       // -------------- Status and Online/Offline logic -----------------
 
       function updateStatus(text, online = true) {
@@ -122,20 +124,19 @@
         }
       }
 
-      function checkOnlineStatus() {
+      async function checkOnlineStatus() {
         isOnline = navigator.onLine;
         if (isOnline) {
           updateStatus("Online - Syncing with server", true);
-          loadFromServer();
+          await loadFromServer();
         } else {
           updateStatus("Offline - Working locally", false);
-          loadFromLocal();
+          await loadFromLocalOrCache();
         }
       }
 
-      // -------------- Server Sync and Data Handling -------------------
+      // ------------- Server Sync and Data Handling ---------------------
 
-      // Loads all todos from server, syncs unsynced actions, then fetches all todos from server
       async function loadFromServer() {
         try {
           await pushUnsyncedChanges();
@@ -148,20 +149,38 @@
             saveTodosLocally();
             renderTodos();
             updateStatus("Online - Connected", true);
+          } else {
+            // fallback to cache if no network or not ok
+            await loadFromLocalOrCache();
+            updateStatus("Offline - Using local or cached data", false);
           }
         } catch (error) {
           console.error("Failed to load from server:", error);
-          loadFromLocal();
-          updateStatus("Offline - Using local data", false);
+          await loadFromLocalOrCache();
+          updateStatus("Offline - Using local or cached data", false);
         }
       }
 
-      function loadFromLocal() {
-        todos = getStoredTodos();
-        renderTodos();
+      // If there's no todos on localStorage, just use the cache (and show them in UI!)
+      async function loadFromLocalOrCache() {
+        let local = getStoredTodos();
+        if (!local || local.length === 0) {
+          // No local todos, try from cache
+          const cached = await getCachedTodosFromSW();
+          todos = cached;
+
+          renderTodos();
+          if (cached.length > 0) {
+            updateStatus("Offline - Using cached data", false);
+          } else {
+            updateStatus("Offline - No tasks cached", false);
+          }
+        } else {
+          todos = local;
+          renderTodos();
+        }
       }
 
-      // Save ONE todo to server. Optionally, for DELETE, send only id.
       async function saveToServer(todo, method = "POST", id = null) {
         if (!isOnline) {
           saveTodosLocally();
@@ -217,7 +236,6 @@
         }
       }
 
-      // Push all local unsynced actions (add/update/delete) to server in order
       async function pushUnsyncedChanges() {
         let unsyncedArr = getUnsynced();
 
@@ -230,7 +248,6 @@
             await saveToServer(null, "DELETE", action.id);
           }
         }
-        // After syncing, clear unsynced
         saveUnsynced([]);
       }
 
@@ -374,20 +391,22 @@
 
       syncBtn.addEventListener("click", syncWithServer);
 
-      // Listen for real browser connectivity changes.
-      window.addEventListener("online", () => {
+      window.addEventListener("online", async () => {
         isOnline = true;
         updateStatus("Back online - Syncing...", true);
-        loadFromServer();
+        await loadFromServer();
       });
 
-      window.addEventListener("offline", () => {
+      window.addEventListener("offline", async () => {
         isOnline = false;
         updateStatus("Offline - Working locally", false);
+        await loadFromLocalOrCache();
       });
 
-      // Initialize app
-      checkOnlineStatus();
+      // Ensure cache is tried on startup if no local todos
+      document.addEventListener("DOMContentLoaded", () => {
+        checkOnlineStatus();
+      });
     </script>
   </body>
 </html>

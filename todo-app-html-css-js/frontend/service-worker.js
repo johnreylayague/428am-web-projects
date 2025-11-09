@@ -1,9 +1,5 @@
 const CACHE_NAME = "todo-app-v1";
-const urlsToCache = [
-  "/todo-app-html-css-js/frontend/",
-  "/todo-app-html-css-js/frontend/index.html",
-  "/todo-app-html-css-js/frontend/styles.css",
-];
+const urlsToCache = ["/", "index.html", "styles.css"];
 
 // Install Service Worker
 self.addEventListener("install", (event) => {
@@ -100,3 +96,25 @@ async function syncTodos() {
     console.error("Background sync failed:", error);
   }
 }
+
+// How to check if todos API response is cached, and get/fetch if not
+function checkIfTodosCached() {
+  const url = "http://localhost:3000/api/todos";
+  caches
+    .match(url)
+    .then((response) => {
+      if (response) {
+        console.log("✅ /api/todos is cached!");
+        return response.json();
+      } else {
+        console.log("❌ /api/todos not cached. Fetching from network...");
+        return fetch(url).then((res) => res.json());
+      }
+    })
+    .then((data) => {
+      console.log("Todos data:", data);
+    });
+}
+
+// Example call to check and log if cached:
+checkIfTodosCached();
