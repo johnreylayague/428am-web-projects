@@ -1,5 +1,5 @@
 const CACHE_NAME = "todo-app-v1";
-const urlsToCache = ["/", "index.html", "styles.css"];
+const urlsToCache = ["/", "index.html", "styles.css", "example.html"];
 
 // Install Service Worker
 self.addEventListener("install", (event) => {
