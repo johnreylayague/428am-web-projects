@@ -1,5 +1,11 @@
 const CACHE_NAME = "todo-app-v1";
-const urlsToCache = ["/", "index.html", "styles.css", "example.html"];
+const urlsToCache = [
+  "/",
+  "plugins/dexie.min.js",
+  "index.html",
+  "styles.css",
+  "example.html",
+];
 
 // Install Service Worker
 self.addEventListener("install", (event) => {

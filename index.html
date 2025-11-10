@@ -6,7 +6,7 @@
     <title>To-Do App</title>
     <link rel="stylesheet" href="styles.css" />
     <!-- Dexie CDN -->
-    <script src="https://unpkg.com/dexie@3.2.4/dist/dexie.min.js"></script>
+    <script src="plugins/dexie.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -41,8 +41,19 @@
       <button class="sync-btn" id="syncBtn" type="button">
         🔄 Sync with Server
       </button>
-      <div style="margin-top: 24px">
-        <a href="example.html" id="exampleRouteLink">Go to Example Page</a>
+
+      <!-- Notification permission button -->
+      <div style="margin-top: 16px;">
+        <button type="button" class="sync-btn" id="notifyBtn">
+          🔔 Enable Notifications
+        </button>
+      </div>
+
+      <!-- UI redirect button to example.html -->
+      <div style="margin-top: 25px">
+        <button type="button" class="sync-btn" id="exampleRedirectBtn">
+          ➡️ Go to Example (example.html)
+        </button>
       </div>
     </div>
 
@@ -67,7 +78,13 @@
       const statusText = document.getElementById("statusText");
       const statusDot = document.getElementById("statusDot");
       const syncBtn = document.getElementById("syncBtn");
-      const exampleRouteLink = document.getElementById("exampleRouteLink");
+      const notifyBtn = document.getElementById("notifyBtn");
+      const exampleRedirectBtn = document.getElementById("exampleRedirectBtn");
+
+      // Add UI redirect to example.html
+      exampleRedirectBtn.addEventListener("click", function () {
+        window.location.href = "example.html";
+      });
 
       // Service Worker Registration
       if ("serviceWorker" in navigator) {
@@ -424,27 +441,28 @@
         await loadFromLocalOrCache();
       });
 
+      // Notification enable button
+      notifyBtn.addEventListener("click", () => {
+        if ("Notification" in window) {
+          Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+              new Notification("Notifications enabled!", {
+                body: "You will now receive notifications from this To-Do App.",
+                icon: "icons/icon-192.png"
+              });
+            } else if (permission === "denied") {
+              alert("You have denied notifications for this site.");
+            }
+          });
+        } else {
+          alert("This browser does not support notifications.");
+        }
+      });
+
       // Ensure cache is tried on startup if no local todos
       document.addEventListener("DOMContentLoaded", () => {
         checkOnlineStatus();
       });
-
-      // Route for example.html (optional: SPA navigation, fallback to normal link)
-      if (
-        window.location.pathname === "/" &&
-        window.location.hash === "#example"
-      ) {
-        window.location.replace("example.html");
-      }
-      if (exampleRouteLink) {
-        exampleRouteLink.addEventListener("click", function (e) {
-          // SPA-like navigation: for demonstration, just navigate normally
-          // You could use fetch() here to replace content if you wish
-          // For strict HTML, we just follow the link
-          // e.preventDefault();
-          // window.location.href = "example.html";
-        });
-      }
     </script>
   </body>
 </html>
