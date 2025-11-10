@@ -44,13 +44,10 @@
         🔄 Sync with Server
       </button>
 
-      <!-- Notification permission and test buttons -->
+      <!-- Notification permission button -->
       <div style="margin-top: 16px">
         <button type="button" class="sync-btn" id="notifyBtn">
           🔔 Enable Notifications
-        </button>
-        <button type="button" class="sync-btn" id="notifTestBtn" style="margin-left: 8px;">
-          🛎️ Test Notification
         </button>
       </div>
 
@@ -104,7 +101,6 @@
       const statusDot = document.getElementById("statusDot");
       const syncBtn = document.getElementById("syncBtn");
       const notifyBtn = document.getElementById("notifyBtn");
-      const notifTestBtn = document.getElementById("notifTestBtn");
       const exampleRedirectBtn = document.getElementById("exampleRedirectBtn");
       const installBtn = document.getElementById("installBtn");
       const uninstallBtn = document.getElementById("uninstallBtn");
@@ -431,7 +427,10 @@
         if ("Notification" in window) {
           Notification.requestPermission().then((permission) => {
             if (permission === "granted") {
-              showNativeNotification("Notifications enabled!", "You will now receive notifications from this To-Do App.");
+              showNativeNotification(
+                "Notifications enabled!",
+                "You will now receive notifications from this To-Do App."
+              );
             } else if (permission === "denied") {
               alert("You have denied notifications for this site.");
             }
@@ -442,67 +441,40 @@
       });
 
       // --- Native notification function using showNotification in Service Worker for stacking ---
-      function showNativeNotification(title, body, icon="icons/icon-192.png") {
+      function showNativeNotification(
+        title,
+        body,
+        icon = "icons/icon-192.png"
+      ) {
         // If service worker ready, show OS-level notification (which stacks), otherwise fallback to Notification API
-        if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
-          navigator.serviceWorker.ready.then(function(registration) {
+        if (
+          "serviceWorker" in navigator &&
+          navigator.serviceWorker.controller
+        ) {
+          navigator.serviceWorker.ready.then(function (registration) {
             // Use a unique tag per notification (by default omitted), so every notification shows and stacks
             registration.showNotification(title, {
               body: body,
               icon: icon,
               badge: icon,
-              // Omit 'tag' property for stacking, not replacing!
             });
           });
-        } else if ("Notification" in window && Notification.permission === "granted") {
-          // Fallback: browser tab only, not always in system tray
+        } else if (
+          "Notification" in window &&
+          Notification.permission === "granted"
+        ) {
           try {
-            // ADD WORKAROUND: Multiple browser tabs using the Notification API and not stacking. Manually stack notifications by using a unique 'tag'.
-            // On browsers like Chrome for Desktop (when not running as PWA), new Notification() replaces old ones with the same tag. 
-            // So we use a unique tag (timestamp+random) per notification to force stacking, even if browser doesn't stack by default.
             new Notification(title, {
               body: body,
               icon: icon,
               badge: icon,
-              tag: "todolist-" + Date.now() + "-" + Math.random()
+              tag: "todolist-" + Date.now() + "-" + Math.random(),
             });
           } catch (err) {
             // ignore
           }
         }
       }
-
-      // --- Notification Stack Test Button ---
-      notifTestBtn.addEventListener("click", () => {
-        // Always fire separate Notifications (no tag) so each click is a new notification that stays until cleared
-        // They show up in the phone/desktop notification tray, not just UI
-        if (!("Notification" in window)) {
-          alert("This browser does not support notifications.");
-          return;
-        }
-        if (Notification.permission !== "granted") {
-          Notification.requestPermission().then(permission => {
-            if (permission === "granted") {
-              fireNativeNotificationStack();
-            } else {
-              alert("Please enable notifications first.");
-            }
-          });
-        } else {
-          fireNativeNotificationStack();
-        }
-
-        function fireNativeNotificationStack() {
-          const now = new Date();
-          const timeString = now.toLocaleTimeString() + "." + now.getMilliseconds();
-          showNativeNotification(
-            "🛎️ Test Notification",
-            "Stacked push notification!\n" +
-            "Clicked at: " + timeString +
-            "\nSpam the button to see notifications stack up in your device notification tray."
-          );
-        }
-      });
 
       // --- PWA Install/Uninstall Logic ---
       let deferredPrompt = null;
