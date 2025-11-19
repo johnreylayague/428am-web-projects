@@ -1,3 +1,0 @@
-npm init -y
-npm install workbox-cli --save-dev
-npx workbox generateSW workbox-config.js
