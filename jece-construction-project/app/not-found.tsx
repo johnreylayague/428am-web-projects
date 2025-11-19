@@ -1,9 +1,9 @@
 import React from "react";
 
-interface NotFoundProps {}
+interface NotFoundPageProps {}
 
-const NotFound: React.FC<NotFoundProps> = () => {
+const NotFoundPage: React.FC<NotFoundPageProps> = () => {
   return <div>NotFound </div>;
 };
 
-export default NotFound;
+export default NotFoundPage;
