@@ -24,7 +24,7 @@ const Header: React.FC<HomePageProps> = () => {
       <Wrapper className="border-b border-b-black/10">
         <Container>
           <div className="flex items-center justify-between h-27.5">
-            <figure className="relative w-full max-w-25">
+            <figure className="relative w-full max-w-50">
               <Image alt="company-logo" src={companyLogo} loading="eager" />
             </figure>
 
