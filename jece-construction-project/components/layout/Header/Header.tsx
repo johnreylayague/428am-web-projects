@@ -8,6 +8,7 @@ import companyLogo from "@/assets/logo/company-logo.png";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Address from "@/components/common/address";
 
 interface HomePageProps {}
 
@@ -20,18 +21,12 @@ const Header: React.FC<HomePageProps> = () => {
         "before:bg-app-brown"
       )}
     >
-      <Wrapper>
+      <Wrapper className="border-b border-b-black/10">
         <Container>
-          <div className="flex items-center justify-between h-28">
+          <div className="flex items-center justify-between h-27.5">
             <div>
-              <figure className="relative w-36 h-12">
-                <Image
-                  alt="company-logo"
-                  src={companyLogo}
-                  width={150}
-                  height={50}
-                  loading="eager"
-                />
+              <figure className="relative w-full max-w-25">
+                <Image alt="company-logo" src={companyLogo} loading="eager" />
               </figure>
             </div>
 
@@ -53,8 +48,8 @@ const Header: React.FC<HomePageProps> = () => {
               <li className="flex items-center">
                 <Phone className="size-11 text-app-brown" />
 
-                <div className="pl-5 pr-10">
-                  <h5>Requesting A Call:</h5>
+                <div className="pl-[22px] space-y-0.5 pr-[36px]">
+                  <h5 className="">Requesting A Call:</h5>
                   <a
                     href="tel:3013571234"
                     className="font-semibold block text-lg"
@@ -63,31 +58,29 @@ const Header: React.FC<HomePageProps> = () => {
                   </a>
                 </div>
               </li>
-
               <li className="flex items-center">
                 <Clock9 className="size-11 text-app-brown" />
 
-                <div className="pl-5 pr-10">
-                  <h5>Sunday - Friday:</h5>
-                  <h6 className="font-semibold block text-lg">9am - 8pm</h6>
+                <div className="pl-[21px] space-y-0.5 pr-[36px]">
+                  <h5 className="">Sunday - Friday:</h5>
+                  <h6 className="font-semibold text-lg">9am - 8pm</h6>
                 </div>
               </li>
-
               <li className="flex items-center">
                 <MapPinned className="size-11 text-app-brown" />
 
-                <div className="pl-5 pr-10">
-                  <h5>1428 Callison Laney Building</h5>
-                  <address className="not-italic font-semibold block text-lg">
-                    California
-                  </address>
+                <div className="pl-[21px] space-y-0.5">
+                  <Address className="font-normal">
+                    1428 Callison Laney Building
+                  </Address>
+                  <h6 className="font-semibold text-lg">California</h6>
                 </div>
               </li>
             </ul>
           </div>
         </Container>
       </Wrapper>
-      <Wrapper className="border-t border-t-black/10">
+      <Wrapper>
         <Container>
           <ul className="flex gap-5 items-center py-3">
             <li>

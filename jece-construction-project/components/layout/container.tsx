@@ -1,21 +1,16 @@
 import { cn } from "@/lib/utils";
-import clsx from "clsx";
 import React from "react";
 
 interface ContainerProps {
   children?: React.ReactNode;
   className?: string;
-  noWrap?: boolean;
-  maxWidth?: string;
   ref?: React.RefObject<HTMLDivElement | null>;
 }
 
 const Container: React.FC<ContainerProps> = ({
   children,
   className,
-  maxWidth,
   ref,
-  noWrap = false,
   ...props
 }) => {
   return (
@@ -23,8 +18,7 @@ const Container: React.FC<ContainerProps> = ({
       {...props}
       ref={ref}
       className={cn(
-        "w-full mx-auto relative",
-        noWrap ? "" : "container",
+        "w-full mx-auto px-[15px] relative max-w-[1200px]",
         className
       )}
     >
