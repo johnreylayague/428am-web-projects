@@ -14,9 +14,9 @@ const Wrapper: React.FC<WrapperProps> = ({
   ...props
 }) => {
   return (
-    <section {...props} ref={ref} className={cn("relative", className)}>
+    <div {...props} ref={ref} className={cn("relative", className)}>
       {children}
-    </section>
+    </div>
   );
 };
 

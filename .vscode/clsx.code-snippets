@@ -1,0 +1,8 @@
+{
+  "ClassName clsx attribute": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": ["clsx", "cnx"],
+    "body": ["className={clsx(\"$1\")}"],
+    "description": "Insert className={clsx(\"...\")}",
+  },
+}

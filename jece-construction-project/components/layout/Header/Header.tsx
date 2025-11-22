@@ -1,14 +1,8 @@
-import clsx from "clsx";
 import React from "react";
-import Wrapper from "@/components/layout/wrapper";
-import Container from "@/components/layout/container";
-import { Phone, Clock9, MapPinned } from "lucide-react";
-import Mark from "@/components/common/mark";
-import companyLogo from "@/assets/logo/company-logo.png";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import Address from "@/components/common/address";
+import NavMenu from "@/components/layout/Header/components/nav-menu";
+import ContactInfo from "@/components/layout/Header/components/contact-info";
+import company_logo from "@/assets/logo/company-logo.png";
 
 interface HomePageProps {}
 
@@ -21,78 +15,8 @@ const Header: React.FC<HomePageProps> = () => {
         "before:bg-app-brown"
       )}
     >
-      <Wrapper className="border-b border-b-black/10">
-        <Container>
-          <div className="flex items-center justify-between h-27.5">
-            <figure className="relative w-full max-w-50">
-              <Image alt="company-logo" src={companyLogo} loading="eager" />
-            </figure>
-
-            <ul
-              className={cn(
-                "flex items-center justify-between gap-10",
-                "*:relative",
-                "*:not-last:before:absolute",
-                "*:not-last:before:top-0",
-                "*:not-last:before:right-0",
-                "*:not-last:before:block",
-                "*:not-last:before:content-['']",
-                "*:not-last:before:h-full",
-                "*:not-last:before:border-r-px",
-                "*:not-last:before:border-r",
-                "*:not-last:before:border-r-black/10"
-              )}
-            >
-              <li className="flex items-center">
-                <Phone className="size-11 text-app-brown" />
-
-                <div className="pl-[22px] space-y-0.5 pr-[36px]">
-                  <h5 className="">Requesting A Call:</h5>
-                  <a
-                    href="tel:3013571234"
-                    className="font-semibold block text-lg"
-                  >
-                    <Mark>(301) 357 1234</Mark>
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-center">
-                <Clock9 className="size-11 text-app-brown" />
-
-                <div className="pl-[21px] space-y-0.5 pr-[36px]">
-                  <h5 className="">Sunday - Friday:</h5>
-                  <h6 className="font-semibold text-lg">9am - 8pm</h6>
-                </div>
-              </li>
-              <li className="flex items-center">
-                <MapPinned className="size-11 text-app-brown" />
-
-                <div className="pl-[21px] space-y-0.5">
-                  <Address className="font-normal">
-                    1428 Callison Laney Building
-                  </Address>
-                  <h6 className="font-semibold text-lg">California</h6>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </Container>
-      </Wrapper>
-      <Wrapper>
-        <Container>
-          <ul className="flex gap-5 items-center py-3">
-            <li>
-              <Link href="/">Blog</Link>
-            </li>
-            <li>
-              <Link href="/home">home</Link>
-            </li>
-            <li>
-              <Link href="/about">about</Link>
-            </li>
-          </ul>
-        </Container>
-      </Wrapper>
+      <ContactInfo imageAlt="company logo" imageSrc={company_logo} />
+      <NavMenu />
     </header>
   );
 };

@@ -1,0 +1,6 @@
+{
+  "typescript.preferences.importModuleSpecifier": "non-relative", // Prefer @/ paths instead of ../../ relative paths
+  "typescript.preferences.importModuleSpecifierEnding": "auto", // Let VS Code decide if file extension is needed
+  "javascript.preferences.importModuleSpecifier": "non-relative", // Same as above but for JavaScript files
+  "javascript.preferences.importModuleSpecifierEnding": "auto" // Same as above for JS files
+}
