@@ -1,16 +1,16 @@
 import "@/app/globals.css";
 
-function HomeLayout({
+function ServicesLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Services</h1>
       {children}
     </div>
   );
 }
 
-export default HomeLayout;
+export default ServicesLayout;

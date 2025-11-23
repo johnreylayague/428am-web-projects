@@ -16,13 +16,13 @@
       "  );",
       "};",
       "",
-      "export default ${1:ComponentName};",
+      "export default ${1:ComponentName};"
     ],
-    "description": "React Arrow Function Component with prop type and default export. Names match (use filename in PascalCase as convention)",
+    "description": "React Arrow Function Component with prop type and default export. Names match (use filename in PascalCase as convention)"
   },
-  "Clsx className property": {
-    "prefix": "clsx",
-    "body": ["className={clsx(\"$1\")}"],
-    "description": "Add className with clsx function",
-  },
+  "Cn className property": {
+    "prefix": "cn",
+    "body": ["className={cn(\"$1\")}"],
+    "description": "Add className with cn function"
+  }
 }
