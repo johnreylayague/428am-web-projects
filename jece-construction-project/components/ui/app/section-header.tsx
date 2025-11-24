@@ -1,4 +1,3 @@
-import LineDecorator from "@/components/ui/app/line-decorator";
 import React from "react";
 import { cn } from "@/lib/utils";
 

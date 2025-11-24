@@ -6,6 +6,7 @@
   --color-app-brown: #b8642b;
   --color-app-dark: #222222;
   --color-app-gray: #555555;
+  --color-app-light-gray: #dddddd;
   --font-roboto: "Roboto", Arial, Helvetica, sans-serif;
   --font-montserrat: "Montserrat", Arial, Helvetica, sans-serif;
 }
@@ -27,8 +28,9 @@ body {
 }
 
 @layer components {
-  .transition-app-blue {
-    @apply transition-colors duration-200 text-app-blue;
+  /* decide if m oadd og transition color blue app */
+  .transition-app-color {
+    @apply transition-colors duration-200;
   }
 }
 

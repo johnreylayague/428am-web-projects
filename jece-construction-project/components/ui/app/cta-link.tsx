@@ -14,7 +14,7 @@ const CTALink: React.FC<CTALinkProps> = ({ children, className, href }) => {
     <Button
       asChild
       className={cn(
-        "text-lg font-semibold cursor-pointer rounded-none  min-h-15",
+        "text-lg font-semibold cursor-pointer rounded-none min-h-15",
         "bg-app-brown hover:bg-app-blue",
         className
       )}

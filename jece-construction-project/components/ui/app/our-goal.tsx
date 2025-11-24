@@ -72,11 +72,11 @@ const OurGoal: React.FC<OurGoalProps> = () => {
                       >
                         Industrial Mission
                       </h4>
-                      <p className={cn("text-base", "text-app-gray")}>
+                      <Pharagraph>
                         Our mission is to lead the way in building durable,
                         innovative structures that drive industrial progress and
                         inspire communities.
-                      </p>
+                      </Pharagraph>
                     </div>
                   </div>
                   <div>
@@ -96,10 +96,10 @@ const OurGoal: React.FC<OurGoalProps> = () => {
                       >
                         Our Vision
                       </h4>
-                      <p className={cn("text-base", "text-app-gray")}>
+                      <Pharagraph>
                         Construction is a general term meaning the art and
                         science to form objects systems.
-                      </p>
+                      </Pharagraph>
                     </div>
                   </div>
                 </div>
