@@ -20,7 +20,7 @@ const PageBanner: React.FC<PageBannerProps> = ({
       <Wrapper
         className={cn(
           "pt-[130px] pb-[130px] relative min-h-[349px]",
-          "before:content-[''] before:absolute before:inset-0 before:bg-(image:--banner-bg) before:bg-top-left before:bg-auto before:bg-no-repeat",
+          "before:content-[''] before:absolute before:inset-0 before:bg-(image:--banner-bg) before:bg-top-left before:bg-cover before:bg-no-repeat",
           "after:content-[''] after:absolute after:inset-0 after:bg-black/60"
         )}
         style={
