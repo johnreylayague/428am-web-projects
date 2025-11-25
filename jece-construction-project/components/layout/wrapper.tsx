@@ -1,20 +1,18 @@
-import React, { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
+import React, { forwardRef } from "react";
 
-export interface WrapperProps extends HTMLAttributes<HTMLDivElement> {
-  children?: React.ReactNode;
-  className?: string;
-}
+type DivProps = React.ComponentPropsWithoutRef<"div">;
 
-const Wrapper = React.forwardRef<HTMLDivElement, WrapperProps>(function Wrapper(
-  { children, className, ...props },
-  ref
-) {
-  return (
-    <div {...props} ref={ref} className={cn("relative", className)}>
-      {children}
-    </div>
-  );
-});
+interface WrapperProps extends DivProps {}
+
+const Wrapper = forwardRef<HTMLDivElement, WrapperProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <div ref={ref} className={cn("relative", className)} {...props}>
+        {children}
+      </div>
+    );
+  }
+);
 
 export default Wrapper;
