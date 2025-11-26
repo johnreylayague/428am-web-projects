@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "href": "/services/general-contracting",
+    "img": "https://placehold.co/600x400?text=General+Contracting",
+    "alt": "General Contracting",
+    "label": "General Contracting"
+  },
+  { 
+    "id": 2,
+    "href": "/services/apartment-design",
+    "img": "https://placehold.co/600x400?text=Apartment+Design",
+    "alt": "Apartment Design",
+    "label": "Apartment Design"
+  },
+  {
+    "id": 3,
+    "href": "/services/material-management",
+    "img": "https://placehold.co/600x400?text=Material+Management",
+    "alt": "Material Management",
+    "label": "Material Management"
+  },
+  {
+    "id": 4,
+    "href": "/services/building-renovation",
+    "img": "https://placehold.co/600x400?text=Building+Renovation",
+    "alt": "Building Renovation",
+    "label": "Building Renovation"
+  },
+  {
+    "id": 5,
+    "href": "/services/building-construction",
+    "img": "https://placehold.co/600x400?text=Building+Construction",
+    "alt": "Building Construction",
+    "label": "Building Construction"
+  },
+  {
+    "id": 6,
+    "href": "/services/architectural-design",
+    "img": "https://placehold.co/600x400?text=Architectural+Design",
+    "alt": "Architectural Design",
+    "label": "Architectural Design"
+  }
+]

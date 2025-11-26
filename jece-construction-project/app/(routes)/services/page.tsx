@@ -5,47 +5,9 @@ import Wrapper from "@/components/layout/wrapper";
 import Container from "@/components/layout/container";
 import SectionHeader from "@/components/ui/app/section-header-secondary";
 import Link from "next/link";
+import services from "@/assets/json/services.json";
 
 interface ServicesPageProps {}
-
-const services = [
-  {
-    href: "/services/general-contracting",
-    img: "https://placehold.co/600x400?text=General+Contracting",
-    alt: "General Contracting",
-    label: "General Contracting",
-  },
-  {
-    href: "/services/apartment-design",
-    img: "https://placehold.co/600x400?text=Apartment+Design",
-    alt: "Apartment Design",
-    label: "Apartment Design",
-  },
-  {
-    href: "/services/material-management",
-    img: "https://placehold.co/600x400?text=Material+Management",
-    alt: "Material Management",
-    label: "Material Management",
-  },
-  {
-    href: "/services/building-renovation",
-    img: "https://placehold.co/600x400?text=Building+Renovation",
-    alt: "Building Renovation",
-    label: "Building Renovation",
-  },
-  {
-    href: "/services/building-construction",
-    img: "https://placehold.co/600x400?text=Building+Construction",
-    alt: "Building Construction",
-    label: "Building Construction",
-  },
-  {
-    href: "/services/architectural-design",
-    img: "https://placehold.co/600x400?text=Architectural+Design",
-    alt: "Architectural Design",
-    label: "Architectural Design",
-  },
-];
 
 const ServicesPage: React.FC<ServicesPageProps> = () => {
   return (
@@ -62,7 +24,7 @@ const ServicesPage: React.FC<ServicesPageProps> = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service) => (
               <Link
-                key={service.href}
+                key={service.id}
                 href={service.href}
                 className="relative flex flex-col overflow-hidden min-h-[271px] cursor-pointer"
               >

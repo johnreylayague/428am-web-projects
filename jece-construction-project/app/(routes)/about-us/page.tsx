@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import goal from "@/assets/images/goal.jpg";
 import CTALink from "@/components/ui/app/cta-link";
-import pattern_7 from "@/assets/images/pattern-7.png";
 import { Eye, Hammer, HardHat, Trophy } from "lucide-react";
 import SectionHeaderSecondary from "@/components/ui/app/section-header-secondary";
 import SectionHeader from "@/components/ui/app/section-header";
@@ -323,7 +322,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = () => {
                     <Image
                       src={item.src}
                       alt={item.alt}
-                      className="object-contain object-center w-full h-full"
+                      className="object-contain object-center size-full"
                       loading="eager"
                     />
                   </figure>
