@@ -5,7 +5,7 @@ import Container from "@/components/layout/container";
 import Wrapper from "@/components/layout/wrapper";
 import SectionHeader from "@/components/ui/app/section-header";
 import { cn } from "@/lib/utils";
-import SectionTitle from "@/components/ui/app/section-title";
+import SectionTitle from "@/components/common/section-title";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 interface ContactUsPageProps {}

@@ -5,22 +5,26 @@ import Wrapper from "@/components/layout/wrapper";
 import Container from "@/components/layout/container";
 import Image from "next/image";
 import ServiceTabs from "@/components/ui/app/service-tabs";
+import Link from "next/link";
 
 const serviceCardsData = [
   {
     category: "BUILDING, CONSTRUCTION",
     title: "Mortar Buildings",
     img: "https://placehold.co/370x370?text=Building",
+    slug: "mortar-buildings",
   },
   {
     category: "CONSTRUCTION",
     title: "Modern Construction",
     img: "https://placehold.co/370x370?text=Construction",
+    slug: "modern-construction",
   },
   {
     category: "ARCHITECTURE, INDUSTRIA",
     title: "Industrial Projects",
     img: "https://placehold.co/370x370?text=Industrial",
+    slug: "industrial-projects",
   },
 ];
 
@@ -47,7 +51,11 @@ const ServiceDetailsPage = async ({ params }: ServiceDetailsPageProps) => {
           <ServiceTabs />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-12">
             {serviceCardsData.map((card, idx) => (
-              <div key={idx} className="relative">
+              <Link
+                key={idx}
+                className="relative"
+                href={`/services/${serviceSlug}/${card.slug}`}
+              >
                 <figure className="relative h-[370px] w-full bg-red-700">
                   <Image
                     src={card.img}
@@ -67,7 +75,7 @@ const ServiceDetailsPage = async ({ params }: ServiceDetailsPageProps) => {
                     {card.title}
                   </h4>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Container>

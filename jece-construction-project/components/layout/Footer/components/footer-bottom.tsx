@@ -22,13 +22,10 @@ const FooterBottom: React.FC<FooterBottomProps> = () => {
           )}
         >
           <li>
-            <Link href="/terms-conditions">Terms &amp; Condition</Link>
+            <Link href="/terms-condition">Terms &amp; Condition</Link>
           </li>
           <li>
             <Link href="/privacy-policy">Privacy &amp; Policy</Link>
-          </li>
-          <li>
-            <Link href="/contact-us">Contact Us</Link>
           </li>
         </ul>
       </Container>

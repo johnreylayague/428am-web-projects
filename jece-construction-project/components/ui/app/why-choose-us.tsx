@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Eye, Hammer, Trophy } from "lucide-react";
 import SectionHeader from "@/components/ui/app/section-header";
-import SectionTitle from "@/components/ui/app/section-title";
-import Pharagraph from "@/components/ui/app/pharagraph";
+import SectionTitle from "@/components/common/section-title";
+import Pharagraph from "@/components/common/pharagraph";
 import pattern_16 from "@/assets/images/pattern-16.png";
 import choose from "@/assets/images/choose.jpg";
 

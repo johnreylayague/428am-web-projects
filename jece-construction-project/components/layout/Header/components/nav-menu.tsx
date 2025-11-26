@@ -6,15 +6,6 @@ import Container from "@/components/layout/container";
 import Link from "next/link";
 import CTALink from "@/components/ui/app/cta-link";
 import { cn } from "@/lib/utils";
-import { ChevronDown } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/shadcn/navigation-menu";
 import { usePathname } from "next/navigation";
 
 interface NavMenuProps {}
@@ -61,18 +52,6 @@ const NavMenu: React.FC<NavMenuProps> = () => {
               )}
             >
               <span className={"leading-4"}>Services</span>
-              {/* <ChevronDown size={13} /> */}
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/gallery"
-              className={cn(
-                "flex justify-between items-end gap-1 cursor-pointer",
-                pathname === "/gallery" && "text-app-blue"
-              )}
-            >
-              <span className={"leading-4"}>Gallery</span>
               {/* <ChevronDown size={13} /> */}
             </Link>
           </li>

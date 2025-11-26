@@ -8,8 +8,8 @@ import CTALink from "@/components/ui/app/cta-link";
 import pattern_7 from "@/assets/images/pattern-7.png";
 import { Eye, Hammer, HardHat } from "lucide-react";
 import SectionHeader from "@/components/ui/app/section-header";
-import SectionTitle from "@/components/ui/app/section-title";
-import Pharagraph from "@/components/ui/app/pharagraph";
+import SectionTitle from "@/components/common/section-title";
+import Pharagraph from "@/components/common/pharagraph";
 
 interface OurGoalProps {}
 

@@ -2,9 +2,9 @@
 
 import Container from "@/components/layout/container";
 import Wrapper from "@/components/layout/wrapper";
-import Pharagraph from "@/components/ui/app/pharagraph";
+import Pharagraph from "@/components/common/pharagraph";
 import SectionHeader from "@/components/ui/app/section-header";
-import SectionTitle from "@/components/ui/app/section-title";
+import SectionTitle from "@/components/common/section-title";
 import React, { useEffect, useState } from "react";
 import {
   Carousel,
