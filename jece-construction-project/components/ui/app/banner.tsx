@@ -34,8 +34,20 @@ const Banner: React.FC<BannerProps> = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className={cn("left-5 cursor-pointer")} />
-          <CarouselNext className={cn("right-5 cursor-pointer")} />
+          <CarouselPrevious
+            className={cn(
+              "absolute left-8 top-1/2 -translate-y-1/2 z-10 bg-transparent text-white hover:bg-white/20 hover:text-white border-none shadow-none rounded-full p-2"
+            )}
+          >
+            <span className="sr-only">Previous</span>
+          </CarouselPrevious>
+          <CarouselNext
+            className={cn(
+              "absolute right-8 top-1/2 -translate-y-1/2 z-10 bg-transparent text-white hover:bg-white/20 hover:text-white border-none shadow-none rounded-full p-2"
+            )}
+          >
+            <span className="sr-only">Next</span>asdasd
+          </CarouselNext>
         </Carousel>
       </Wrapper>
     </React.Fragment>
@@ -44,7 +56,9 @@ const Banner: React.FC<BannerProps> = () => {
 
 export default Banner;
 
-const BannerCarouselItem: React.FC = () => (
+interface BannerCarouselItemProps {}
+
+const BannerCarouselItem: React.FC<BannerCarouselItemProps> = () => (
   <React.Fragment>
     <div
       className="bg-cover bg-top size-full absolute inset-0 before:content-[''] before:absolute before:inset-0 before:bg-black before:opacity-80"
