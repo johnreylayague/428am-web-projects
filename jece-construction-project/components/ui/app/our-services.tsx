@@ -13,7 +13,7 @@ import {
   CarouselItem,
 } from "@/components/ui/shadcn/carousel";
 import { cn } from "@/lib/utils";
-import CTALink from "@/components/ui/app/cta-link";
+import CTALink from "@/components/common/cta-link";
 import Link from "next/link";
 import TitleWithBr from "@/components/common/title-with-br";
 import { ArrowRight } from "lucide-react";

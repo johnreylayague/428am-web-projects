@@ -42,8 +42,11 @@ const ServiceDetailsPage = async ({ params }: ServiceDetailsPageProps) => {
     <React.Fragment>
       <PageBanner
         bannerImg={banner_7.src}
-        breadcrumb="Services"
-        title={serviceSlug}
+        breadcrumb={[
+          { title: "Services", link: "/services" },
+          { title: "General Contracting" },
+        ]}
+        title={"General Contracting"}
       />
 
       <Wrapper className="py-[100px]">

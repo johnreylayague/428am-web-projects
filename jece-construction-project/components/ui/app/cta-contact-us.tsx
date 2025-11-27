@@ -1,6 +1,6 @@
 import Container from "@/components/layout/container";
 import Wrapper from "@/components/layout/wrapper";
-import CTALink from "@/components/ui/app/cta-link";
+import CTALink from "@/components/common/cta-link";
 import React from "react";
 
 interface CTAContactUsProps {}

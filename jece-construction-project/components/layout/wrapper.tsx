@@ -1,17 +1,48 @@
 import { cn } from "@/lib/utils";
-import React, { forwardRef } from "react";
+import React from "react";
 
-type DivProps = React.ComponentPropsWithoutRef<"div">;
+type WrapperType = "div" | "section";
 
-interface WrapperProps extends DivProps {}
+interface WrapperProps extends React.HTMLAttributes<HTMLElement> {
+  type?: WrapperType;
+  children?: React.ReactNode;
+  className?: string;
+}
 
-const Wrapper = forwardRef<HTMLDivElement, WrapperProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <div ref={ref} className={cn("relative", className)} {...props}>
-        {children}
-      </div>
-    );
+const Wrapper = React.forwardRef<HTMLElement, WrapperProps>(
+  ({ type = "div", children, className, ...props }, ref) => {
+    if (type === "div") {
+      return (
+        <div
+          ref={ref as React.Ref<HTMLDivElement>}
+          className={cn("relative", className)}
+          {...props}
+        >
+          {children}
+        </div>
+      );
+    } else if (type === "section") {
+      return (
+        <section
+          ref={ref as React.Ref<HTMLElement>}
+          className={cn("relative", className)}
+          {...props}
+        >
+          {children}
+        </section>
+      );
+    } else {
+      // Shouldn't happen, fallback
+      return (
+        <div
+          ref={ref as React.Ref<HTMLDivElement>}
+          className={cn("relative", className)}
+          {...props}
+        >
+          {children}
+        </div>
+      );
+    }
   }
 );
 

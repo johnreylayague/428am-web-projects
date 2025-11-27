@@ -1,18 +1,20 @@
 import React from "react";
 import banner_7 from "@/assets/banner/7.jpg";
 import PageBanner from "@/components/ui/app/page-banner";
-import CTALink from "@/components/ui/app/cta-link";
+import CTALink from "@/components/common/cta-link";
 import Wrapper from "@/components/layout/wrapper";
 import Container from "@/components/layout/container";
 
 interface NotFoundPageProps {}
 
+const breadcrumb = [{ title: "404 - Not Found" }];
+
 const NotFoundPage: React.FC<NotFoundPageProps> = () => {
   return (
-    <>
+    <React.Fragment>
       <PageBanner
         bannerImg={banner_7.src}
-        breadcrumb="404 - Not Found"
+        breadcrumb={breadcrumb}
         title="404 page not found"
       />
       <Wrapper className="pt-[80px] pb-[100px]">
@@ -34,7 +36,7 @@ const NotFoundPage: React.FC<NotFoundPageProps> = () => {
           </div>
         </Container>
       </Wrapper>
-    </>
+    </React.Fragment>
   );
 };
 

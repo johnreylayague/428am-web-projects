@@ -4,7 +4,7 @@ import React from "react";
 import Wrapper from "@/components/layout/wrapper";
 import Container from "@/components/layout/container";
 import Link from "next/link";
-import CTALink from "@/components/ui/app/cta-link";
+import CTALink from "@/components/common/cta-link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 

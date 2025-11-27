@@ -8,7 +8,9 @@ interface PharagraphProps {
 
 const Pharagraph: React.FC<PharagraphProps> = ({ children, className }) => {
   return (
-    <p className={cn("text-base", "text-app-gray", className)}>{children}</p>
+    <p className={cn("text-base font-normal", "text-app-gray", className)}>
+      {children}
+    </p>
   );
 };
 

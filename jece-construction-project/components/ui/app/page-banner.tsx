@@ -4,10 +4,15 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+interface BreadcrumbItem {
+  title: string;
+  link?: string;
+}
+
 interface PageBannerProps {
   bannerImg: string;
   title: string;
-  breadcrumb: string;
+  breadcrumb: BreadcrumbItem[] | undefined | null;
 }
 
 const PageBanner: React.FC<PageBannerProps> = ({
@@ -15,6 +20,10 @@ const PageBanner: React.FC<PageBannerProps> = ({
   title,
   breadcrumb,
 }) => {
+  const breadcrumbArray: BreadcrumbItem[] = Array.isArray(breadcrumb)
+    ? breadcrumb
+    : [];
+
   return (
     <React.Fragment>
       <Wrapper
@@ -40,7 +49,20 @@ const PageBanner: React.FC<PageBannerProps> = ({
                   Home
                 </Link>
               </li>
-              <li>{breadcrumb}</li>
+              {breadcrumbArray.map((item, idx) => (
+                <li key={idx}>
+                  {item.link ? (
+                    <Link
+                      href={item.link}
+                      className="text-app-brown text-lg transition-app-color hover:text-white"
+                    >
+                      {item.title}
+                    </Link>
+                  ) : (
+                    <span className="text-white">{item.title}</span>
+                  )}
+                </li>
+              ))}
             </ul>
             <h2 className="font-bold font-montserrat text-4xl uppercase text-white">
               {title}

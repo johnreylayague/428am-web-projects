@@ -6,7 +6,7 @@ import Wrapper from "@/components/layout/wrapper";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import goal from "@/assets/images/goal.jpg";
-import CTALink from "@/components/ui/app/cta-link";
+import CTALink from "@/components/common/cta-link";
 import { Eye, Hammer, HardHat, Trophy } from "lucide-react";
 import SectionHeaderSecondary from "@/components/ui/app/section-header-secondary";
 import SectionHeader from "@/components/ui/app/section-header";

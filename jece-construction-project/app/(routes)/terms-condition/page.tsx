@@ -7,12 +7,14 @@ import Pharagraph from "@/components/common/pharagraph";
 import SectionTitle from "@/components/common/section-title";
 import SubSectionTitle from "@/components/common/sub-section-title";
 
+const breadcrumb = [{ title: "Terms and Conditions" }];
+
 const TermsConditionPage = () => {
   return (
     <React.Fragment>
       <PageBanner
         bannerImg={banner_7.src}
-        breadcrumb="Terms and Conditions"
+        breadcrumb={breadcrumb}
         title="Terms and Conditions"
       />
       <Wrapper className="pt-[110px] pb-[80px]">

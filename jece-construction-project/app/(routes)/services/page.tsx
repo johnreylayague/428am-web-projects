@@ -14,7 +14,7 @@ const ServicesPage: React.FC<ServicesPageProps> = () => {
     <>
       <PageBanner
         bannerImg={banner_7.src}
-        breadcrumb="Services"
+        breadcrumb={[{ title: "Services" }]}
         title="Services"
       />
       <Wrapper className="pt-20 pb-20">

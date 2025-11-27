@@ -7,6 +7,9 @@
   --color-app-dark: #222222;
   --color-app-gray: #555555;
   --color-app-light-gray: #dddddd;
+  --color-app-lightest-gray: #f5f5f5;
+  --color-app-light-black-10: #1a1a1a;
+  --color-app-silver-gray: #cccccc;
   --font-roboto: "Roboto", Arial, Helvetica, sans-serif;
   --font-montserrat: "Montserrat", Arial, Helvetica, sans-serif;
 }
