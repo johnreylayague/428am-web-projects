@@ -4,6 +4,7 @@ import { Montserrat } from "next/font/google";
 import { Roboto } from "next/font/google";
 import Header from "@/components/layout/Header/header";
 import Footer from "@/components/layout/Footer/footer";
+import ScrollToTop from "@/components/ui/app/scroll-to-top";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <ScrollToTop /> 
       </body>
     </html>
   );

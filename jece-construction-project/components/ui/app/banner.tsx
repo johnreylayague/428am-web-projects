@@ -10,6 +10,7 @@ import Wrapper from "@/components/layout/wrapper";
 import banner_img from "@/assets/banner/image-3.jpg";
 import { cn } from "@/lib/utils";
 import CTALink from "@/components/common/cta-link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface BannerProps {}
 
@@ -17,38 +18,62 @@ const Banner: React.FC<BannerProps> = () => {
   return (
     <React.Fragment>
       <Wrapper>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className={cn("w-full relative")}
-        >
-          <CarouselContent className={cn("  ")}>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem
-                key={index}
-                className="relative  min-h-160 flex items-center justify-center"
-              >
-                <BannerCarouselItem />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious
-            className={cn(
-              "absolute left-8 top-1/2 -translate-y-1/2 z-10 bg-transparent text-white hover:bg-white/20 hover:text-white border-none shadow-none rounded-full p-2"
-            )}
+        <div className="group relative">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className={cn("w-full relative")}
           >
-            <span className="sr-only">Previous</span>
-          </CarouselPrevious>
-          <CarouselNext
-            className={cn(
-              "absolute right-8 top-1/2 -translate-y-1/2 z-10 bg-transparent text-white hover:bg-white/20 hover:text-white border-none shadow-none rounded-full p-2"
-            )}
-          >
-            <span className="sr-only">Next</span>asdasd
-          </CarouselNext>
-        </Carousel>
+            <CarouselContent>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem
+                  key={index}
+                  className="relative min-h-160 flex items-center justify-center"
+                >
+                  <BannerCarouselItem />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious
+              className={cn(
+                "left-8 cursor-pointer border-2 rounded-sm bg-transparent border-white",
+                "hover:bg-app-blue hover:border-app-blue",
+                "size-14",
+                "opacity-0 group-hover:opacity-100",
+                "transition-all duration-500 ease-in-out"
+              )}
+              style={{
+                transition:
+                  "background 0.5s, border-color 0.5s, opacity 0.5s, transform 0.5s",
+              }}
+            >
+              <ChevronLeft
+                className="size-6 text-white transition-all duration-500"
+                aria-hidden="true"
+              />
+            </CarouselPrevious>
+            <CarouselNext
+              className={cn(
+                "right-8 cursor-pointer border-2 rounded-sm bg-transparent border-white",
+                "hover:bg-app-blue hover:border-app-blue",
+                "size-14",
+                "opacity-0 group-hover:opacity-100",
+                "transition-all duration-500 ease-in-out"
+              )}
+              style={{
+                transition:
+                  "background 0.5s, border-color 0.5s, opacity 0.5s, transform 0.5s",
+              }}
+            >
+              <ChevronRight
+                className="size-6 text-white transition-all duration-500"
+                aria-hidden="true"
+              />
+            </CarouselNext>
+          </Carousel>
+        </div>
       </Wrapper>
     </React.Fragment>
   );

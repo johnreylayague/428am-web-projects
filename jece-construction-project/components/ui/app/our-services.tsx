@@ -104,13 +104,13 @@ const OurServices: React.FC<OurServicesProps> = () => {
             </div>
           </div>
 
-          <Carousel setApi={setApiZoomCarousel} className="-mx-7">
-            <CarouselContent className="p-7 -ml-7">
+          <Carousel setApi={setApiZoomCarousel} className="-mx-4">
+            <CarouselContent className="ml-0">
               {services.map((service, idx) => (
-                <CarouselItem className="relative pl-7 basis-1/3" key={idx}>
+                <CarouselItem className="relative basis-1/3 pl-0" key={idx}>
                   <div
                     className={cn(
-                      "h-60 relative px-8 pt-8 pb-10",
+                      "h-60 relative px-8 pt-8 pb-10 my-7 mx-4",
                       "bg-white",
                       "border-b-4 border-app-brown",
                       "shadow-[0px_0px_15px_rgba(0,0,0,0.10)]"
