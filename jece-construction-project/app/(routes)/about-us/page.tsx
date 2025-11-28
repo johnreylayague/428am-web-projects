@@ -34,7 +34,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = () => {
       <PageBanner
         bannerImg={banner_7.src}
         title="About Us"
-        breadcrumb="About Us"
+        breadcrumb={[{ title: "Home", link: "/" }, { title: "About Us" }]}
       />
       <Wrapper className={cn("pt-24 pb-20 relative ")}>
         <Container>

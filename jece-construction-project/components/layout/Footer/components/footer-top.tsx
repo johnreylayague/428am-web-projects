@@ -8,13 +8,13 @@ import company_logo from "@/assets/logo/company-logo.png";
 // Lucide React icons
 import { Phone, Mail, MapPin, Globe, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { servicesList } from "@/config/services-list";
 
 interface FooterTopProps {}
 
 const FooterTop: React.FC<FooterTopProps> = () => {
   return (
     <Wrapper className={cn("pt-22.5 pb-10", "bg-app-dark")}>
-      {/* <Wrapper className={cn("pt-22.5 pb-10", "bg-zinc-900")}> */}
       <Container>
         <div
           className={cn(
@@ -91,18 +91,6 @@ const FooterTop: React.FC<FooterTopProps> = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/testimonial" className="flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-2 text-app-brown group-hover:text-app-blue transition-colors" />
-                  Testimonial
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-2 text-app-brown group-hover:text-app-blue transition-colors" />
-                  Our Blog
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact-us" className="flex items-center group">
                   <ChevronRight className="w-4 h-4 mr-2 text-app-brown group-hover:text-app-blue transition-colors" />
                   Contact Us
@@ -122,92 +110,24 @@ const FooterTop: React.FC<FooterTopProps> = () => {
                 "*:hover:text-app-blue"
               )}
             >
-              <li>
-                <Link
-                  href="/services/general-contracting"
-                  className={cn("flex items-center group")}
-                >
-                  <ChevronRight
-                    className={cn(
-                      "size-4 mr-2 transition-colors",
-                      "text-app-brown group-hover:text-app-blue"
-                    )}
-                  />
-                  General Contracting
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/apartment-design"
-                  className={cn("flex items-center group")}
-                >
-                  <ChevronRight
-                    className={cn(
-                      "size-4 mr-2 transition-colors",
-                      "text-app-brown group-hover:text-app-blue"
-                    )}
-                  />
-                  Apartment Design
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/metrial-management"
-                  className={cn("flex items-center group")}
-                >
-                  <ChevronRight
-                    className={cn(
-                      "size-4 mr-2 transition-colors",
-                      "text-app-brown group-hover:text-app-blue"
-                    )}
-                  />
-                  Metrial Management
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/building-renovation"
-                  className={cn("flex items-center group")}
-                >
-                  <ChevronRight
-                    className={cn(
-                      "size-4 mr-2 transition-colors",
-                      "text-app-brown group-hover:text-app-blue"
-                    )}
-                  />
-                  Building Renovation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/building-construction"
-                  className={cn("flex items-center group")}
-                >
-                  <ChevronRight
-                    className={cn(
-                      "size-4 mr-2 transition-colors",
-                      "text-app-brown group-hover:text-app-blue"
-                    )}
-                  />
-                  Building Construction
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/architecture-design"
-                  className={cn("flex items-center group")}
-                >
-                  <ChevronRight
-                    className={cn(
-                      "size-4 mr-2 transition-colors",
-                      "text-app-brown group-hover:text-app-blue"
-                    )}
-                  />
-                  Architecture Design
-                </Link>
-              </li>
+              {servicesList.map((service, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={`/services/${service.url}`}
+                    className={cn("flex items-center group")}
+                  >
+                    <ChevronRight
+                      className={cn(
+                        "size-4 mr-2 transition-colors",
+                        "text-app-brown group-hover:text-app-blue"
+                      )}
+                    />
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div>
+          </div>  
           <div>
             <h4 className={cn("text-lg font-semibold text-white mb-5")}>
               Popular Projects

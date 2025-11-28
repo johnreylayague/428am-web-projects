@@ -5,7 +5,7 @@ import Wrapper from "@/components/layout/wrapper";
 import Container from "@/components/layout/container";
 import SectionHeader from "@/components/ui/app/section-header-secondary";
 import Link from "next/link";
-import services from "@/assets/json/services.json";
+import { servicesList } from "@/config/services-list";
 
 interface ServicesPageProps {}
 
@@ -19,26 +19,11 @@ const ServicesPage: React.FC<ServicesPageProps> = () => {
       />
       <Wrapper className="pt-20 pb-20">
         <Container>
-          <SectionHeader label="Services" title="Our Projects" />
+          <SectionHeader label="Services" title="Our Services" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Link
-                key={service.id}
-                href={service.href}
-                className="relative flex flex-col overflow-hidden min-h-[271px] cursor-pointer"
-              >
-                <img
-                  src={service.img}
-                  alt={service.alt}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <h3 className="absolute bottom-0 left-0 right-0 bg-black/80 py-4 text-center">
-                  <span className="relative font-bold text-lg text-white">
-                    {service.label}
-                  </span>
-                </h3>
-              </Link>
+            {servicesList.map((service) => (
+              <ServiceItem key={service.url} service={service} />
             ))}
           </div>
         </Container>
@@ -46,5 +31,25 @@ const ServicesPage: React.FC<ServicesPageProps> = () => {
     </>
   );
 };
+
+const ServiceItem: React.FC<{ service: (typeof servicesList)[number] }> = ({
+  service,
+}) => (
+  <Link
+    href={`/services/${service.url}`}
+    className="relative flex flex-col overflow-hidden min-h-[271px] cursor-pointer"
+  >
+    <img
+      src={service.img}
+      alt={service.alt}
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+    <h3 className="absolute bottom-0 left-0 right-0 bg-black/80 py-4 text-center">
+      <span className="relative font-bold text-lg text-white">
+        {service.title}
+      </span>
+    </h3>
+  </Link>
+);
 
 export default ServicesPage;

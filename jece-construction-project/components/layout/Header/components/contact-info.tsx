@@ -6,6 +6,7 @@ import Mark from "@/components/common/mark";
 import Image, { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 import Address from "@/components/common/address";
+import { contactInfo } from "@/config/contact-info";
 
 interface ContactInfoProps {
   imageAlt: string;
@@ -35,32 +36,45 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ imageAlt, imageSrc }) => {
             "*:not-last:before:border-r-black/10"
           )}
         >
-          <li className="flex items-center">
+          <li className="flex items-center gap-5.5">
             <Phone className="size-11 text-app-brown" />
 
-            <div className="pl-[22px] space-y-0.5 pr-[36px]">
+            <div className="space-y-0.5 pr-[36px]">
               <h5 className="">Requesting A Call:</h5>
-              <a href="tel:3013571234" className="font-semibold block text-lg">
-                <Mark>(301) 357 1234</Mark>
-              </a>
+              <div>
+                <a
+                  href={`tel:${contactInfo.mobile}`}
+                  className="font-semibold block text-lg"
+                >
+                  {contactInfo.mobile}
+                </a>
+                <a
+                  href={`tel:${contactInfo.phone}`}
+                  className="font-semibold block text-lg"
+                >
+                  {contactInfo.phone}
+                </a>
+              </div>
             </div>
           </li>
-          <li className="flex items-center">
+          <li className="flex items-center gap-5.5">
             <Clock9 className="size-11 text-app-brown" />
 
-            <div className="pl-[21px] space-y-0.5 pr-[36px]">
+            <div className="space-y-0.5 pr-[36px]">
               <h5 className="">Sunday - Friday:</h5>
-              <h6 className="font-semibold text-lg">9am - 8pm</h6>
+              <h6 className="font-semibold text-lg">{contactInfo.workHours}</h6>
             </div>
           </li>
-          <li className="flex items-center">
+          <li className="flex items-center gap-5.5">
             <MapPinned className="size-11 text-app-brown" />
 
-            <div className="pl-[21px] space-y-0.5">
+            <div className="space-y-0.5 w-full max-w-65">
               <Address className="font-normal">
-                1428 Callison Laney Building
+                {contactInfo.address.line}
               </Address>
-              <h6 className="font-semibold text-lg">California</h6>
+              <h6 className="font-semibold text-lg">
+                {contactInfo.address.location}
+              </h6>
             </div>
           </li>
         </ul>

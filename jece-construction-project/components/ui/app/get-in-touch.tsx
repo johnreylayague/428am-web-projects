@@ -4,6 +4,7 @@ import SectionHeader from "@/components/ui/app/section-header-secondary";
 import { Button } from "@/components/ui/shadcn/button";
 import { Input } from "@/components/ui/shadcn/input";
 import { Textarea } from "@/components/ui/shadcn/textarea";
+import { contactInfo } from "@/config/contact-info";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -34,36 +35,26 @@ const GetInTouch: React.FC<GetInTouchProps> = () => {
                 <div>
                   <h4 className="mb-4 text-[24px] font-bold">Location</h4>
                   <address className="not-italic text-sm text-app-gray">
-                    123 Federation Square, Melbourne, VIC 3000
+                    {contactInfo.address.line}
                   </address>
                 </div>
                 <div>
                   <h4 className="mb-4 text-[24px] font-bold">Call Us</h4>
                   <mark className="bg-transparent block text-sm text-app-gray">
-                    +61 3 1234 5678
+                    {contactInfo.mobile}
                   </mark>
                   <mark className="bg-transparent block text-sm text-app-gray">
-                    +61 3 8765 4321
+                    {contactInfo.phone}
                   </mark>
                 </div>
                 <div>
                   <h4 className="mb-4 text-[24px] font-bold">Email</h4>
-                  <div>
-                    <a
-                      href="mailto:info@jecedev.com.au"
-                      className="text-app-gray text-sm transition-app-color hover:text-app-blue"
-                    >
-                      info@jecedev.com.au
-                    </a>
-                  </div>
-                  <div className="text-sm">
-                    <a
-                      href="mailto:contact@jecedev.com.au"
-                      className="text-app-gray text-sm transition-app-color hover:text-app-blue"
-                    >
-                      contact@jecedev.com.au
-                    </a>
-                  </div>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-app-gray text-sm transition-app-color hover:text-app-blue"
+                  >
+                    {contactInfo.email}
+                  </a>
                 </div>
               </div>
 

@@ -33,8 +33,8 @@ const ContactUsPage: React.FC<ContactUsPageProps> = () => {
     <>
       <PageBanner
         bannerImg={banner_7.src}
-        breadcrumb="Contact Us"
         title="Contact Us"
+        breadcrumb={[{ title: "Contact Us" }]}
       />
       <Wrapper className="pt-15">
         <Container>

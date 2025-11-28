@@ -10,6 +10,7 @@ import { Eye, Hammer, HardHat } from "lucide-react";
 import SectionHeader from "@/components/ui/app/section-header";
 import SectionTitle from "@/components/common/section-title";
 import Pharagraph from "@/components/common/pharagraph";
+import Mark from "@/components/common/mark";
 
 interface OurGoalProps {}
 
@@ -42,18 +43,18 @@ const OurGoal: React.FC<OurGoalProps> = () => {
             </div>
             <div className="col-span-7">
               <main className="pl-13">
-                <SectionHeader>What's Our Goal</SectionHeader>
+                <SectionHeader>Welcome to</SectionHeader>
 
-                <SectionTitle>
-                  Why we are best in <br />
-                  construction co. over the world
-                </SectionTitle>
+                <SectionTitle>JECE Construction Corporation</SectionTitle>
 
                 <Pharagraph>
-                  Manufacturing industry became a key sector of production and
-                  labor and North American countries during the Industrial
-                  Revolution, upsetting industry sector ocean to me.
+                  Looking for a trusted partner for your construction needs?
+                  We’re here to build with you.{" "}
+                  <Mark>JECE Construction Corporation</Mark> delivers reliable,
+                  high-quality work designed to create lasting, meaningful
+                  spaces for your community.
                 </Pharagraph>
+
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   <div>
                     <span>
@@ -64,21 +65,17 @@ const OurGoal: React.FC<OurGoalProps> = () => {
                       />
                     </span>
                     <div>
-                      <h4
-                        className={cn(
-                          "text-2xl font-bold my-4 font-montserrat",
-                          "text-app-dark"
-                        )}
-                      >
-                        Industrial Mission
-                      </h4>
+                      <SectionTitle className={cn("text-2xl my-4")}>
+                        Our Mission
+                      </SectionTitle>
                       <Pharagraph>
-                        Our mission is to lead the way in building durable,
-                        innovative structures that drive industrial progress and
-                        inspire communities.
+                        To deliver dependable, high-quality construction that
+                        creates safe, durable, and inspiring spaces for
+                        communities.
                       </Pharagraph>
                     </div>
                   </div>
+
                   <div>
                     <span>
                       <Eye
@@ -88,21 +85,18 @@ const OurGoal: React.FC<OurGoalProps> = () => {
                       />
                     </span>
                     <div>
-                      <h4
-                        className={cn(
-                          "text-2xl font-bold my-4 font-montserrat",
-                          "text-app-dark"
-                        )}
-                      >
+                      <SectionTitle className={cn("text-2xl my-4")}>
                         Our Vision
-                      </h4>
+                      </SectionTitle>
                       <Pharagraph>
-                        Construction is a general term meaning the art and
-                        science to form objects systems.
+                        To be a trusted construction partner recognized for
+                        excellence, innovation, and projects that stand the test
+                        of time.
                       </Pharagraph>
                     </div>
                   </div>
                 </div>
+
                 <CTALink
                   href="/"
                   className="max-w-44 w-full border-r-4 border-app-dark"

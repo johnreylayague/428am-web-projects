@@ -8,10 +8,10 @@ interface CTAContactUsProps {}
 const CTAContactUs: React.FC<CTAContactUsProps> = () => {
   return (
     <Wrapper className="bg-app-brown">
-      <Container className="flex items-center justify-between px-8 py-9">
+      <Container className="flex items-center justify-between px-8 py-9 gap-10">
         <h4 className="text-white text-3xl font-extrabold capitalize">
-          We can help you with your sales training &amp; sales effectiveness
-          initiatives!
+          We can help you bring your construction projects to life with expert
+          planning and execution!
         </h4>
         <CTALink
           href="/"

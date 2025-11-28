@@ -9,6 +9,7 @@ import SectionTitle from "@/components/common/section-title";
 import Pharagraph from "@/components/common/pharagraph";
 import pattern_16 from "@/assets/images/pattern-16.png";
 import choose from "@/assets/images/choose.jpg";
+import Mark from "@/components/common/mark";
 
 interface WhyChooseUsProps {}
 
@@ -70,17 +71,14 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = () => {
               <SectionHeader>Why Choose Us</SectionHeader>
 
               <SectionTitle>
-                We Offer Best Services <br />
-                And Solutions
+                Delivering Excellence in Every Project
               </SectionTitle>
 
               <Pharagraph>
-                We provide full and specific solutions for our every customers.
-                Construction Providing international construction services
-                company and is a leading builder in diverse market segments. The
-                company has earned recognition for undertaking large, complex
-                projects, fostering innovation, embracing emerging technologies,
-                and making a difference for their clients.
+                At <Mark>JECE Construction Corporation</Mark>, we provide
+                reliable construction services and innovative solutions tailored
+                to your needs. From planning to completion, we ensure every
+                project is built with quality, efficiency, and care.
               </Pharagraph>
 
               <div className="flex flex-col gap-8 my-8">
@@ -93,17 +91,11 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = () => {
                     />
                   </span>
                   <div>
-                    <h4
-                      className={cn(
-                        "text-2xl font-bold font-montserrat mb-2",
-                        "text-app-dark"
-                      )}
-                    >
-                      Civil & Environmental Services
-                    </h4>
+                    <SectionTitle type="h4" className={cn("text-2xl mb-2")}>
+                      Trusted Quality
+                    </SectionTitle>
                     <Pharagraph>
-                      Part of experts team to manage commercial, institutional,
-                      and industrial projects.
+                      Durable, safe, and expertly crafted structures.
                     </Pharagraph>
                   </div>
                 </div>
@@ -116,17 +108,13 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = () => {
                     />
                   </span>
                   <div>
-                    <h4
-                      className={cn(
-                        "text-2xl font-bold font-montserrat mb-2",
-                        "text-app-dark"
-                      )}
-                    >
-                      Energy Saving Methods
-                    </h4>
+                    <SectionTitle type="h4" className={cn("text-2xl mb-2")}>
+                      Client-Focused
+                    </SectionTitle>
+
                     <Pharagraph>
-                      Part of experts team to manage commercial, institutional,
-                      and industrial projects.
+                      Projects planned and executed to meet your goals and
+                      expectations.
                     </Pharagraph>
                   </div>
                 </div>

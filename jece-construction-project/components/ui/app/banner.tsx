@@ -12,6 +12,24 @@ import { cn } from "@/lib/utils";
 import CTALink from "@/components/common/cta-link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+const bannerAds = [
+  {
+    title: "Building Dreams, One Foundation at a Time",
+    description:
+      "From innovative design to quality construction, JECE Construction Corporation transforms your vision into reality with precision, care, and excellence.",
+  },
+  {
+    title: "Your Partner in Every Space",
+    description:
+      "From structural works to interior finishing and landscaping, JECE Construction Corporation provides comprehensive solutions to create spaces that inspire and endure.",
+  },
+  {
+    title: "Comprehensive Solutions for Every Space",
+    description:
+      "Whether structural elements, interior finishing, electrical, plumbing, HVAC, or landscaping, JECE Construction Corporation offers full-service solutions to create functional, beautiful, and lasting spaces.",
+  },
+];
+
 interface BannerProps {}
 
 const Banner: React.FC<BannerProps> = () => {
@@ -27,12 +45,16 @@ const Banner: React.FC<BannerProps> = () => {
             className={cn("w-full relative")}
           >
             <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
+              {bannerAds.map((ad, index) => (
                 <CarouselItem
                   key={index}
                   className="relative min-h-160 flex items-center justify-center"
                 >
-                  <BannerCarouselItem />
+                  <BannerCarouselItem
+                    title={ad.title}
+                    description={ad.description}
+                    bannerImg={banner_img}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -44,10 +66,6 @@ const Banner: React.FC<BannerProps> = () => {
                 "opacity-0 group-hover:opacity-100",
                 "transition-all duration-500 ease-in-out"
               )}
-              style={{
-                transition:
-                  "background 0.5s, border-color 0.5s, opacity 0.5s, transform 0.5s",
-              }}
             >
               <ChevronLeft
                 className="size-6 text-white transition-all duration-500"
@@ -62,10 +80,6 @@ const Banner: React.FC<BannerProps> = () => {
                 "opacity-0 group-hover:opacity-100",
                 "transition-all duration-500 ease-in-out"
               )}
-              style={{
-                transition:
-                  "background 0.5s, border-color 0.5s, opacity 0.5s, transform 0.5s",
-              }}
             >
               <ChevronRight
                 className="size-6 text-white transition-all duration-500"
@@ -81,25 +95,29 @@ const Banner: React.FC<BannerProps> = () => {
 
 export default Banner;
 
-interface BannerCarouselItemProps {}
+interface BannerCarouselItemProps {
+  title: string;
+  description: string;
+  bannerImg: { src: string };
+}
 
-const BannerCarouselItem: React.FC<BannerCarouselItemProps> = () => (
+const BannerCarouselItem: React.FC<BannerCarouselItemProps> = ({
+  title,
+  description,
+  bannerImg,
+}) => (
   <React.Fragment>
     <div
       className="bg-cover bg-top size-full absolute inset-0 before:content-[''] before:absolute before:inset-0 before:bg-black before:opacity-80"
       style={{
-        backgroundImage: `url(${banner_img.src})`,
+        backgroundImage: `url(${bannerImg.src})`,
       }}
     ></div>
-    <div className="relative">
+    <div className="relative max-w-3xl w-full">
       <div className="text-center">
-        <h4 className={cn("mb-5 text-6xl font-bold", "text-white")}>
-          A Modern Construction <br /> &amp; Industrial{" "}
-          <span className="text-app-brown">Agency</span>
-        </h4>
+        <h4 className={cn("mb-5 text-6xl font-bold", "text-white")}>{title}</h4>
         <p className={cn("pb-9 text-lg font-normal", "text-white")}>
-          Build a Better Way Delivering Projects in Ways that Can't be
-          Duplicated
+          {description}
         </p>
         <div className="space-x-5">
           <CTALink href="/about-us">View Project</CTALink>
