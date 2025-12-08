@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "rootDir": "src",
-    "outDir": "dist"
-  }
+    "target": "ES2020", // Compile to ES2020
+    "module": "commonjs", // Node.js module system
+    "strict": true, // Enable all strict type checks
+    "esModuleInterop": true, // Allow default import syntax
+    "skipLibCheck": true, // Skip type checks for node_modules
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file casing
+    "moduleResolution": "node", // Node module resolution
+    "resolveJsonModule": true, // Allow importing JSON files
+    "rootDir": "src", // Source folder
+    "outDir": "dist", // Output compiled JS folder
+    "sourceMap": true, // Generate source maps (optional, useful for debugging)
+    "removeComments": true // Remove comments in compiled JS
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
