@@ -11,15 +11,17 @@ export const sendEmailValidation = [
     .withMessage("from must be a string"),
   body("to").custom((value) => validateEmails(value, "to")),
   body("cc")
-    .optional()
+    .exists({ checkNull: true })
+    .withMessage("cc field is required")
     .custom((value) => {
-      if (!value) return true;
+      if (value === "" || value === undefined || value === null) return true;
       return validateEmails(value, "cc");
     }),
   body("bcc")
-    .optional()
+    .exists({ checkNull: true })
+    .withMessage("bcc field is required")
     .custom((value) => {
-      if (!value) return true;
+      if (value === "" || value === undefined || value === null) return true;
       return validateEmails(value, "bcc");
     }),
   body("replyTo")
