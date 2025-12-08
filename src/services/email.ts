@@ -6,8 +6,8 @@ import { SMTP_USER, SMTP_PASS, SMTP_HOST, SMTP_PORT } from "../config/smtp";
 export interface SendMailParams {
   from: string;
   to: string[] | string;
-  cc?: string[] | string;
-  bcc?: string[] | string;
+  cc: string[] | string;
+  bcc: string[] | string;
   subject: string;
   html: string;
   replyTo?: string;
