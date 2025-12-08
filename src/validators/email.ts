@@ -25,7 +25,11 @@ export const sendEmailValidation = [
       return validateEmails(value, "bcc");
     }),
   body("replyTo")
-    .optional()
-    .isEmail()
-    .withMessage("replyTo must be a valid email"),
+    .exists({ checkNull: true })
+    .withMessage("replyTo field is required")
+    .custom((value) => {
+      if (value === "" || value === undefined || value === null) return true;
+      // Reuse validateEmails, fieldName 'replyTo'
+      return validateEmails(value, "replyTo");
+    }),
 ];
