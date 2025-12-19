@@ -185,7 +185,6 @@
         <!-- main header END -->
       </header>
       <!-- header END -->
-
       <!-- Content -->
       <div class="page-content bg-white">
         <!-- Slider -->
@@ -193,31 +192,32 @@
           <div class="tp-banner-container">
             <div class="tp-banner">
               <!-- Flipbook  -->
-              <div
-                style="
-                  width: 100%;
-                  height: calc(100vh - 60px);
-                  margin-top: 60px;
-                "
-              >
+              <div class="fp-iframe-con">
                 <iframe
                   allowfullscreen="allowfullscreen"
                   allow="clipboard-write"
                   scrolling="no"
                   class="fp-iframe"
                   src="https://heyzine.com/flip-book/d9c9e6c3e2.html"
-                  style="border: 1px solid lightgray; width: 100%; height: 100%"
                 ></iframe>
               </div>
-              <!-- Flipbook  End -->
-
+              <!-- End Flipbook -->
               <div
                 id="welcome_wrapper"
                 class="rev_slider_wrapper fullscreen-container"
                 data-alias="reveal-add-on36"
                 data-source="gallery"
-                style="background: #ffffff; padding: 0px"
+                style="background: #ffffff; padding: 0px; position: relative"
               >
+                <div class="sound-toggle-wrapper">
+                  <button
+                    type="button"
+                    id="video-sound-toggle"
+                    class="sound-toggle-btn"
+                  >
+                    <i class="fa fa-volume-mute"></i>
+                  </button>
+                </div>
                 <!-- START REVOLUTION SLIDER 5.4.7.2 fullscreen mode -->
                 <div
                   id="welcome"
@@ -365,18 +365,12 @@
                     class="dlab-box dlab-gallery-box overlay-gallery-bx1 m-b30 wow fadeIn"
                     data-wow-duration="2s"
                     data-wow-delay="0.2s"
-                    style="
-                      visibility: visible;
-                      animation-duration: 2s;
-                      animation-delay: 0.2s;
-                      animation-name: fadeIn;
-                    "
                   >
                     <div class="dlab-thum dlab-img-overlay1 primary">
                       <a href="javascript:void(0);">
                         <img src="images/vid-1.png" alt="" />
                       </a>
-                      <div class="overlay-bx">
+                      <div class="overlay-bx visible-opacity-100">
                         <div class="overlay-icon">
                           <a
                             href="https://www.youtube.com/watch?v=0bESeqFsc_Q"
@@ -1770,9 +1764,20 @@
         </div>
       </footer>
 
-      <div class="sound-toggle-wrapper">
-        <button type="button" id="video-sound-toggle" class="sound-toggle-btn">
-          <i class="fa fa-volume-mute"></i>
+      <div class="music-player-wrapper">
+        <audio
+          id="background-music"
+          src="/music/christmass-station-id.mp3"
+          preload="auto"
+          loop
+        ></audio>
+        <button
+          type="button"
+          id="music-toggle-btn"
+          class="sound-toggle-btn"
+          aria-label="Play background music"
+        >
+          <i id="music-toggle-icon" class="fa fa-play"></i>
         </button>
       </div>
 

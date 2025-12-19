@@ -16979,15 +16979,16 @@ pre {
     font-size: 12px;
 }
 .sound-toggle-wrapper {
-    position: fixed;
-    right: 0;
-    top: 150px;
-    z-index: 999999;
+    position: absolute;
+    left: 15px; 
+    bottom: 15px;
+     z-index: 50;
     box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    pointer-events: none; /* prevent clicks when hidden */
+    /* opacity: 0; 
+    pointer-events: none;  
     transition: opacity 0.5s ease;
-}
+    */
+}  
 .sound-toggle-btn {
     background: #ffffff;
     box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.1);
@@ -17006,12 +17007,32 @@ pre {
 .sound-toggle-btn:hover {
     background: #f5f5f5;
     color: #000;
-    transform: scale(1.05);
 }
-.sound-toggle-btn:active {
-    transform: scale(0.95);
-}
-.sound-toggle-wrapper.active {
+/* .sound-toggle-wrapper.active {
     opacity: 1;
     pointer-events: auto;
+}   */
+.fp-iframe {  
+    width: 100%;
+    height: 100%
+}  
+.fp-iframe-con{ 
+    height: calc(100vh - 60px);   
+    width: 100%; 
+    margin-top: 65px; 
+}
+@media only screen and (max-width: 768px) {
+    .fp-iframe-con{ 
+        margin-top: 60px; 
+    }
+} 
+.visible-opacity-100 {
+    visibility: visible;
+    opacity: 100;
+}
+.music-player-wrapper{
+    position: fixed; 
+    right: 0; 
+    top: 300px; 
+    z-index: 999999;
 }

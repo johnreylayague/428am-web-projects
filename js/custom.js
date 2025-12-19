@@ -714,20 +714,38 @@ var Archia = (function () {
     }
   };
 
+  var handleBackgroundMusicToggle = function () {
+    jQuery("#music-toggle-btn").on("click", function () {
+      var backgroundMusic = $("#background-music");
+      var backgroundMusicIcon = $("#music-toggle-icon");
+      var backgroundMusicBtn = $("#music-toggle-btn");
+
+      if (backgroundMusic.get(0).paused) {
+        backgroundMusicIcon.removeClass("fa-play").addClass("fa-pause");
+        backgroundMusicBtn.attr("aria-label", "Pause background music");
+        backgroundMusic.get(0).play();
+      } else {
+        backgroundMusicIcon.removeClass("fa-pause").addClass("fa-play");
+        backgroundMusicBtn.attr("aria-label", "Play background music");
+        backgroundMusic.get(0).pause();
+      }
+    });
+  };
+
   var handleVideoSoundToggle = function () {
-    // Function to show button
-    function showSoundButton() {
-      jQuery(".sound-toggle-wrapper").addClass("active");
+    // // Function to show button
+    // function showSoundButton() {
+    //   jQuery(".sound-toggle-wrapper").addClass("active");
 
-      clearTimeout(hideTimeout);
-      hideTimeout = setTimeout(() => {
-        jQuery(".sound-toggle-wrapper").removeClass("active");
-      }, 3000); // 3 seconds of idle
-    }
+    //   clearTimeout(hideTimeout);
+    //   hideTimeout = setTimeout(() => {
+    //     jQuery(".sound-toggle-wrapper").removeClass("active");
+    //   }, 3000); // 3 seconds of idle
+    // }
 
-    // Show button on scroll or user interaction
-    jQuery(window).on("scroll", showSoundButton);
-    jQuery(document).on("mousemove keydown click touchstart", showSoundButton);
+    // // Show button on scroll or user interaction
+    // jQuery(window).on("scroll", showSoundButton);
+    // jQuery(document).on("mousemove keydown click touchstart", showSoundButton);
 
     jQuery("#video-sound-toggle").on("click", function () {
       try {
@@ -941,6 +959,7 @@ var Archia = (function () {
       handleResize();
       heartBlast();
       handleVideoSoundToggle();
+      handleBackgroundMusicToggle();
       onePageLayout();
 
       handleCurrentActive();
