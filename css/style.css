@@ -17012,18 +17012,23 @@ pre {
     opacity: 1;
     pointer-events: auto;
 }   */
+   
 .fp-iframe {  
     width: 100%;
-    height: 100%
-}  
+    height: 100%;   
+    position: relative; 
+}   
+
 .fp-iframe-con{ 
-    height: calc(100vh - 60px);   
+    height: calc(100vh - 65.5px);   
     width: 100%; 
-    margin-top: 65px; 
+    position: relative; 
+    margin-top: 65.5px; 
 }
 @media only screen and (max-width: 768px) {
     .fp-iframe-con{ 
         margin-top: 60px; 
+        height: calc(100vh - 54px);  
     }
 } 
 .visible-opacity-100 {

@@ -721,11 +721,15 @@ var Archia = (function () {
       var backgroundMusicBtn = $("#music-toggle-btn");
 
       if (backgroundMusic.get(0).paused) {
-        backgroundMusicIcon.removeClass("fa-play").addClass("fa-pause");
+        backgroundMusicIcon
+          .removeClass("fa-volume-mute")
+          .addClass("fa-volume-up");
         backgroundMusicBtn.attr("aria-label", "Pause background music");
         backgroundMusic.get(0).play();
       } else {
-        backgroundMusicIcon.removeClass("fa-pause").addClass("fa-play");
+        backgroundMusicIcon
+          .removeClass("fa-volume-up")
+          .addClass("fa-volume-mute");
         backgroundMusicBtn.attr("aria-label", "Play background music");
         backgroundMusic.get(0).pause();
       }
